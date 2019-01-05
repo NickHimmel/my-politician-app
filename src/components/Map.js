@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import * as ds from 'd3';
-import topojson from 'topojson';
-import queue from "queue";
 
 class Map extends Component {
-  
+
   componentDidMount() {
 
   }
