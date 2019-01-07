@@ -70,7 +70,7 @@ class Map extends Component {
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
+        <h1>116th United States Congressional Districts</h1>
       </div>
     );
   }
