@@ -8,7 +8,7 @@ class Map extends Component {
 
     this.state = {
       us: d3.json("us.json"),
-      congress: d3.json("us-congress-113.json")
+      congress: d3.json("us-congress-116.json")
     }
   }
 
@@ -18,19 +18,19 @@ class Map extends Component {
       height = 600;
 
     const projection = d3.geoAlbers()
-    .scale(1280)
-    .translate([width / 2, height / 2]);
+      .scale(1280)
+      .translate([width / 2, height / 2]);
 
     const path = d3.geoPath(projection);
 
-    var svg = d3.select("body").append("svg")
+    const svg = d3.select("body").append("svg")
       .attr("width", width)
       .attr("height", height);
 
     Promise.all([this.state.us, this.state.congress]).then(values => {
       const us = values[0];
       const congress = values[1];
-      
+
       svg.append("defs").append("path")
           .attr("id", "land")
           .datum(topojson.feature(us, us.objects.land))
