@@ -17,7 +17,7 @@ class Map extends Component {
     const width = 960,
       height = 600;
 
-    const projection = d3.geoAlbers()
+    const projection = d3.geoAlbersUsa()
       .scale(1280)
       .translate([width / 2, height / 2]);
 
