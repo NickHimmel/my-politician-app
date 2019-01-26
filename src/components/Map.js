@@ -15,21 +15,17 @@ class Map extends Component {
   componentDidMount() {
 
     const width = 960,
-          height = 600;
+          height = 600
 
     const projection = d3.geoAlbersUsa()
+        .scale(1280)
+        .translate([width / 2, height / 2]);
 
     const path = d3.geoPath(projection);
 
     const svg = d3.select("body").append("svg")
       .attr("width", width)
-      .attr("height", height)
-      .call(d3.zoom().on("zoom", function () {
-        svg.attr("transform", d3.event.transform)
-      }))
-      .append("g");
-
-    var g = svg.append("g");
+      .attr("height", height);
 
     Promise.all([this.state.us, this.state.congress]).then(values => {
       const us = values[0];
@@ -68,7 +64,8 @@ class Map extends Component {
       console.log(error.message)
     });
 
- }
+    d3.select(window.self.frameElement).style("height", height + "px");
+  }
 
   render() {
     return (
