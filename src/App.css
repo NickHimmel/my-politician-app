@@ -3,6 +3,10 @@ path {
   stroke-linecap: round;
 }
 
+#container {
+  max-width: 960;
+  text-align: center;
+}
 .districts {
   fill: #bbb;
 }

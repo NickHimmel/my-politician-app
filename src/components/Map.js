@@ -15,7 +15,7 @@ class Map extends Component {
   componentDidMount() {
 
     const width = 960,
-          height = 600
+          height = 600;
 
     const projection = d3.geoAlbersUsa()
         .scale(1280)
@@ -23,9 +23,9 @@ class Map extends Component {
 
     const path = d3.geoPath(projection);
 
-    const svg = d3.select("body").append("svg")
-      .attr("width", width)
-      .attr("height", height);
+    const svg = d3.select("#container").append("svg")
+      .attr("preserveAspectRatio", "xMidYMid")
+      .attr("viewBox", "0 0 " + width + " " + height);
 
     Promise.all([this.state.us, this.state.congress]).then(values => {
       const us = values[0];
@@ -60,6 +60,14 @@ class Map extends Component {
           .attr("class", "state-boundaries")
           .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
           .attr("d", path);
+
+      // d3.select(window)
+      //   .on("resize", sizeChange);
+      //
+      // function sizeChange() {
+      //   const container = document.getElementById("container")
+      //   svg.attr("transform", "scale(" + container.offsetWidth/960 + ")");
+      // }
     }).catch(error => {
       console.log(error.message)
     });
@@ -69,7 +77,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div>
+      <div id="container">
         <h1>116th United States Congressional Districts</h1>
       </div>
     );
