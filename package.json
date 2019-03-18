@@ -1,6 +1,9 @@
 {
   "name": "my-politician-app",
   "version": "0.1.0",
+  "engines": {
+    "node": "9.11.2"
+  },
   "private": true,
   "dependencies": {
     "d3": "^5.7.0",
@@ -16,8 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "echo Skip build on Heroku"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,6 +29,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "heroku-run-build-script": true
+  ]
 }
