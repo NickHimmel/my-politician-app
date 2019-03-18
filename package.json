@@ -1,9 +1,6 @@
 {
   "name": "my-politician-app",
   "version": "0.1.0",
-  "engines": {
-    "node": "9.11.2"
-  },
   "private": true,
   "dependencies": {
     "d3": "^5.7.0",
