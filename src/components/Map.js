@@ -25,7 +25,7 @@ class Map extends Component {
 
     const svg = d3.select("#container").append("svg")
       .attr("preserveAspectRatio", "xMidYMid")
-      .attr("viewBox", "0 0 " + width + " " + height);
+      .attr("viewBox", "0 0 " + width + " " + height)
 
     Promise.all([this.state.us, this.state.congress]).then(values => {
       const us = values[0];
