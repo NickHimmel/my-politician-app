@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Test extends Component {
   constructor(props) {
@@ -9,7 +10,13 @@ class Test extends Component {
   }
 
   componentDidMount() {
-
+    axios.get('https://api.propublica.org/congress/v1/115/senate/members.json')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   render() {
