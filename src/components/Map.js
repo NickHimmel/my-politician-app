@@ -51,8 +51,8 @@ class Map extends Component {
         .enter().append("path")
           .attr("d", path)
           .on("mouseover", function(data) {
-            console.log(fips[data.properties.STATEFP]);
-            console.log(data.properties);
+            console.log(fips[data.properties.STATEFP].name);
+            console.log(data.properties.NAMELSAD);
           })
         .append("title")
           .text(function(d) { return d.id; });
