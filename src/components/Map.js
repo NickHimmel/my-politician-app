@@ -48,6 +48,9 @@ class Map extends Component {
           .data(topojson.feature(congress, congress.objects.districts).features)
         .enter().append("path")
           .attr("d", path)
+          .on("mouseover", function(data) {
+            console.log(data.properties);
+          })
         .append("title")
           .text(function(d) { return d.id; });
 
