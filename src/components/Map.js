@@ -28,9 +28,9 @@ class Map extends Component {
       .attr("preserveAspectRatio", "xMidYMid")
       .attr("viewBox", "0 0 " + width + " " + height)
 
-    const tooltip = d3.select("body").append("div")
+    const tooltip = d3.select("#container").append("div")
       .attr("class", "tooltip");
-      
+
     Promise.all([this.state.us, this.state.congress, this.state.fips]).then(values => {
       const us = values[0];
       const congress = values[1];
@@ -54,8 +54,9 @@ class Map extends Component {
         .enter().append("path")
           .attr("d", path)
           .on("mouseover", function(data) {
-            console.log(fips[data.properties.STATEFP].name);
-            console.log(data.properties.NAMELSAD);
+            const state = fips[data.properties.STATEFP].name;
+            const district = data.properties.NAMELSAD
+            tooltip.html("<h2>" + state + "</h2><h3>" + district + "</h3>")
           })
         .append("title")
           .text(function(d) { return d.id; });
