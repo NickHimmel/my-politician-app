@@ -8,7 +8,8 @@ class Map extends Component {
 
     this.state = {
       us: d3.json("us.json"),
-      congress: d3.json("us-congress-116.json")
+      congress: d3.json("us-congress-116.json"),
+      fips: d3.json("states_by_fips.json")
     }
   }
 
@@ -27,9 +28,13 @@ class Map extends Component {
       .attr("preserveAspectRatio", "xMidYMid")
       .attr("viewBox", "0 0 " + width + " " + height)
 
-    Promise.all([this.state.us, this.state.congress]).then(values => {
+    const tooltip = d3.select("#container").append("div")
+      .attr("class", "tooltip");
+
+    Promise.all([this.state.us, this.state.congress, this.state.fips]).then(values => {
       const us = values[0];
       const congress = values[1];
+      const fips = values[2];
 
       svg.append("defs").append("path")
           .attr("id", "land")
@@ -48,6 +53,13 @@ class Map extends Component {
           .data(topojson.feature(congress, congress.objects.districts).features)
         .enter().append("path")
           .attr("d", path)
+          .on("mouseover", function(data) {
+            const state = fips[data.properties.STATEFP].name;
+            const district = data.properties.NAMELSAD
+            tooltip.html("<h2>" + state + "</h2><h3>" + district + "</h3>")
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");	
+          })
         .append("title")
           .text(function(d) { return d.id; });
 
@@ -61,13 +73,6 @@ class Map extends Component {
           .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
           .attr("d", path);
 
-      // d3.select(window)
-      //   .on("resize", sizeChange);
-      //
-      // function sizeChange() {
-      //   const container = document.getElementById("container")
-      //   svg.attr("transform", "scale(" + container.offsetWidth/960 + ")");
-      // }
     }).catch(error => {
       console.log(error.message)
     });
