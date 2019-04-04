@@ -58,7 +58,7 @@ class Map extends Component {
             const district = data.properties.NAMELSAD
             tooltip.html("<h2>" + state + "</h2><h3>" + district + "</h3>")
               .style("left", (d3.event.pageX) + "px")
-              .style("top", (d3.event.pageY - 28) + "px");	
+              .style("top", (d3.event.pageY - 28) + "px");
           })
         .append("title")
           .text(function(d) { return d.id; });
