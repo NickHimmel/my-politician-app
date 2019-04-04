@@ -17,6 +17,7 @@ class Map extends Component {
   }
 
   componentDidMount() {
+    const fetchPolition = this.props.fetchPolition;
 
     const width = 960,
           height = 600;
@@ -58,10 +59,15 @@ class Map extends Component {
           .attr('d', path)
           .on('mouseover', function(data) {
             const state = fips[data.properties.STATEFP].name;
-            const district = data.properties.NAMELSAD
+            const district = data.properties.NAMELSAD;
             tooltip.html('<h2>' + state + '</h2><h3>' + district + '</h3>')
               .style('left', (d3.event.pageX) + 'px')
               .style('top', (d3.event.pageY - 28) + 'px');
+          })
+          .on('click', function(data) {
+            const state = fips[data.properties.STATEFP].abbreviation;
+            const district = data.properties.CD116FP;
+            fetchPolition(state, district);
           })
         .append('title')
           .text(function(d) { return d.id; });

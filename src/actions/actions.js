@@ -15,7 +15,7 @@ export const completeFetchPolition = (data) => {
 export const fetchPolition = (state, district) => {
   return (dispatch, getState) => {
     dispatch(startFetchPolition());
-    axios.get('https://api.propublica.org/congress/v1/members/house/NY/14/current.json', {
+    axios.get(`https://api.propublica.org/congress/v1/members/house/${state}/${district}/current.json`, {
         headers: {
           'X-API-Key': 'S3n7PyLwWE7DJIX8DtlpAn4VqFgYnbvQZ843SBsB'
         }})
