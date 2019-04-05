@@ -13,13 +13,21 @@ class Politician extends Component {
   componentDidMount() {}
 
   render() {
+    console.log(this.props);
     return (
       <div>
-        <h1></h1>
+        <h1>Hello</h1>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isFetching: state.politician.isFetching,
+    politician: state.politician.politician
+  };
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators (
   {
@@ -29,6 +37,6 @@ const mapDispatchToProps = dispatch => bindActionCreators (
 )
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Politician);
