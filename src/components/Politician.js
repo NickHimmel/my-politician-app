@@ -14,18 +14,15 @@ class Politician extends Component {
 
   render() {
     console.log(this.props)
-    if (this.props.isFetching) {
-      return (
-        <div>
-          <h1>Loading...</h1>
-        </div>
-      );
-    }
     return (
       <div>
-        <h1>{this.props.politician.name}</h1>
+        {this.props.isFetching ? (
+          <Loading />
+        ) : (
+          <Header data={this.props.politician}/>
+        )}
       </div>
-    )
+    );
   }
 }
 
