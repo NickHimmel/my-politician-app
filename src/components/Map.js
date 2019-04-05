@@ -67,7 +67,11 @@ class Map extends Component {
           .on('click', function(data) {
             const state = fips[data.properties.STATEFP].abbreviation;
             const district = data.properties.CD116FP;
-            fetchPolition(state, district);
+            if (district === "00" || district ==="98") {
+              fetchPolition(state, "01");
+            } else {
+              fetchPolition(state, district);
+            }
           })
         .append('title')
           .text(function(d) { return d.id; });

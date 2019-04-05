@@ -8,7 +8,8 @@ export const startFetchPolition = () => {
 
 export const completeFetchPolition = (data) => {
   return {
-    type: 'COMPLETE_FETCH_POLITICIAN'
+    type: 'COMPLETE_FETCH_POLITICIAN',
+    data
   };
 };
 
@@ -20,10 +21,20 @@ export const fetchPolition = (state, district) => {
           'X-API-Key': 'S3n7PyLwWE7DJIX8DtlpAn4VqFgYnbvQZ843SBsB'
         }})
       .then(function (response) {
-        console.log(response.data);
+        dispatch(completeFetchPolition(
+          response.data.results[0]
+        ));
+        // console.log(response.data.results[0]['id']);
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 };
+
+// export const fetchHistory = (id) => {
+//   return (dispatch, getState) => {
+//     https://api.propublica.org/congress/v1/members/{member-id}.json
+//     "https://api.propublica.org/congress/v1/members/K000388/votes.json"
+//   }
+// }
