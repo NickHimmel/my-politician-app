@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPolition } from '../actions/actions.js';
 import Loading from './Loading.js'
+import Header from './Header.js'
 
 class Politician extends Component {
   constructor(props) {
