@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPolition } from '../actions/actions.js';
+import Loading from './Loading.js'
 
 class Politician extends Component {
   constructor(props) {
