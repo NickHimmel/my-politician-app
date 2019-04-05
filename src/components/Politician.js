@@ -12,11 +12,7 @@ class Politician extends Component {
 
   render() {
     console.log(this.props)
-    if (this.props.isFetching === undefined) {
-      return (
-        null
-      );
-    } else if (this.props.isFetching) {
+    if (this.props.isFetching) {
       return (
         <div>
           <h1>Loading...</h1>
@@ -25,7 +21,7 @@ class Politician extends Component {
     }
     return (
       <div>
-        <h1>{this.props.politician.id}</h1>
+        <h1>{this.props.politician.name}</h1>
       </div>
     )
   }
