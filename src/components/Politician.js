@@ -12,6 +12,12 @@ class Politician extends Component {
     this.state = {}
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.id !== prevProps.id) {
+      console.log("bang")
+    }
+  }
+
   render() {
     console.log(this.props)
     return (
