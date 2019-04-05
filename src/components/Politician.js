@@ -10,22 +10,32 @@ class Politician extends Component {
     this.state = {}
   }
 
-  componentDidMount() {}
-
   render() {
-    console.log(this.props);
+    console.log(this.props)
+    if (this.props.isFetching === undefined) {
+      return (
+        null
+      );
+    } else if (this.props.isFetching) {
+      return (
+        <div>
+          <h1>Loading...</h1>
+        </div>
+      );
+    }
     return (
       <div>
-        <h1>Hello</h1>
+        <h1>{this.props.politician.id}</h1>
       </div>
-    );
+    )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     isFetching: state.politician.isFetching,
-    politician: state.politician.politician
+    politician: state.politician.politician,
+    id: state.politician.id
   };
 };
 

@@ -6,7 +6,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = configureStore()
+const initialState = {
+  politician: {
+    isFetching: false,
+    politician: {},
+    id: "0000000"
+  }
+}
+
+const store = configureStore(initialState)
 
 render(
   <Provider store={store}>
