@@ -4,9 +4,8 @@ const Intro = (props) => {
   console.log(props.data)
   return (
     <div>
-      <h1>{props.data.name}</h1>
-      <h1>{props.data.id}</h1>
-      <h2>Party: {props.data.party} District: {props.data.district}</h2>
+      <h2>{props.data.name} ({props.data.party})</h2>
+      <h3>{props.data.role} for {props.data.state}'s {props.data.district} District</h3>
 
     </div>
   );

@@ -65,12 +65,13 @@ class Map extends Component {
               .style('top', (d3.event.pageY - 28) + 'px');
           })
           .on('click', function(data) {
-            const state = fips[data.properties.STATEFP].abbreviation;
+            const abbreviation = fips[data.properties.STATEFP].abbreviation;
+            const state = fips[data.properties.STATEFP].name;
             const district = data.properties.CD116FP;
             if (district === "00" || district ==="98") {
-              fetchPolition(state, "01");
+              fetchPolition(abbreviation, state, "01");
             } else {
-              fetchPolition(state, district);
+              fetchPolition(abbreviation, state, district);
             }
           })
         .append('title')

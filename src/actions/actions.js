@@ -13,18 +13,16 @@ export const completeFetchPolition = (data) => {
   };
 };
 
-export const fetchPolition = (state, district) => {
+export const fetchPolition = (abbreviation, state, district) => {
   return (dispatch, getState) => {
     dispatch(startFetchPolition());
-    axios.get(`https://api.propublica.org/congress/v1/members/house/${state}/${district}/current.json`, {
+    axios.get(`https://api.propublica.org/congress/v1/members/house/${abbreviation}/${district}/current.json`, {
         headers: {
           'X-API-Key': 'S3n7PyLwWE7DJIX8DtlpAn4VqFgYnbvQZ843SBsB'
         }})
       .then(function (response) {
-        dispatch(completeFetchPolition(
-          response.data.results[0]
-        ));
-        // console.log(response.data.results[0]['id']);
+        const politician = {...response.data.results[0], state: state};
+        dispatch(completeFetchPolition(politician));
       })
       .catch(function (error) {
         console.log(error);
