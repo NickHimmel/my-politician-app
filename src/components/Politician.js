@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPolition } from '../actions/actions.js';
-import Loading from './Loading.js'
-import Intro from './Intro.js'
+import Loading from './Loading.js';
+import Intro from './Intro.js';
 
 class Politician extends Component {
   constructor(props) {
@@ -24,7 +24,9 @@ class Politician extends Component {
         {this.props.isFetching ? (
           <Loading />
         ) : (
-          <Intro data={this.props.politician}/>
+          <div>
+            <Intro data={this.props.politician}/>
+          </div>
         )}
       </div>
     );

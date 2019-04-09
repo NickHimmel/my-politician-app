@@ -6,7 +6,6 @@ const Intro = (props) => {
     <div>
       <h2>{props.data.name} ({props.data.party})</h2>
       <h3>{props.data.role} for {props.data.state}'s {props.data.district} District</h3>
-
     </div>
   );
 }
