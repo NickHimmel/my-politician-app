@@ -30,9 +30,8 @@ export const fetchPolition = (abbreviation, state, district) => {
   };
 };
 
-// export const fetchHistory = (id) => {
-//   return (dispatch, getState) => {
-//     https://api.propublica.org/congress/v1/members/{member-id}.json
-//     "https://api.propublica.org/congress/v1/members/K000388/votes.json"
-//   }
-// }
+export const fetchData = (id) => {
+  return (dispatch, getState) => {
+    // `https://api.propublica.org/congress/v1/members/${id}.json`
+  }
+}

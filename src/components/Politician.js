@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchPolition } from '../actions/actions.js';
 import Loading from './Loading.js';
 import Intro from './Intro.js';
+import Social from './Social.js';
 
 class Politician extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Politician extends Component {
         ) : (
           <div>
             <Intro data={this.props.politician}/>
+            <Social data={this.props.politician}/>
           </div>
         )}
       </div>
