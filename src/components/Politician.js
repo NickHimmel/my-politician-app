@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchRecord } from '../actions/actions.js';
+import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
 import Intro from './Intro.js';
 import Social from './Social.js';
@@ -14,7 +14,8 @@ class Politician extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.id !== prevProps.id) {
+    if (this.props.id !== prevProps.id && this.props.isFetching === false) {
+      this.props.fetchPolitician(this.props.id)
     }
   }
 
@@ -25,7 +26,7 @@ class Politician extends Component {
           <Loading />
         ) : (
           <div>
-            <Intro state={this.props.state}/>
+            <Intro state={this.props.state} nextElection={this.props.nextElection}/>
             <Social />
           </div>
         )}
@@ -35,17 +36,19 @@ class Politician extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.politician)
+  console.log(state)
   return {
-    isFetching: state.politician.isFetching,
-    id: state.politician.id,
-    state: state.politician.state
+    isFetching: state.id.isFetching,
+    id: state.id.id,
+    nextElection: state.id.nextElection,
+    state: state.id.state,
+    data: state.politician.data
   };
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators (
   {
-    fetchRecord,
+    fetchPolitician,
   },
   dispatch,
 )

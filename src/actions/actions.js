@@ -13,15 +13,15 @@ export const completefetchId = (data) => {
   };
 };
 
-export const startFetchRecord = () => {
+export const startFetchPolitician = () => {
   return {
     type: 'START_FETCH_POLITICIAN'
   };
 };
 
-export const completeFetchRecord = (data) => {
+export const completeFetchPolitician = (data) => {
   return {
-    type: 'COMPLETE_FETCH_RECORD',
+    type: 'COMPLETE_FETCH_POLITICIAN',
     data
   };
 };
@@ -36,6 +36,7 @@ export const fetchId = (abbreviation, state, district) => {
       .then(function (response) {
         dispatch(completefetchId({
           id: response.data.results[0].id,
+          nextElection: response.data.results[0].next_election,
           state: state
         }));
       })
@@ -45,17 +46,15 @@ export const fetchId = (abbreviation, state, district) => {
   };
 };
 
-export const fetchRecord = (id) => {
+export const fetchPolitician = (id) => {
   return (dispatch, getState) => {
-    console.log(id)
-    dispatch(startFetchRecord());
-    axios.get(`https://api.propublica.org/congress/v1/members/O000172.json`, {
+    dispatch(startFetchPolitician());
+    axios.get(`https://api.propublica.org/congress/v1/members/${id}.json`, {
         headers: {
           'X-API-Key': 'S3n7PyLwWE7DJIX8DtlpAn4VqFgYnbvQZ843SBsB'
         }})
       .then(function (response) {
-        console.log(response)
-        dispatch(completeFetchRecord(response));
+        dispatch(completeFetchPolitician(response.data.results[0]));
       })
       .catch(function (error) {
         console.log(error);
