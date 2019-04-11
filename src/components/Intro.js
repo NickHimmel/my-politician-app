@@ -4,8 +4,9 @@ const Intro = (props) => {
   console.log(props.data)
   return (
     <div>
-      <h2>{props.data.name} ({props.data.party})</h2>
-      <h3>{props.data.role} for {props.data.state}'s {props.data.district} District</h3>
+      <h2>Name (Party)</h2>
+      <h3>Role for {props.state}'s District</h3>
+      <h4>Next Election</h4>
     </div>
   );
 }
