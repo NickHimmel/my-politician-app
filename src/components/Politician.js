@@ -14,35 +14,42 @@ class Politician extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.id !== prevProps.id && this.props.isFetching === false) {
+    if (this.props.id !== prevProps.id && this.props.fetchingId === false) {
       this.props.fetchPolitician(this.props.id)
     }
   }
 
   render() {
+    console.log(this.props)
+    if (this.props.fetchingId && this.props.fetchingPolitician) {
+      return (
+        <Loading />
+      )
+    } else if (this.props.fetchingId === false && this.props.fetchingPolitician === false) {
+      console.log(this.props)
+      return (
+        <div>
+          <Intro state={this.props.state} nextElection={this.props.nextElection} name={this.props.name} party={this.props.politician.current_party} district={this.props.district}/>
+          <Social />
+        </div>
+      )
+    }
     return (
-      <div>
-        {this.props.isFetching ? (
-          <Loading />
-        ) : (
-          <div>
-            <Intro state={this.props.state} nextElection={this.props.nextElection}/>
-            <Social />
-          </div>
-        )}
-      </div>
-    );
+      null
+    )
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
-    isFetching: state.id.isFetching,
+    fetchingId: state.id.isFetching,
     id: state.id.id,
+    name: state.id.name,
+    district: state.id.district,
     nextElection: state.id.nextElection,
     state: state.id.state,
-    data: state.politician.data
+    fetchingPolitician: state.politician.isFetching,
+    politician: state.politician.politician
   };
 };
 

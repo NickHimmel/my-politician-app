@@ -8,6 +8,8 @@ export const idReducer = (state = [], action) => {
         return {
           isFetching: false,
           id: action.data.id,
+          name: action.data.name,
+          district: action.data.district,
           nextElection: action.data.nextElection,
           state: action.data.state
         };

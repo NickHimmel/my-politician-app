@@ -7,7 +7,7 @@ export const politicianReducer = (state = [], action) => {
       case 'COMPLETE_FETCH_POLITICIAN':
         return {
           isFetching: false,
-          data: action.data
+          politician: action.data.politician
         };
       default:
           return state;
