@@ -8,6 +8,7 @@ export const politicianReducer = (state = [], action) => {
         return {
           isFetching: false,
           politician: action.data.politician,
+          roles: action.data.roles,
           votes: action.data.votes,
           bills: action.data.bills
         };

@@ -34,7 +34,6 @@ export const fetchId = (abbreviation, state, district) => {
           'X-API-Key': 'S3n7PyLwWE7DJIX8DtlpAn4VqFgYnbvQZ843SBsB'
         }})
       .then(function (response) {
-        console.log(response.data.results[0])
         dispatch(completefetchId({
           id: response.data.results[0].id,
           name: response.data.results[0].name,
@@ -64,6 +63,7 @@ export const fetchPolitician = (id) => {
     ]).then(function ([politician, votes, bills]) {
         dispatch(completeFetchPolitician({
           politician: politician.data.results[0],
+          roles: politician.data.results[0].roles,
           votes: votes.data.results[0].votes,
           bills: bills.data.results[0].bills
         }));

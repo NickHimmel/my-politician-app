@@ -5,6 +5,7 @@ import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
 import Intro from './Intro.js';
 import Social from './Social.js';
+import Roles from './Roles.js';
 
 class Politician extends Component {
   constructor(props) {
@@ -26,11 +27,11 @@ class Politician extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false && this.props.fetchingPolitician === false) {
-      console.log(this.props)
       return (
         <div>
           <Intro state={this.props.state} nextElection={this.props.nextElection} name={this.props.name} party={this.props.politician.current_party} district={this.props.district}/>
           <Social />
+          <Roles roles={this.props.roles}/>
         </div>
       )
     }
@@ -49,7 +50,10 @@ const mapStateToProps = (state) => {
     nextElection: state.id.nextElection,
     state: state.id.state,
     fetchingPolitician: state.politician.isFetching,
-    politician: state.politician.politician
+    politician: state.politician.politician,
+    roles: state.politician.roles,
+    votes: state.politician.votes,
+    bills: state.politician.bills
   };
 };
 
