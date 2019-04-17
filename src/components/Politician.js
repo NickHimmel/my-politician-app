@@ -30,7 +30,7 @@ class Politician extends Component {
       return (
         <div>
           <Intro state={this.props.state} nextElection={this.props.nextElection} name={this.props.name} party={this.props.politician.current_party} district={this.props.district}/>
-          <Social />
+          <Social social={this.props.politician} />
           <Roles roles={this.props.roles}/>
         </div>
       )
