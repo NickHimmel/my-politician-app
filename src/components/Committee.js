@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Committee = (props) => {
-  console.log(props)
   return (
     <li>
       <h4>{props.committee.name}</h4>

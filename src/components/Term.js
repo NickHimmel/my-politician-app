@@ -1,14 +1,13 @@
 import React from 'react';
 import Committee from './Committee.js';
+import Subcommittee from './Subcommittee.js';
 
 const Term = (props) => {
   const committees = props.term.committees.map((committee) =>
-    <div>
-      <h3>Committees</h3>
-      <ul>
-        <Committee committee={committee}  key={props.term.congress}/>
-      </ul>
-    </div>
+    <Committee committee={committee}  key={committee.code}/>
+  );
+  const subCommittees = props.term.subcommittees.map((subcommittee) =>
+    <Subcommittee subcommittee={subcommittee}  key={subcommittee.code}/>
   );
   return (
     <li>
@@ -18,7 +17,14 @@ const Term = (props) => {
       <p>Bills Cosponsored: {props.term.bills_cosponsored}</p>
       <p>Votes with Party: {props.term.votes_with_party_pct}%</p>
       <p>Missed Votes: {props.term.missed_votes_pct}%</p>
-      {committees}
+      <h4>Committees</h4>
+      <ul>
+        {committees}
+      </ul>
+      <h4>Subcommittees</h4>
+      <ul>
+        {subCommittees}
+      </ul>
     </li>
   );
 }

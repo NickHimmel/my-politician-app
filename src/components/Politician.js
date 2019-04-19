@@ -21,7 +21,6 @@ class Politician extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (this.props.fetchingId && this.props.fetchingPolitician) {
       return (
         <Loading />
