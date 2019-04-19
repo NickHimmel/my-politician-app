@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Social = (props) => {
-  console.log(props)
   return (
     <div>
       <p>Website: {props.social.url}</p>
