@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Intro = (props) => {
-  console.log(props)
   return (
     <div>
       <h2>{props.name} ({props.party})</h2>
