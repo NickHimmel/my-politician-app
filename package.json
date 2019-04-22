@@ -7,10 +7,15 @@
     "d3": "^5.7.0",
     "d3-geo": "^1.11.3",
     "d3-queue": "^3.0.7",
+    "dotenv": "^7.0.0",
     "queue": "^5.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-redux": "^6.0.1",
     "react-scripts": "2.1.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "shortid": "^2.2.14",
     "topojson": "^3.0.2"
   },
   "scripts": {
