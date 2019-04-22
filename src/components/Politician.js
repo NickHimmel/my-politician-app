@@ -6,6 +6,7 @@ import Loading from './Loading.js';
 import Intro from './Intro.js';
 import Social from './Social.js';
 import Roles from './Roles.js';
+import Votes from './Votes.js';
 
 class Politician extends Component {
   constructor(props) {
@@ -26,12 +27,13 @@ class Politician extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false && this.props.fetchingPolitician === false) {
-        console.log(this.props.roles)
+        console.log(this.props.votes)
       return (
         <div>
           <Intro state={this.props.state} nextElection={this.props.nextElection} name={this.props.name} party={this.props.politician.current_party} district={this.props.district}/>
           <Social social={this.props.politician} />
           <Roles roles={this.props.roles}/>
+          <Votes votes={this.props.votes}/>
         </div>
       )
     }
