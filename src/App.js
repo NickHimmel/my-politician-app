@@ -3,6 +3,8 @@ import './App.css';
 import Map from './components/Map.js';
 import Politician from './components/Politician.js';
 
+require('dotenv').config();
+
 class App extends Component {
   render() {
     return (
