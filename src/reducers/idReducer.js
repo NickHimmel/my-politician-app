@@ -7,11 +7,8 @@ export const idReducer = (state = [], action) => {
       case 'COMPLETE_FETCH_ID':
         return {
           isFetching: false,
-          id: action.data.id,
-          name: action.data.name,
-          district: action.data.district,
-          nextElection: action.data.nextElection,
-          state: action.data.state
+          house: action.data.house,
+          senate: action.data.senate
         };
       default:
           return state;

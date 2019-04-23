@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Map from './components/Map.js';
-import Politician from './components/Politician.js';
+import Politicians from './components/Politicians.js';
 
 require('dotenv').config();
 
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         <Map />
-        <Politician />
+        <Politicians />
       </div>
     );
   }

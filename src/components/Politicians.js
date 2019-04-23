@@ -4,28 +4,23 @@ import { bindActionCreators } from 'redux';
 import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
 
-class Politician extends Component {
+class Politicians extends Component {
   constructor(props) {
     super(props)
 
     this.state = {}
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.id !== prevProps.id && this.props.fetchingId === false) {
-      this.props.fetchPolitician(this.props.id)
-    }
-  }
-
   render() {
-    if (this.props.fetchingId && this.props.fetchingPolitician) {
+    if (this.props.fetchingId) {
       return (
         <Loading />
       )
-    } else if (this.props.fetchingId === false && this.props.fetchingPolitician === false) {
+    } else if (this.props.fetchingId === false) {
       return (
         <div>
-
+          <h2>Your Senators</h2>
+          <h2>Your Representative</h2>
         </div>
       )
     }
@@ -37,7 +32,9 @@ class Politician extends Component {
 
 const mapStateToProps = (state) => {
   return {
-
+    fetchingId: state.id.isFetching,
+    house: state.id.house,
+    senate: state.id.senate,
   };
 };
 
@@ -51,4 +48,4 @@ const mapDispatchToProps = dispatch => bindActionCreators (
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Politician);
+)(Politicians);
