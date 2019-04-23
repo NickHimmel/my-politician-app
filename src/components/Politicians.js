@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
 import Politician from './Politician.js';
 
 class Politicians extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {}
-  }
 
   render() {
     if (this.props.fetchingId) {
@@ -19,7 +12,7 @@ class Politicians extends Component {
       )
     } else if (this.props.fetchingId === false) {
       const senators = this.props.senate.map((senator) =>
-        <Politician politician={senator} key={senator.id}/>
+        <Politician politician={senator} key={senator.id} id={senator.id}/>
       );
       return (
         <div>
@@ -27,7 +20,7 @@ class Politicians extends Component {
           <h2>Your Senators</h2>
           {senators}
           <h2>Your Representative</h2>
-          <Politician politician={this.props.house} />
+          <Politician politician={this.props.house} id={this.props.house.id}/>
         </div>
       )
     }
@@ -47,14 +40,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators (
-  {
-    fetchPolitician,
-  },
-  dispatch,
-)
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Politicians);
