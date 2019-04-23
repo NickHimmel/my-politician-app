@@ -35,8 +35,10 @@ export const fetchId = (abbreviation, state, district) => {
         'X-API-Key': token
       }
     };
-    axios.get(`https://api.propublica.org/congress/v1/members/house/${abbreviation}/${district}/current.json`, AUTH_HEADER)
-      .then(function (response) {
+    Promise.all([
+      axios.get(`https://api.propublica.org/congress/v1/members/house/${abbreviation}/${district}/current.json`, AUTH_HEADER),
+      axios.get(`https://api.propublica.org/congress/v1/members/senate/${abbreviation}/current.json`, AUTH_HEADER)
+    ]).then(function (response) {
         dispatch(completefetchId({
           id: response.data.results[0].id,
           name: response.data.results[0].name,
