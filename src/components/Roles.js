@@ -1,9 +1,10 @@
 import React from 'react';
 import Term from './Term.js';
+const shortid = require('shortid');
 
 const Roles = (props) => {
   const roles = props.roles.map((role) =>
-    <Term term={role}  key={role.congress}/>
+    <Term term={role}  key={shortid.generate()}/>
   );
   return (
     <div>

@@ -1,13 +1,14 @@
 import React from 'react';
 import Committee from './Committee.js';
 import Subcommittee from './Subcommittee.js';
+const shortid = require('shortid');
 
 const Term = (props) => {
   const committees = props.term.committees.map((committee) =>
-    <Committee committee={committee}  key={committee.code}/>
+    <Committee committee={committee}  key={shortid.generate()}/>
   );
   const subCommittees = props.term.subcommittees.map((subcommittee) =>
-    <Subcommittee subcommittee={subcommittee}  key={subcommittee.code}/>
+    <Subcommittee subcommittee={subcommittee}  key={shortid.generate()}/>
   );
   return (
     <li>

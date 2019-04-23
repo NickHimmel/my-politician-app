@@ -12,7 +12,7 @@ class Politicians extends Component {
       )
     } else if (this.props.fetchingId === false) {
       const senators = this.props.senate.map((senator) =>
-        <Politician politician={senator} key={senator.id} id={senator.id}/>
+        <Politician data={senator} key={senator.id} id={senator.id}/>
       );
       return (
         <div>
@@ -20,7 +20,7 @@ class Politicians extends Component {
           <h2>Your Senators</h2>
           {senators}
           <h2>Your Representative</h2>
-          <Politician politician={this.props.house} id={this.props.house.id}/>
+          <Politician data={this.props.house} id={this.props.house.id}/>
         </div>
       )
     }

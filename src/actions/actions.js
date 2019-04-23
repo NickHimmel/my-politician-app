@@ -67,10 +67,6 @@ export const fetchPolitician = (id) => {
       axios.get(`https://api.propublica.org/congress/v1/members/${id}/votes.json`, AUTH_HEADER),
       axios.get(`https://api.propublica.org/congress/v1/members/${id}/bills/introduced.json`, AUTH_HEADER)
     ]).then(function ([politician, votes, bills]) {
-      console.log(politician.data.results[0]);
-      console.log(politician.data.results[0].roles);
-      console.log(votes.data.results[0].votes);
-      console.log(bills.data.results[0].bills);
         dispatch(completeFetchPolitician({
           politician: politician.data.results[0],
           roles: politician.data.results[0].roles,
