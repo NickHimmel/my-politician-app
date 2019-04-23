@@ -3,11 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
-import Intro from './Intro.js';
-import Social from './Social.js';
-import Roles from './Roles.js';
-import Votes from './Votes.js';
-import Bills from './Bills.js';
 
 class Politician extends Component {
   constructor(props) {
@@ -30,11 +25,7 @@ class Politician extends Component {
     } else if (this.props.fetchingId === false && this.props.fetchingPolitician === false) {
       return (
         <div>
-          <Intro state={this.props.state} nextElection={this.props.nextElection} name={this.props.name} party={this.props.politician.current_party} district={this.props.district}/>
-          <Social social={this.props.politician} />
-          <Roles roles={this.props.roles}/>
-          <Votes votes={this.props.votes}/>
-          <Bills bills={this.props.bills}/>
+
         </div>
       )
     }
@@ -46,17 +37,7 @@ class Politician extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    fetchingId: state.id.isFetching,
-    id: state.id.id,
-    name: state.id.name,
-    district: state.id.district,
-    nextElection: state.id.nextElection,
-    state: state.id.state,
-    fetchingPolitician: state.politician.isFetching,
-    politician: state.politician.politician,
-    roles: state.politician.roles,
-    votes: state.politician.votes,
-    bills: state.politician.bills
+
   };
 };
 

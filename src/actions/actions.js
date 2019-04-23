@@ -40,11 +40,7 @@ export const fetchId = (abbreviation, state, district) => {
       axios.get(`https://api.propublica.org/congress/v1/members/senate/${abbreviation}/current.json`, AUTH_HEADER)
     ]).then(function (response) {
         dispatch(completefetchId({
-          id: response.data.results[0].id,
-          name: response.data.results[0].name,
-          district: response.data.results[0].district,
-          nextElection: response.data.results[0].next_election,
-          state: state
+
         }));
       })
       .catch(function (error) {
