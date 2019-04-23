@@ -35,14 +35,15 @@ export const fetchId = (abbreviation, state, district) => {
         'X-API-Key': token
       }
     };
-    axios.get(`https://api.propublica.org/congress/v1/members/house/${abbreviation}/${district}/current.json`, AUTH_HEADER)
-      .then(function (response) {
+    Promise.all([
+      axios.get(`https://api.propublica.org/congress/v1/members/house/${abbreviation}/${district}/current.json`, AUTH_HEADER),
+      axios.get(`https://api.propublica.org/congress/v1/members/senate/${abbreviation}/current.json`, AUTH_HEADER)
+    ]).then(function ([house, senate]) {
         dispatch(completefetchId({
-          id: response.data.results[0].id,
-          name: response.data.results[0].name,
-          district: response.data.results[0].district,
-          nextElection: response.data.results[0].next_election,
-          state: state
+          state: state,
+          district: house.data.results[0].district,
+          house: house.data.results[0],
+          senate: senate.data.results
         }));
       })
       .catch(function (error) {
@@ -53,6 +54,7 @@ export const fetchId = (abbreviation, state, district) => {
 
 export const fetchPolitician = (id) => {
   return (dispatch, getState) => {
+    console.log(id)
     dispatch(startFetchPolitician());
     const token = process.env.REACT_APP_PROPUBLICA_API_KEY;
     const AUTH_HEADER = {

@@ -3,39 +3,32 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
-import Intro from './Intro.js';
+import Title from './Title.js';
 import Social from './Social.js';
 import Roles from './Roles.js';
 import Votes from './Votes.js';
 import Bills from './Bills.js';
 
 class Politician extends Component {
-  constructor(props) {
-    super(props)
 
-    this.state = {}
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.id !== prevProps.id && this.props.fetchingId === false) {
-      this.props.fetchPolitician(this.props.id)
-    }
+  componentDidMount() {
+    this.props.fetchPolitician(this.props.data.id);
   }
 
   render() {
-    if (this.props.fetchingId && this.props.fetchingPolitician) {
+    if (this.props.fetchingId) {
       return (
         <Loading />
       )
-    } else if (this.props.fetchingId === false && this.props.fetchingPolitician === false) {
-        console.log(this.props.bills)
+    } else if (this.props.fetchingId === false) {
+      console.log(this.props.bills)
       return (
         <div>
-          <Intro state={this.props.state} nextElection={this.props.nextElection} name={this.props.name} party={this.props.politician.current_party} district={this.props.district}/>
-          <Social social={this.props.politician} />
-          <Roles roles={this.props.roles}/>
-          <Votes votes={this.props.votes}/>
-          <Bills bills={this.props.bills}/>
+          <Title name={this.props.data.name} party={this.props.data.party} nextElection={this.props.data.next_election} />
+          <Social facebook={this.props.data.facebook_account} twitter={this.props.data.twitter_id} youtube={this.props.data.youtube_id} />
+          <Roles roles={this.props.politician.roles} />
+          <Votes votes={this.props.votes} />
+          <Bills bills={this.props.bills} />
         </div>
       )
     }
@@ -47,13 +40,7 @@ class Politician extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    fetchingId: state.id.isFetching,
-    id: state.id.id,
-    name: state.id.name,
-    district: state.id.district,
-    nextElection: state.id.nextElection,
-    state: state.id.state,
-    fetchingPolitician: state.politician.isFetching,
+    fetchingId: state.politician.isFetching,
     politician: state.politician.politician,
     roles: state.politician.roles,
     votes: state.politician.votes,
@@ -63,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators (
   {
-    fetchPolitician,
+    fetchPolitician
   },
   dispatch,
 )
