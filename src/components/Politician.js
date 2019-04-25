@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
 import Name from './Name.js';
 import Social from './Social.js';
@@ -21,6 +19,10 @@ class Politician extends Component {
       return (
         <div>
           <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party}/>
+          <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
+          <Roles roles={this.props.roles} />
+          <Votes votes={this.props.votes} />
+          <Bills bills={this.props.bills} />
         </div>
       )
     }
@@ -40,14 +42,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators (
-  {
-    fetchPolitician
-  },
-  dispatch,
-)
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Politician);

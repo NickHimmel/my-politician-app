@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Representatives = (props) => {
+const NavForPoliticians = (props) => {
   const representatives = props.representatives.map((representative) =>
     <li key={representative.id}><button onClick={(e) => props.onClick(e, representative.id)} id={representative.id}>{representative.name} ({representative.party})</button></li>
   );
@@ -13,4 +13,4 @@ const Representatives = (props) => {
   );
 }
 
-export default Representatives;
+export default NavForPoliticians;
