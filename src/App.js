@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import 'normalize.css';
+import './App.scss';
 import Map from './components/Map.js';
 import Politicians from './components/Politicians.js';
 
