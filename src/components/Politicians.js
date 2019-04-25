@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
+import Nav from './Nav.js';
 import Politician from './Politician.js';
 
 class Politicians extends Component {
 
-  renderNames = () => {
-    const senators = this.props.senate.map((senator) => {
-      return {name: senator.name, title: "Senator"};
+  handleClick = (e, id) => {
+    this.props.fetchPolitician(id);
+  }
+
+  listNames = (senate, house) => {
+    const senators = senate.map((senator) => {
+      return {name: senator.name, title: "Senator", party: senator.party, id: senator.id };
     })
-    const namesArray = [{name: this.props.house.name, title: "Representative"}, ...senators];
+    const namesArray = [{name: house.name, title: "Representative", party: house.party, id: house.id}, ...senators];
     return namesArray;
   }
 
@@ -19,10 +26,11 @@ class Politicians extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
-      const representatives = this.renderNames();
+      const representatives = this.listNames(this.props.senate, this.props.house);
       return (
         <div>
           <h2>Your Representatives</h2>
+          <Nav representatives={representatives} onClick={this.handleClick}/>
           <Politician data={this.props.house} id={this.props.house.id}/>
         </div>
       )
@@ -43,6 +51,14 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = dispatch => bindActionCreators (
+  {
+    fetchPolitician
+  },
+  dispatch,
+)
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Politicians);
