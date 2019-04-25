@@ -5,21 +5,24 @@ import Politician from './Politician.js';
 
 class Politicians extends Component {
 
+  renderNames = () => {
+    const senators = this.props.senate.map((senator) => {
+      return {name: senator.name, title: "Senator"};
+    })
+    const namesArray = [{name: this.props.house.name, title: "Representative"}, ...senators];
+    return namesArray;
+  }
+
   render() {
     if (this.props.fetchingId) {
       return (
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
-      const senators = this.props.senate.map((senator) =>
-        <Politician data={senator} key={senator.id} id={senator.id}/>
-      );
+      const representatives = this.renderNames();
       return (
         <div>
-          <h2>{this.props.state}'s {this.props.district} District</h2>
-          <h2>Your Senators</h2>
-          {senators}
-          <h2>Your Representative</h2>
+          <h2>Your Representatives</h2>
           <Politician data={this.props.house} id={this.props.house.id}/>
         </div>
       )

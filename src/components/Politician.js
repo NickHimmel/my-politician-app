@@ -21,7 +21,6 @@ class Politician extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
-      console.log(this.props.bills)
       return (
         <div>
           <Title name={this.props.data.name} party={this.props.data.party} nextElection={this.props.data.next_election} />

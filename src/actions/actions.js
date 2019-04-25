@@ -54,7 +54,6 @@ export const fetchId = (abbreviation, state, district) => {
 
 export const fetchPolitician = (id) => {
   return (dispatch, getState) => {
-    console.log(id)
     dispatch(startFetchPolitician());
     const token = process.env.REACT_APP_PROPUBLICA_API_KEY;
     const AUTH_HEADER = {
