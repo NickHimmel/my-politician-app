@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
-import Nav from './Nav.js';
+import Representatives from './Representatives.js';
 import Politician from './Politician.js';
 
 class Politicians extends Component {
@@ -30,8 +30,8 @@ class Politicians extends Component {
       return (
         <div>
           <h2>Your Representatives</h2>
-          <Nav representatives={representatives} onClick={this.handleClick}/>
-          <Politician data={this.props.house} id={this.props.house.id}/>
+          <Representatives representatives={representatives} onClick={this.handleClick}/>
+          <Politician />
         </div>
       )
     }
