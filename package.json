@@ -8,6 +8,8 @@
     "d3-geo": "^1.11.3",
     "d3-queue": "^3.0.7",
     "dotenv": "^7.0.0",
+    "node-sass": "^4.11.0",
+    "normalize.css": "^8.0.1",
     "queue": "^5.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -15,6 +17,7 @@
     "react-scripts": "2.1.2",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "sass": "^1.19.0",
     "shortid": "^2.2.14",
     "topojson": "^3.0.2"
   },

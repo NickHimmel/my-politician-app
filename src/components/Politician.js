@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
-import Title from './Title.js';
+import Name from './Name.js';
 import Social from './Social.js';
+import NavForPolitician from './NavForPolitician.js';
 import Roles from './Roles.js';
 import Votes from './Votes.js';
 import Bills from './Bills.js';
 
 class Politician extends Component {
 
-  componentDidMount() {
-    this.props.fetchPolitician(this.props.data.id);
+  handleClick = (e, info) => {
+    const hide = document.getElementById('active');
+    hide.removeAttribute('id');
+    const show = document.getElementsByClassName(info);
+    show[0].setAttribute('id', 'active');
   }
 
   render() {
@@ -21,12 +23,13 @@ class Politician extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
-      console.log(this.props.bills)
+      console.log(this.props.politician)
       return (
         <div>
-          <Title name={this.props.data.name} party={this.props.data.party} nextElection={this.props.data.next_election} />
-          <Social facebook={this.props.data.facebook_account} twitter={this.props.data.twitter_id} youtube={this.props.data.youtube_id} />
-          <Roles roles={this.props.politician.roles} />
+          <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party}/>
+          <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
+          <NavForPolitician onClick={this.handleClick} />
+          <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />
         </div>
@@ -48,14 +51,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => bindActionCreators (
-  {
-    fetchPolitician
-  },
-  dispatch,
-)
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Politician);
