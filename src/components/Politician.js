@@ -10,6 +10,13 @@ import Bills from './Bills.js';
 
 class Politician extends Component {
 
+  handleClick = (e, info) => {
+    const hide = document.getElementById('active');
+    hide.removeAttribute('id');
+    const show = document.getElementsByClassName(info);
+    show[0].setAttribute('id', 'active');
+  }
+
   render() {
     if (this.props.fetchingId) {
       return (
@@ -21,7 +28,7 @@ class Politician extends Component {
         <div>
           <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party}/>
           <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
-          <NavForPolitician />
+          <NavForPolitician onClick={this.handleClick} />
           <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />

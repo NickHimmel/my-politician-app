@@ -21,7 +21,7 @@ const Bills = (props) => {
     </li>
   );
   return (
-    <div className="bills hidden">
+    <div className="bills politician-info">
       <h3>Last Twenty Bills Sponsored</h3>
       <ul>
         {bills}
