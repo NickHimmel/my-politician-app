@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchFinances } from '../actions/actions.js';
 import Loading from './Loading.js';
 import Name from './Name.js';
 import Social from './Social.js';
@@ -7,10 +9,15 @@ import NavForPolitician from './NavForPolitician.js';
 import Roles from './Roles.js';
 import Votes from './Votes.js';
 import Bills from './Bills.js';
+import Finances from './Finances.js';
 
 class Politician extends Component {
 
   handleClick = (e, info) => {
+    if (info === 'finances') {
+      console.log('Hello')
+      this.props.fetchFinances(this.props.politician.crp_id);
+    }
     const hide = document.getElementById('active');
     hide.removeAttribute('id');
     const show = document.getElementsByClassName(info);
@@ -23,7 +30,6 @@ class Politician extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
-      console.log(this.props.politician)
       return (
         <div>
           <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party}/>
@@ -32,6 +38,7 @@ class Politician extends Component {
           <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />
+          <Finances />
         </div>
       )
     }
@@ -51,6 +58,14 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = dispatch => bindActionCreators (
+  {
+    fetchFinances
+  },
+  dispatch,
+)
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Politician);

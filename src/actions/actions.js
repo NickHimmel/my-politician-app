@@ -92,8 +92,24 @@ export const fetchPolitician = (id) => {
   }
 };
 
-export const fetchFinances = (id) => {
+export const fetchFinances = (cid) => {
   return (dispatch, getState) => {
-
+    dispatch(startFetchFinances());
+    const token = process.env.REACT_APP_OPEN_SECRETS_API_KEY;
+    console.log(token)
+    Promise.all([
+      axios.get(`https://www.opensecrets.org/api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`),
+      axios.get(`https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`),
+      axios.get(`https://www.opensecrets.org/api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`),
+      axios.get(`https://www.opensecrets.org/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`)
+    ]).then(function ([summary, contributors, industry, sector]) {
+      console.log(summary);
+      console.log(contributors);
+      console.log(industry);
+      console.log(sector);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 };
