@@ -26,6 +26,19 @@ export const completeFetchPolitician = (data) => {
   };
 };
 
+export const startFetchFinances = () => {
+  return {
+    type: 'START_FETCH_FINANCES'
+  };
+};
+
+export const completeFetchFinances = (data) => {
+  return {
+    type: 'COMPLETE_FETCH_FINANCES',
+    data
+  };
+};
+
 export const fetchId = (abbreviation, state, district) => {
   return (dispatch, getState) => {
     dispatch(startfetchId());
@@ -76,5 +89,11 @@ export const fetchPolitician = (id) => {
       .catch(function (error) {
         console.log(error);
       });
+  }
+};
+
+export const fetchFinances = (id) => {
+  return (dispatch, getState) => {
+
   }
 };
