@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'normalize.css';
 import './App.scss';
 import Map from './components/Map.js';
-import Politicians from './components/Politicians.js';
+import Representatives from './components/Representatives.js';
 
 require('dotenv').config();
 
@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div>
         <Map />
-        <Politicians />
+        <Representatives />
       </div>
     );
   }

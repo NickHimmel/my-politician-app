@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
-import NavForPoliticians from './NavForPoliticians.js';
+import NavForRepresentatives from './NavForRepresentatives.js';
 import Politician from './Politician.js';
 
-class Politicians extends Component {
+class Representatives extends Component {
 
   handleClick = (e, id) => {
     this.props.fetchPolitician(id);
@@ -30,7 +30,7 @@ class Politicians extends Component {
       return (
         <div>
           <h2>Your Representatives</h2>
-          <NavForPoliticians representatives={representatives} onClick={this.handleClick}/>
+          <NavForRepresentatives representatives={representatives} onClick={this.handleClick}/>
           <Politician />
         </div>
       )
@@ -61,4 +61,4 @@ const mapDispatchToProps = dispatch => bindActionCreators (
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Politicians);
+)(Representatives);
