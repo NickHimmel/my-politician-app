@@ -13,12 +13,6 @@ import Finances from './Finances.js';
 
 class Politician extends Component {
 
-  componentDidUpdate(prevProps) {
-    if (this.props.politician.member_id !== prevProps.politician.member_id) {
-      console.log("Hello");
-    }
-  }
-
   handleClick = (e, info) => {
     const hide = document.getElementById('active');
     hide.removeAttribute('id');
@@ -27,7 +21,6 @@ class Politician extends Component {
   }
 
   render() {
-    console.log(this.props.politician.member_id)
     if (this.props.fetchingPolitician) {
       return (
         <Loading />

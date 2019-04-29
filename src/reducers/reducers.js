@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { idReducer } from './idReducer'
+import { representativesReducer } from './representativesReducer'
 import { politicianReducer } from './politicianReducer'
 import { financesReducer } from './financesReducer'
 
 export default combineReducers({
-  id: idReducer,
+  representatives: representativesReducer,
   politician: politicianReducer,
   finances: financesReducer
 })

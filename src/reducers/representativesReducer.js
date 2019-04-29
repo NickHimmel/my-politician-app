@@ -1,4 +1,4 @@
-export const idReducer = (state = [], action) => {
+export const representativesReducer = (state = [], action) => {
     switch (action.type) {
       case 'START_FETCH_ID':
         return {
