@@ -7,7 +7,7 @@ const Roles = (props) => {
     <Term term={role}  key={shortid.generate()}/>
   );
   return (
-    <div id="active" className="terms politician-info">
+    <div className="terms politician-info">
       <h3>Terms</h3>
       <ul>
         {roles}

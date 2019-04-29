@@ -13,11 +13,13 @@ import Finances from './Finances.js';
 
 class Politician extends Component {
 
-  handleClick = (e, info) => {
-    if (info === 'finances') {
-      console.log('Hello')
-      this.props.fetchFinances(this.props.politician.crp_id);
+  componentDidUpdate(prevProps) {
+    if (this.props.politician.member_id !== prevProps.politician.member_id) {
+      console.log("Hello");
     }
+  }
+
+  handleClick = (e, info) => {
     const hide = document.getElementById('active');
     hide.removeAttribute('id');
     const show = document.getElementsByClassName(info);
@@ -25,11 +27,12 @@ class Politician extends Component {
   }
 
   render() {
-    if (this.props.fetchingId) {
+    console.log(this.props.politician.member_id)
+    if (this.props.fetchingPolitician) {
       return (
         <Loading />
       )
-    } else if (this.props.fetchingId === false) {
+    } else if (this.props.fetchingPolitician === false) {
       return (
         <div>
           <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party}/>
@@ -50,11 +53,11 @@ class Politician extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    fetchingId: state.politician.isFetching,
+    fetchingPolitician: state.politician.isFetching,
     politician: state.politician.politician,
     roles: state.politician.roles,
     votes: state.politician.votes,
-    bills: state.politician.bills
+    bills: state.politician.bills,
   };
 };
 

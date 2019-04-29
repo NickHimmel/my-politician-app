@@ -2,7 +2,7 @@ import React from 'react';
 
 const Finances = (props) => {
   return (
-    <div className="finances politician-info">
+    <div id="active" className="finances politician-info">
       Summary
       Top Contributors
       Top Industries
