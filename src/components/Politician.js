@@ -13,6 +13,12 @@ import Finances from './Finances.js';
 
 class Politician extends Component {
 
+  componentDidUpdate(prevProps) {
+    if (this.props.id !== prevProps.id) {
+      console.log(this.props.id)
+    }
+  }
+
   handleClick = (e, info) => {
     const hide = document.getElementById('active');
     hide.removeAttribute('id');
@@ -26,6 +32,7 @@ class Politician extends Component {
         <Loading />
       )
     } else if (this.props.fetchingPolitician === false) {
+      console.log(this.props.politician.crp_id);
       return (
         <div>
           <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party}/>
@@ -46,6 +53,7 @@ class Politician extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    id: state.id.id,
     fetchingPolitician: state.politician.isFetching,
     politician: state.politician.politician,
     roles: state.politician.roles,

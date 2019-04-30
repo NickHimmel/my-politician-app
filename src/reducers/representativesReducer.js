@@ -1,10 +1,10 @@
 export const representativesReducer = (state = [], action) => {
     switch (action.type) {
-      case 'START_FETCH_ID':
+      case 'START_FETCH_REPRESENTATIVES':
         return {
           isFetching: true
         };
-      case 'COMPLETE_FETCH_ID':
+      case 'COMPLETE_FETCH_REPRESENTATIVES':
         return {
           isFetching: false,
           state: action.data.state,
