@@ -1,4 +1,7 @@
 import React from 'react';
+import Contributors from './Contributors.js';
+import Industries from './Industries.js';
+import Sectors from './Sectors.js';
 
 const Finances = (props) => {
   if (props.cid) {
@@ -11,9 +14,7 @@ const Finances = (props) => {
         <p>Spent: ${props.summary.spent}</p>
         <p>Cash on Hand: ${props.summary.cash_on_hand}</p>
         <p>Debt: ${props.summary.debt}</p>
-        Top Contributors
-        Top Industries
-        Top Sectors
+        <Contributors contributors={props.contributors}/>
         ???????Source of Funds (Campaign Committee)????
       </div>
     )} else {
