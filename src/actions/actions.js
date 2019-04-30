@@ -87,7 +87,8 @@ export const fetchPolitician = (id) => {
       axios.get(`https://api.propublica.org/congress/v1/members/${id}/bills/introduced.json`, AUTH_HEADER)
     ]).then(function ([politician, votes, bills]) {
         dispatch(setId({
-          id: politician.data.results[0].crp_id
+          id: politician.data.results[0].crp_id,
+          votesmart: politician.data.results[0].votesmart_id
         }));
         dispatch(completeFetchPolitician({
           politician: politician.data.results[0],
