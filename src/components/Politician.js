@@ -27,11 +27,11 @@ class Politician extends Component {
   }
 
   render() {
-    if (this.props.fetchingPolitician) {
+    if (this.props.fetchingPolitician || this.props.fetchingFinances) {
       return (
         <Loading />
       )
-    } else if (this.props.fetchingPolitician === false) {
+    } else if (this.props.fetchingPolitician === false && this.props.fetchingFinances === false) {
       return (
         <div>
           <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party} nextElection={this.props.nextElection}/>
@@ -40,7 +40,7 @@ class Politician extends Component {
           <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />
-          <Finances />
+          <Finances summary={this.props.summary} />
         </div>
       )
     }
@@ -55,6 +55,7 @@ const mapStateToProps = (state) => {
     id: state.id.id,
     votesmart: state.id.votesmart,
     fetchingPolitician: state.politician.isFetching,
+    fetchingFinances: state.finances.isFetching,
     politician: state.politician.politician,
     nextElection: state.politician.nextElection,
     roles: state.politician.roles,
