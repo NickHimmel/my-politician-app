@@ -46,6 +46,12 @@ export const completeFetchFinances = (data) => {
   };
 };
 
+export const hasNoCid = () => {
+  return {
+    type: 'HAS_NO_CID'
+  };
+};
+
 export const fetchId = (abbreviation, state, district) => {
   return (dispatch, getState) => {
     dispatch(startfetchRepresentatives());
@@ -107,19 +113,25 @@ export const fetchFinances = (cid) => {
   return (dispatch, getState) => {
     dispatch(startFetchFinances());
     const token = process.env.REACT_APP_OPEN_SECRETS_API_KEY;
-    Promise.all([
-      axios.get(`https://www.opensecrets.org/api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`),
-      axios.get(`https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`),
-      axios.get(`https://www.opensecrets.org/api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`),
-      axios.get(`https://www.opensecrets.org/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`)
-    ]).then(function ([summary, contributors, industry, sector]) {
-      console.log(summary.data.response.summary['@attributes']);
-      console.log(contributors.data.response.contributors.contributor);
-      console.log(industry.data.response.industries.industry);
-      console.log(sector.data.response.sectors.sector);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    if (cid) {
+      Promise.all([
+        axios.get(`https://www.opensecrets.org/api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`),
+        axios.get(`https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`),
+        axios.get(`https://www.opensecrets.org/api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`),
+        axios.get(`https://www.opensecrets.org/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`)
+      ]).then(function ([summary, contributors, industry, sector]) {
+        dispatch(completeFetchFinances({
+          summary: summary.data.response.summary['@attributes'],
+          contributors: contributors.data.response.contributors.contributor,
+          industry: industry.data.response.industries.industry,
+          sector: sector.data.response.sectors.sector
+        }));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    } else {
+      dispatch(hasNoCid());
+    }
   }
 };

@@ -6,7 +6,16 @@ export const financesReducer = (state = [], action) => {
         };
       case 'COMPLETE_FETCH_FINANCES':
         return {
-          isFetching: false
+          isFetching: false,
+          hasCid: true,
+          summary: action.data.summary,
+          contributors: action.data.contributors,
+          industry: action.data.industry,
+          sector: action.data.sector
+        };
+      case 'HAS_NO_CID':
+        return {
+          hasCid: false
         };
       default:
           return state;
