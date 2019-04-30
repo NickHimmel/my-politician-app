@@ -8,15 +8,15 @@ import Politician from './Politician.js';
 
 class Representatives extends Component {
 
-  handleClick = (e, id) => {
-    this.props.fetchPolitician(id);
+  handleClick = (e, id, nextElection) => {
+    this.props.fetchPolitician(id,nextElection);
   }
 
   listNames = (senate, house) => {
     const senators = senate.map((senator) => {
-      return {name: senator.name, title: "Senator", party: senator.party, id: senator.id };
+      return {name: senator.name, title: "Senator", party: senator.party, id: senator.id, nextElection: senator.next_election};
     })
-    const namesArray = [{name: house.name, title: "Representative", party: house.party, id: house.id}, ...senators];
+    const namesArray = [{name: house.name, title: "Representative", party: house.party, id: house.id, nextElection: house.next_election}, ...senators];
     return namesArray;
   }
 

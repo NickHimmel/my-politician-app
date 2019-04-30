@@ -34,7 +34,7 @@ class Politician extends Component {
     } else if (this.props.fetchingPolitician === false) {
       return (
         <div>
-          <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party}/>
+          <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party} nextElection={this.props.nextElection}/>
           <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
           <NavForPolitician onClick={this.handleClick} />
           <Roles roles={this.props.roles} />
@@ -56,9 +56,11 @@ const mapStateToProps = (state) => {
     votesmart: state.id.votesmart,
     fetchingPolitician: state.politician.isFetching,
     politician: state.politician.politician,
+    nextElection: state.politician.nextElection,
     roles: state.politician.roles,
     votes: state.politician.votes,
     bills: state.politician.bills,
+    summary: state.finances.summary
   };
 };
 

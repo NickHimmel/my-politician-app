@@ -78,7 +78,7 @@ export const fetchId = (abbreviation, state, district) => {
   };
 };
 
-export const fetchPolitician = (id) => {
+export const fetchPolitician = (id, nextElection) => {
   return (dispatch, getState) => {
     dispatch(startFetchPolitician());
     const token = process.env.REACT_APP_PROPUBLICA_API_KEY;
@@ -98,6 +98,7 @@ export const fetchPolitician = (id) => {
         }));
         dispatch(completeFetchPolitician({
           politician: politician.data.results[0],
+          nextElection: nextElection,
           roles: politician.data.results[0].roles,
           votes: votes.data.results[0].votes,
           bills: bills.data.results[0].bills
