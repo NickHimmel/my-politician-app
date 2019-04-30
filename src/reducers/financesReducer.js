@@ -15,6 +15,7 @@ export const financesReducer = (state = [], action) => {
         };
       case 'HAS_NO_CID':
         return {
+          isFetching: false,
           hasCid: false
         };
       default:
