@@ -125,7 +125,7 @@ export const fetchFinances = (cid) => {
           summary: summary.data.response.summary['@attributes'],
           contributors: contributors.data.response.contributors.contributor,
           industries: industry.data.response.industries.industry,
-          sector: sector.data.response.sectors.sector
+          sectors: sector.data.response.sectors.sector
         }));
       })
       .catch(function (error) {

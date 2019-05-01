@@ -16,6 +16,7 @@ const Finances = (props) => {
         <p>Debt: ${props.summary.debt}</p>
         <Contributors contributors={props.contributors}/>
         <Industries industries={props.industries} />
+        <Sectors sectors={props.sectors}/>
         ???????Source of Funds (Campaign Committee)????
       </div>
     )} else {

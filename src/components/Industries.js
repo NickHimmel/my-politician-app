@@ -2,7 +2,6 @@ import React from 'react';
 const shortid = require('shortid');
 
 const Industries = (props) => {
-  console.log(props)
   const industries = props.industries.map((industry) =>
     <tr key={shortid.generate()}>
       <td>{industry['@attributes'].industry_name}</td>
