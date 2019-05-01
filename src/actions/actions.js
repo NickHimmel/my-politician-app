@@ -123,7 +123,7 @@ export const fetchFinances = (cid) => {
       ]).then(function ([summary, contributors, industry, sector]) {
         dispatch(completeFetchFinances({
           summary: summary.data.response.summary['@attributes'],
-          contributors: contributors.data.response.contributors.contributor,
+          contributors: contributors.data.response.contributors,
           industries: industry.data.response.industries.industry,
           sectors: sector.data.response.sectors.sector
         }));
