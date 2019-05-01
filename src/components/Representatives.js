@@ -9,6 +9,10 @@ import Politician from './Politician.js';
 class Representatives extends Component {
 
   handleClick = (e, id, nextElection) => {
+    const el = e.target;
+    const current = document.getElementById('representative');
+    current.removeAttribute('id');
+    el.setAttribute('id', 'representative');
     this.props.fetchPolitician(id,nextElection);
   }
 

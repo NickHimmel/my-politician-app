@@ -21,7 +21,11 @@ class Politician extends Component {
 
   handleClick = (e, info) => {
     const hide = document.getElementById('active');
+    const el = e.target;
+    const current = document.getElementById('tab');
     hide.removeAttribute('id');
+    current.removeAttribute('id');
+    el.setAttribute('id', 'tab');
     const show = document.getElementsByClassName(info);
     show[0].setAttribute('id', 'active');
   }
