@@ -12,25 +12,16 @@ class Representatives extends Component {
     this.props.fetchPolitician(id,nextElection);
   }
 
-  listNames = (senate, house) => {
-    const senators = senate.map((senator) => {
-      return {name: senator.name, title: "Senator", party: senator.party, id: senator.id, nextElection: senator.next_election};
-    })
-    const namesArray = [{name: house.name, title: "Representative", party: house.party, id: house.id, nextElection: house.next_election}, ...senators];
-    return namesArray;
-  }
-
   render() {
     if (this.props.fetchingId) {
       return (
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
-      const representatives = this.listNames(this.props.senate, this.props.house);
       return (
-        <div>
+        <div className='representatives'>
           <h2>Your Representatives</h2>
-          <NavForRepresentatives representatives={representatives} onClick={this.handleClick}/>
+          <NavForRepresentatives house={this.props.house} senate={this.props.senate} onClick={this.handleClick}/>
           <Politician />
         </div>
       )

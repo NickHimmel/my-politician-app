@@ -2,7 +2,7 @@ import React from 'react';
 
 const NavForPolitician = (props) => {
   return (
-    <div>
+    <div className="nav">
       <ul>
         <li><button onClick={(e) => props.onClick(e, "finances")}>Finances</button></li>
         <li><button onClick={(e) => props.onClick(e, "terms")}>Terms</button></li>

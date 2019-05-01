@@ -1,13 +1,14 @@
 import React from 'react';
 
 const NavForRepresentatives = (props) => {
-  const representatives = props.representatives.map((representative) =>
-    <li key={representative.id}><button onClick={(e) => props.onClick(e, representative.id, representative.nextElection)}>{representative.title} {representative.name} ({representative.party})</button></li>
-  );
+  const senatorOne = props.senate[0];
+  const senatorTwo = props.senate[1];
   return (
-    <div>
+    <div className="nav">
       <ul>
-        {representatives}
+        <li><button onClick={(e) => props.onClick(e, props.house.id, props.house.nextElection)}>{props.house.title} {props.house.name} ({props.house.party})</button></li>
+        <li><button onClick={(e) => props.onClick(e, senatorOne.id, senatorOne.nextElection)}>{senatorOne.title} {senatorOne.name} ({senatorOne.party})</button></li>
+        <li><button onClick={(e) => props.onClick(e, senatorTwo.id, senatorTwo.nextElection)}>{senatorTwo.title} {senatorTwo.name} ({senatorTwo.party})</button></li>
       </ul>
     </div>
   );
