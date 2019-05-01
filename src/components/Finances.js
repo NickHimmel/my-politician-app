@@ -4,7 +4,7 @@ import Industries from './Industries.js';
 import Sectors from './Sectors.js';
 
 const Finances = (props) => {
-  console.log(props)
+  const votesmart = `https://votesmart.org/candidate/campaign-finance/${props.votesmart}`
   if (props.cid) {
     return (
       <div id="active" className="finances politician-info">
@@ -22,7 +22,7 @@ const Finances = (props) => {
       </div>
     )} else {
       return (
-        <p>Votesmart id = {props.votesmart}</p>
+        <a href={votesmart} target="_blank" rel="noopener noreferrer">Finances</a>
       )
     }
 }

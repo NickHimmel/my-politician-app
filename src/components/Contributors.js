@@ -2,7 +2,6 @@ import React from 'react';
 const shortid = require('shortid');
 
 const Contributors = (props) => {
-  console.log(props)
   const contributors = props.contributors.contributor.map((contributor) =>
     <tr key={shortid.generate()}>
       <td>{contributor['@attributes'].org_name}</td>

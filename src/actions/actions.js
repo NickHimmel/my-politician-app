@@ -52,7 +52,7 @@ export const hasNoCid = () => {
   };
 };
 
-export const fetchId = (abbreviation, state, district) => {
+export const fetchRepresentatives = (abbreviation, state, district) => {
   return (dispatch, getState) => {
     dispatch(startfetchRepresentatives());
     const token = process.env.REACT_APP_PROPUBLICA_API_KEY;
@@ -71,6 +71,7 @@ export const fetchId = (abbreviation, state, district) => {
           house: house.data.results[0],
           senate: senate.data.results
         }));
+        dispatch(fetchPolitician(house.data.results[0].id, house.data.results[0].next_election));
       })
       .catch(function (error) {
         console.log(error);

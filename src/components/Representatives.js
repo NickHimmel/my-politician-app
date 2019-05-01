@@ -43,6 +43,7 @@ class Representatives extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    id: state.id.id,
     fetchingId: state.representatives.isFetching,
     state: state.representatives.state,
     district: state.representatives.district,
