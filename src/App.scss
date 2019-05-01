@@ -1,2 +1,27 @@
 @import './styles/Map.scss';
 @import './styles/Politician.scss';
+
+body {
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: 0;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-bottom: 1px solid #000;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+}
