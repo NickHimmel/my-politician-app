@@ -1,18 +1,11 @@
-export const idReducer = (state = [], action) => {
+export const idReducer = (state = {id: "000000000", votesmart: "000000"}, action) => {
     switch (action.type) {
-      case 'START_FETCH_ID':
+      case 'SET_ID':
         return {
-          isFetching: true
-        };
-      case 'COMPLETE_FETCH_ID':
-        return {
-          isFetching: false,
-          state: action.data.state,
-          district: action.data.district,
-          house: action.data.house,
-          senate: action.data.senate
+          id: action.data.id,
+          votesmart: action.data.votesmart
         };
       default:
-          return state;
+        return state;
     }
 }
