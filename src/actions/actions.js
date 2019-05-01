@@ -124,7 +124,7 @@ export const fetchFinances = (cid) => {
         dispatch(completeFetchFinances({
           summary: summary.data.response.summary['@attributes'],
           contributors: contributors.data.response.contributors.contributor,
-          industry: industry.data.response.industries.industry,
+          industries: industry.data.response.industries.industry,
           sector: sector.data.response.sectors.sector
         }));
       })

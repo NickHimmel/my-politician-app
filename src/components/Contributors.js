@@ -2,7 +2,6 @@ import React from 'react';
 const shortid = require('shortid');
 
 const Contributors = (props) => {
-  console.log(props.contributors)
   const contributors = props.contributors.map((contributor) =>
     <tr key={shortid.generate()}>
       <td>{contributor['@attributes'].org_name}</td>
@@ -21,7 +20,7 @@ const Contributors = (props) => {
               <th>Total</th>
               <th>Individuals</th>
               <th>PACs</th>
-            </tr>  
+            </tr>
             {contributors}
           </tbody>
         </table>

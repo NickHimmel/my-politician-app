@@ -10,7 +10,7 @@ export const financesReducer = (state = [], action) => {
           hasCid: true,
           summary: action.data.summary,
           contributors: action.data.contributors,
-          industry: action.data.industry,
+          industries: action.data.industries,
           sector: action.data.sector
         };
       case 'HAS_NO_CID':
