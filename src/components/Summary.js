@@ -2,7 +2,7 @@ import React from 'react';
 
 const Summary = (props) => {
   return (
-    <div className="finances-card summary">
+    <div className="card summary">
       <h3>Summary</h3>
       <p>Source: {props.summary.origin}</p>
       <p>First Elected: {props.summary.first_elected}</p>

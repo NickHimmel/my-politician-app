@@ -10,7 +10,7 @@ const Finances = (props) => {
     return (
       <div id="active" className="finances politician-info">
         <h3>Finances</h3>
-        <div className="finances-inner">
+        <div className="horizontal-scroll">
           <Summary summary={props.summary}/>
           <Contributors contributors={props.contributors}/>
           <Industries industries={props.industries} />
