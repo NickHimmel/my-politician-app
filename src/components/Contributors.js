@@ -8,7 +8,6 @@ const Contributors = (props) => {
       <td>${contributor['@attributes'].total}</td>
       <td>${contributor['@attributes'].indivs}</td>
       <td>${contributor['@attributes'].pacs}</td>
-      <td>${contributor['@attributes'].notice}</td>
     </tr>
   );
   return (
