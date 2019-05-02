@@ -11,7 +11,7 @@ const Sectors = (props) => {
     </tr>
   );
   return (
-    <div className="card sectors">
+    <div className='card sectors'>
       <h3>Top Sectors</h3>
         <table>
           <tbody>

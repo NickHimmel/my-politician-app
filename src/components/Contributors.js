@@ -11,7 +11,7 @@ const Contributors = (props) => {
     </tr>
   );
   return (
-    <div className="card contributors">
+    <div className='card contributors'>
       <h3>Top Contributors</h3>
         <table>
           <tbody>

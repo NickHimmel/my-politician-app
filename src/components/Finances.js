@@ -8,9 +8,9 @@ const Finances = (props) => {
   const votesmart = `https://votesmart.org/candidate/campaign-finance/${props.votesmart}`
   if (props.cid) {
     return (
-      <div id="active" className="finances politician-info">
+      <div id='active' className='finances politician-info'>
         <h3>Finances</h3>
-        <div className="horizontal-scroll">
+        <div className='horizontal-scroll'>
           <Summary summary={props.summary}/>
           <Contributors contributors={props.contributors}/>
           <Industries industries={props.industries} />
@@ -19,7 +19,7 @@ const Finances = (props) => {
       </div>
     )} else {
       return (
-        <a href={votesmart} target="_blank" rel="noopener noreferrer">Finances</a>
+        <a href={votesmart} target='_blank' rel='noopener noreferrer'>Finances</a>
       )
     }
 }

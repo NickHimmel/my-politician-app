@@ -11,7 +11,7 @@ const Term = (props) => {
     <Subcommittee subcommittee={subcommittee}  key={shortid.generate()}/>
   );
   return (
-    <li>
+    <li className='card'>
       <h4>The {props.term.congress} United States Congress</h4>
       <p>{props.term.start_date} to {props.term.end_date}</p>
       <p>Bills Sponsored: {props.term.bills_sponsored}</p>
