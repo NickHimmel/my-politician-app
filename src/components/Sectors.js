@@ -11,7 +11,7 @@ const Sectors = (props) => {
     </tr>
   );
   return (
-    <div className="sectors">
+    <div className="finances-card sectors">
       <h3>Top Sectors</h3>
         <table>
           <tbody>

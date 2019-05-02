@@ -11,7 +11,7 @@ const Contributors = (props) => {
     </tr>
   );
   return (
-    <div className="contributors">
+    <div className="finances-card contributors">
       <h3>Top Contributors</h3>
         <table>
           <tbody>
@@ -24,7 +24,7 @@ const Contributors = (props) => {
             {contributors}
           </tbody>
         </table>
-        <p>*{props.contributors['@attributes'].notice}</p>
+        <span>*{props.contributors['@attributes'].notice}</span>
     </div>
   );
 }

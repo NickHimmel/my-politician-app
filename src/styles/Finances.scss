@@ -1,8 +1,15 @@
 .finances {
   // width: 70%;
-  display: flex;
-  
+
+
   &-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    .finances-card {
+      flex: 0 0 auto;
+    }
   }
   // table {
   //   width: 100%;

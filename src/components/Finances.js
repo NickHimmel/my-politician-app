@@ -11,11 +11,11 @@ const Finances = (props) => {
       <div id="active" className="finances politician-info">
         <h3>Finances</h3>
         <div className="finances-inner">
+          <Summary summary={props.summary}/>
+          <Contributors contributors={props.contributors}/>
+          <Industries industries={props.industries} />
+          <Sectors sectors={props.sectors}/>
         </div>
-        <Summary summary={props.summary}/>
-        <Contributors contributors={props.contributors}/>
-        <Industries industries={props.industries} />
-        <Sectors sectors={props.sectors}/>
       </div>
     )} else {
       return (
