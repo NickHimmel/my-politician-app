@@ -24,7 +24,6 @@ const Contributors = (props) => {
             {contributors}
           </tbody>
         </table>
-        <span>*{props.contributors['@attributes'].notice}</span>
     </div>
   );
 }
