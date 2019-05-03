@@ -2,7 +2,6 @@ import React from 'react';
 import Icon from './Icon.js';
 
 const Social = (props) => {
-  console.log(props)
   return (
     <div className='social'>
       <Icon social='homepage' userName={props.url} url={props.url}/>
