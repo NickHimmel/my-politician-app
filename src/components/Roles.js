@@ -9,7 +9,7 @@ const Roles = (props) => {
   return (
     <div className='terms politician-info'>
       <h3>Terms</h3>
-      <ul className='horizontal-scroll'>
+      <ul className='terms-list horizontal-scroll'>
         {roles}
       </ul>
     </div>

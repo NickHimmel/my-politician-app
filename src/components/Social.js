@@ -1,36 +1,14 @@
 import React from 'react';
+import Icon from './Icon.js';
 
 const Social = (props) => {
-  const homepage = (url) => {
-    if(url) {
-      return (
-        <a href={url} target='_blank' rel="noopener noreferrer"><img src='https://s3.amazonaws.com/my-politician-app.herokuapp.com/homepage.png' alt='homepage icon'/></a>
-      )};
-  }
-  const twitter = (userName) => {
-    if(userName) {
-      return (
-        <a href={`https://twitter.com/${userName}`} target='_blank' rel="noopener noreferrer"><img src='https://s3.amazonaws.com/my-politician-app.herokuapp.com/twitter.png' alt='twitter logo'/></a>
-      )};
-  }
-  const facebook = (userName) => {
-    if(userName) {
-      return (
-        <a href={`https://www.facebook.com/${userName}`} target='_blank' rel="noopener noreferrer"><img src='https://s3.amazonaws.com/my-politician-app.herokuapp.com/facebook.png' alt='facebook logo'/></a>
-      )};
-  }
-  const youtube = (userName) => {
-    if(userName) {
-      return (
-        <a href={`https://www.youtube.com/${userName}`} target='_blank' rel="noopener noreferrer"><img src='https://s3.amazonaws.com/my-politician-app.herokuapp.com/youtube.png' alt='youtube logo'/></a>
-      )};
-  }
+  console.log(props)
   return (
     <div className='social'>
-      {homepage(props.url)}
-      {twitter(props.twitter)}
-      {facebook(props.facebook)}
-      {youtube(props.youtube)}
+      <Icon social='homepage' userName={props.url} url={props.url}/>
+      <Icon social='twitter' userName={props.twitter} url={`https://www.twitter.com/${props.twitter}`}/>
+      <Icon social='facebook' userName={props.facebook} url={`https://www.facebook.com/${props.facebook}`}/>
+      <Icon social='youtube' userName={props.youtube} url={`https://www.youtube.com/${props.youtube}`}/>
     </div>
   );
 }
