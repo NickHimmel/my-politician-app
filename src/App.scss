@@ -48,14 +48,18 @@ table {
   }
 }
 
-.horizontal-scroll {
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 0 10px 10px 0;
-  overflow-x: auto;
-
-  .card {
-    flex: 0 0 auto;
-    padding-right: 50px;
-  }
+.app {
+  position: relative;
 }
+
+// .horizontal-scroll {
+//   display: flex;
+//   flex-wrap: nowrap;
+//   margin: 0 10px 10px 0;
+//   overflow-x: auto;
+//
+//   .card {
+//     flex: 0 0 auto;
+//     padding-right: 50px;
+//   }
+// }

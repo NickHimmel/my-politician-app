@@ -32,9 +32,6 @@ class Map extends Component {
       .attr('preserveAspectRatio', 'xMidYMid')
       .attr('viewBox', '0 0 ' + width + ' ' + height)
 
-    const tooltip = d3.select('#container').append('div')
-      .attr('class', 'tooltip');
-
     Promise.all([this.state.us, this.state.congress, this.state.fips]).then(values => {
       const us = values[0];
       const congress = values[1];
