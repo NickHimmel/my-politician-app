@@ -24,7 +24,8 @@ class Representatives extends Component {
     } else if (this.props.fetchingId === false) {
       return (
         <div className='representatives'>
-          <h2>Your Representatives</h2>
+          <h2>{this.props.state}'s {this.props.district} District</h2>
+          <h3></h3>
           <NavForRepresentatives house={this.props.house} senate={this.props.senate} onClick={this.handleClick}/>
           <Politician />
         </div>

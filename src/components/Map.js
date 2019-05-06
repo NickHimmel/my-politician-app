@@ -60,9 +60,6 @@ class Map extends Component {
           .on('mouseover', function(data) {
             const state = fips[data.properties.STATEFP].name;
             const district = data.properties.NAMELSAD;
-            tooltip.html('<h2>' + state + '</h2><h3>' + district + '</h3>')
-              .style('left', (d3.event.pageX) + 'px')
-              .style('top', (d3.event.pageY - 28) + 'px');
           })
           .on('click', function(data) {
             const abbreviation = fips[data.properties.STATEFP].abbreviation;
