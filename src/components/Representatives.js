@@ -3,17 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
-import NavForRepresentatives from './NavForRepresentatives.js';
+import Button from './Button.js';
+import Nav from './Nav.js';
 import Politician from './Politician.js';
 
 class Representatives extends Component {
 
-  handleClick = (e, id, nextElection) => {
-    const el = e.target;
-    const current = document.getElementById('representative');
-    current.removeAttribute('id');
-    el.setAttribute('id', 'representative');
-    this.props.fetchPolitician(id,nextElection);
+  handleClick = () => {
   }
 
   render() {
@@ -25,8 +21,7 @@ class Representatives extends Component {
       return (
         <div className='representatives'>
           <h2>{this.props.state}'s {this.props.district} District</h2>
-          <h3></h3>
-          <NavForRepresentatives house={this.props.house} senate={this.props.senate} onClick={this.handleClick}/>
+          <Nav house={this.props.house} senate={this.props.senate}/>
           <Politician />
         </div>
       )

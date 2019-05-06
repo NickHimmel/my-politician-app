@@ -1,10 +1,10 @@
 import React from 'react';
 
-const NavForRepresentatives = (props) => {
+const NavItems = (props) => {
   const senatorOne = props.senate[0];
   const senatorTwo = props.senate[1];
   return (
-    <div className="nav">
+    <div className='nav-items'>
       <ul>
         <li><button id='representative' onClick={(e) => props.onClick(e, props.house.id, props.house.nextElection)}>Representative {props.house.name} ({props.house.party})</button></li>
         <li><button onClick={(e) => props.onClick(e, senatorOne.id, senatorOne.nextElection)}>Senator {senatorOne.name} ({senatorOne.party})</button></li>
@@ -14,4 +14,4 @@ const NavForRepresentatives = (props) => {
   );
 }
 
-export default NavForRepresentatives;
+export default NavItems;
