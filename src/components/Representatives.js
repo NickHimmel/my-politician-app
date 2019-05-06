@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPolitician } from '../actions/actions.js';
+import { closeRepresentatives, fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
 import Button from './Button.js';
 import Nav from './Nav.js';
@@ -10,6 +10,7 @@ import Politician from './Politician.js';
 class Representatives extends Component {
 
   handleClick = () => {
+    this.props.closeRepresentatives();
   }
 
   render() {
@@ -20,6 +21,7 @@ class Representatives extends Component {
     } else if (this.props.fetchingId === false) {
       return (
         <div className='representatives'>
+          <Button onClick={this.handleClick}/>
           <h2>{this.props.state}'s {this.props.district} District</h2>
           <Nav house={this.props.house} senate={this.props.senate}/>
           <Politician />
@@ -45,7 +47,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators (
   {
-    fetchPolitician
+    fetchPolitician,
+    closeRepresentatives
   },
   dispatch,
 )

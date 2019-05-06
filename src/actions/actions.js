@@ -13,6 +13,12 @@ export const completefetchRepresentatives = (data) => {
   };
 };
 
+export const closeRepresentatives = () => {
+  return {
+    type: 'CLOSE_REPRESENTATIVES'
+  };
+};
+
 export const setId = (data) => {
   return {
     type: 'SET_ID',

@@ -54,10 +54,6 @@ class Map extends Component {
           .data(topojson.feature(congress, congress.objects.districts).features)
         .enter().append('path')
           .attr('d', path)
-          .on('mouseover', function(data) {
-            const state = fips[data.properties.STATEFP].name;
-            const district = data.properties.NAMELSAD;
-          })
           .on('click', function(data) {
             const abbreviation = fips[data.properties.STATEFP].abbreviation;
             const state = fips[data.properties.STATEFP].name;

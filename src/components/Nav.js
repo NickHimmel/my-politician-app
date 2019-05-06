@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Loading from './Loading.js';
 import NavItems from './NavItems.js';
 
 class Nav extends Component {
