@@ -1,32 +1,65 @@
+@import './styles/Map.scss';
+@import './styles/Nav.scss';
+@import './styles/Representatives.scss';
 @import './styles/Politician.scss';
+@import './styles/Social.scss';
+@import './styles/Finances.scss';
+@import './styles/Terms.scss';
 
-path {
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
-
-#container {
-  max-width: 960;
-  text-align: center;
-}
-.districts {
-  fill: #bbb;
+body {
+  box-sizing: border-box;
 }
 
-.districts :hover {
-  fill: orange;
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px 0;
 }
 
-.district-boundaries {
-  pointer-events: none;
-  fill: none;
-  stroke: #fff;
-  stroke-width: .5px;
+button:hover {
+  border-bottom: 1px solid #000;
 }
 
-.state-boundaries {
-  pointer-events: none;
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1.5px;
+button:focus {
+  outline: none;
 }
+
+table {
+  width: 100%;
+  border-spacing: 0;
+
+  th, td {
+    border-bottom: solid 1px #ddd;
+    padding: 10px;
+  }
+
+  th:first-child, td:first-child {
+    padding-left: 0px;
+  }
+
+  th:last-child, td:last-child {
+    padding-right: 0px;
+  }
+
+  th {
+    text-align: left;
+  }
+}
+
+.app {
+  position: relative;
+}
+
+// .horizontal-scroll {
+//   display: flex;
+//   flex-wrap: nowrap;
+//   margin: 0 10px 10px 0;
+//   overflow-x: auto;
+//
+//   .card {
+//     flex: 0 0 auto;
+//     padding-right: 50px;
+//   }
+// }

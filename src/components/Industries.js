@@ -11,7 +11,7 @@ const Industries = (props) => {
     </tr>
   );
   return (
-    <div className="industries">
+    <div className='card industries'>
       <h3>Top Industries</h3>
         <table>
           <tbody>

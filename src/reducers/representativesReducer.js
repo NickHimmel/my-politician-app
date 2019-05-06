@@ -12,6 +12,10 @@ export const representativesReducer = (state = [], action) => {
           house: action.data.house,
           senate: action.data.senate
         };
+      case 'CLOSE_REPRESENTATIVES':
+        return {
+          isFetching: undefined
+        };
       default:
           return state;
     }

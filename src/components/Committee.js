@@ -1,11 +1,27 @@
 import React from 'react';
+const shortid = require('shortid');
 
 const Committee = (props) => {
-  return (
-    <li>
-      <h4>{props.committee.name}</h4>
-      <p>{props.committee.begin_date} to {props.committee.end_date}</p>
+
+  const committees = props.committees.map((committee) =>
+    <li key={shortid.generate()}>
+      <h4>{committee.name}</h4>
+      <p>{committee.begin_date} to {committee.end_date}</p>
     </li>
+  );
+
+  return (
+    <div>
+      {
+        props.committees.length > 0 &&
+        <div>
+          <h4>{props.type}</h4>
+          <ul>
+            {committees}
+          </ul>
+        </div>
+      }
+    </div>
   );
 }
 

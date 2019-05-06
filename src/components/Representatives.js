@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPolitician } from '../actions/actions.js';
+import { closeRepresentatives, fetchPolitician } from '../actions/actions.js';
 import Loading from './Loading.js';
-import NavForRepresentatives from './NavForRepresentatives.js';
+import Button from './Button.js';
+import Nav from './Nav.js';
 import Politician from './Politician.js';
 
 class Representatives extends Component {
 
-  handleClick = (e, id, nextElection) => {
-    this.props.fetchPolitician(id,nextElection);
-  }
-
-  listNames = (senate, house) => {
-    const senators = senate.map((senator) => {
-      return {name: senator.name, title: "Senator", party: senator.party, id: senator.id, nextElection: senator.next_election};
-    })
-    const namesArray = [{name: house.name, title: "Representative", party: house.party, id: house.id, nextElection: house.next_election}, ...senators];
-    return namesArray;
+  handleClick = () => {
+    this.props.closeRepresentatives();
   }
 
   render() {
@@ -26,11 +19,11 @@ class Representatives extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
-      const representatives = this.listNames(this.props.senate, this.props.house);
       return (
-        <div>
-          <h2>Your Representatives</h2>
-          <NavForRepresentatives representatives={representatives} onClick={this.handleClick}/>
+        <div className='representatives'>
+          <Button onClick={this.handleClick}/>
+          <h2>{this.props.state}'s {this.props.district} District</h2>
+          <Nav house={this.props.house} senate={this.props.senate}/>
           <Politician />
         </div>
       )
@@ -54,7 +47,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators (
   {
-    fetchPolitician
+    fetchPolitician,
+    closeRepresentatives
   },
   dispatch,
 )

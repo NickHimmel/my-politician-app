@@ -21,7 +21,11 @@ class Politician extends Component {
 
   handleClick = (e, info) => {
     const hide = document.getElementById('active');
+    const el = e.target;
+    const current = document.getElementById('tab');
     hide.removeAttribute('id');
+    current.removeAttribute('id');
+    el.setAttribute('id', 'tab');
     const show = document.getElementsByClassName(info);
     show[0].setAttribute('id', 'active');
   }
@@ -33,7 +37,7 @@ class Politician extends Component {
       )
     } else if (this.props.fetchingPolitician === false && this.props.fetchingFinances === false) {
       return (
-        <div>
+        <div className='politician'>
           <Name firstName={this.props.politician.first_name} lastName={this.props.politician.last_name} party={this.props.politician.current_party} nextElection={this.props.nextElection}/>
           <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
           <NavForPolitician onClick={this.handleClick} />

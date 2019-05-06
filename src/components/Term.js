@@ -1,31 +1,17 @@
 import React from 'react';
+import TermList from './TermList.js';
 import Committee from './Committee.js';
-import Subcommittee from './Subcommittee.js';
-const shortid = require('shortid');
 
 const Term = (props) => {
-  const committees = props.term.committees.map((committee) =>
-    <Committee committee={committee}  key={shortid.generate()}/>
-  );
-  const subCommittees = props.term.subcommittees.map((subcommittee) =>
-    <Subcommittee subcommittee={subcommittee}  key={shortid.generate()}/>
-  );
+
   return (
-    <li>
+    <li className='card terms-item'>
       <h4>The {props.term.congress} United States Congress</h4>
       <p>{props.term.start_date} to {props.term.end_date}</p>
-      <p>Bills Sponsored: {props.term.bills_sponsored}</p>
-      <p>Bills Cosponsored: {props.term.bills_cosponsored}</p>
-      <p>Votes with Party: {props.term.votes_with_party_pct}%</p>
-      <p>Missed Votes: {props.term.missed_votes_pct}%</p>
-      <h4>Committees</h4>
-      <ul>
-        {committees}
-      </ul>
-      <h4>Subcommittees</h4>
-      <ul>
-        {subCommittees}
-      </ul>
+      <TermList dataOne={props.term.bills_sponsored} dataTwo={props.term.bills_cosponsored} textOne ='Bills Sponsored: ' textTwo='Bills Cosponsored '/>
+      <TermList dataOne={props.term.votes_with_party_pct} dataTwo={props.term.missed_votes_pct} textOne ='Votes with Party: ' textTwo='Missed Votes: ' percentage='%'/>
+      <Committee committees={props.term.committees} type='Committees'/>
+      <Committee committees={props.term.subcommittees} type='Subcommittees'/>
     </li>
   );
 }

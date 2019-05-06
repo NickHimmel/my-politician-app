@@ -32,9 +32,6 @@ class Map extends Component {
       .attr('preserveAspectRatio', 'xMidYMid')
       .attr('viewBox', '0 0 ' + width + ' ' + height)
 
-    const tooltip = d3.select('#container').append('div')
-      .attr('class', 'tooltip');
-
     Promise.all([this.state.us, this.state.congress, this.state.fips]).then(values => {
       const us = values[0];
       const congress = values[1];
@@ -57,13 +54,6 @@ class Map extends Component {
           .data(topojson.feature(congress, congress.objects.districts).features)
         .enter().append('path')
           .attr('d', path)
-          .on('mouseover', function(data) {
-            const state = fips[data.properties.STATEFP].name;
-            const district = data.properties.NAMELSAD;
-            tooltip.html('<h2>' + state + '</h2><h3>' + district + '</h3>')
-              .style('left', (d3.event.pageX) + 'px')
-              .style('top', (d3.event.pageY - 28) + 'px');
-          })
           .on('click', function(data) {
             const abbreviation = fips[data.properties.STATEFP].abbreviation;
             const state = fips[data.properties.STATEFP].name;
