@@ -44,7 +44,7 @@ class Politician extends Component {
           <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />
-          <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} summary={this.props.summary} contributors={this.props.contributors} industries={this.props.industries} sectors={this.props.sectors}/>
+          <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} finances={this.props.finances}/>
         </div>
       )
     }
@@ -66,10 +66,7 @@ const mapStateToProps = (state) => {
     votes: state.politician.votes,
     bills: state.politician.bills,
     hasCid: state.finances.hasCid,
-    summary: state.finances.summary,
-    contributors: state.finances.contributors,
-    industries: state.finances.industries,
-    sectors: state.finances.sectors,
+    finances: state.finances
   };
 };
 
