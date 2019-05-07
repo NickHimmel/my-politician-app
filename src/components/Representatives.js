@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { closeRepresentatives, fetchPolitician } from '../actions/actions.js';
+import { closeRepresentatives } from '../actions/actions.js';
 import Loading from './Loading.js';
 import Button from './Button.js';
 import Nav from './Nav.js';
@@ -47,7 +47,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators (
   {
-    fetchPolitician,
     closeRepresentatives
   },
   dispatch,

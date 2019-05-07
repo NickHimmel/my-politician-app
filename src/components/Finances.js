@@ -5,7 +5,6 @@ import Industries from './Industries.js';
 import Sectors from './Sectors.js';
 
 const Finances = (props) => {
-  console.log(props)
   const votesmart = `https://votesmart.org/candidate/campaign-finance/${props.votesmart}`
   if (props.cid) {
     return (

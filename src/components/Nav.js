@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchPolitician } from '../actions/actions.js';
 import NavItems from './NavItems.js';
 
 class Nav extends Component {
@@ -19,4 +22,15 @@ class Nav extends Component {
     )
   }
 }
-export default Nav;
+
+const mapDispatchToProps = dispatch => bindActionCreators (
+  {
+    fetchPolitician
+  },
+  dispatch,
+)
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Nav);
