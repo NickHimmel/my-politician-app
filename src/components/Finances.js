@@ -10,12 +10,10 @@ const Finances = (props) => {
     return (
       <div id='active' className='finances politician-info'>
         <h3>Finances</h3>
-        <div className='horizontal-scroll'>
-          <Summary summary={props.summary}/>
-          <Contributors contributors={props.contributors}/>
-          <Industries industries={props.industries} />
-          <Sectors sectors={props.sectors}/>
-        </div>
+        <Summary summary={props.finances.summary}/>
+        <Contributors contributors={props.finances.contributors}/>
+        <Industries industries={props.finances.industries} />
+        <Sectors sectors={props.finances.sectors}/>
       </div>
     )} else {
       return (
