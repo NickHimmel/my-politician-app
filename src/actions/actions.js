@@ -1,21 +1,21 @@
 import axios from 'axios';
 
-export const startfetchRepresentatives = () => {
+export const startfetchPoliticians = () => {
   return {
-    type: 'START_FETCH_REPRESENTATIVES'
+    type: 'START_FETCH_POLITICIANS'
   };
 };
 
-export const completefetchRepresentatives = (data) => {
+export const completefetchPoliticians = (data) => {
   return {
-    type: 'COMPLETE_FETCH_REPRESENTATIVES',
+    type: 'COMPLETE_FETCH_POLITICIANS',
     data
   };
 };
 
-export const closeRepresentatives = () => {
+export const closePolitician = () => {
   return {
-    type: 'CLOSE_REPRESENTATIVES'
+    type: 'CLOSE_POLITICIAN'
   };
 };
 
@@ -58,9 +58,9 @@ export const hasNoCid = () => {
   };
 };
 
-export const fetchRepresentatives = (abbreviation, state, district) => {
+export const fetchPoliticians = (abbreviation, state, district) => {
   return (dispatch, getState) => {
-    dispatch(startfetchRepresentatives());
+    dispatch(startfetchPoliticians());
     const token = process.env.REACT_APP_PROPUBLICA_API_KEY;
     const AUTH_HEADER = {
       headers: {
@@ -71,7 +71,7 @@ export const fetchRepresentatives = (abbreviation, state, district) => {
       axios.get(`https://api.propublica.org/congress/v1/members/house/${abbreviation}/${district}/current.json`, AUTH_HEADER),
       axios.get(`https://api.propublica.org/congress/v1/members/senate/${abbreviation}/current.json`, AUTH_HEADER)
     ]).then(function ([house, senate]) {
-        dispatch(completefetchRepresentatives({
+        dispatch(completefetchPoliticians({
           state: state,
           district: house.data.results[0].district,
           house: house.data.results[0],

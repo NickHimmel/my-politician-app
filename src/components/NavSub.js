@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavForPolitician = (props) => {
+const NavSub = (props) => {
   return (
     <div className="nav">
       <ul>
@@ -13,4 +13,4 @@ const NavForPolitician = (props) => {
   );
 }
 
-export default NavForPolitician;
+export default NavSub;
