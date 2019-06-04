@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchRepresentatives } from '../actions/actions.js';
+import { fetchPoliticians } from '../actions/actions.js';
 
 class Map extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    const fetchRepresentatives = this.props.fetchRepresentatives;
+    const fetchPoliticians = this.props.fetchPoliticians;
 
     const width = 960,
           height = 600;
@@ -59,9 +59,9 @@ class Map extends Component {
             const state = fips[data.properties.STATEFP].name;
             const district = data.properties.CD116FP;
             if (district === "00" || district ==="98") {
-              fetchRepresentatives(abbreviation, state, "01");
+              fetchPoliticians(abbreviation, state, "01");
             } else {
-              fetchRepresentatives(abbreviation, state, district);
+              fetchPoliticians(abbreviation, state, district);
             }
           })
         .append('title')
@@ -95,7 +95,7 @@ class Map extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators (
   {
-    fetchRepresentatives
+    fetchPoliticians
   },
   dispatch,
 )

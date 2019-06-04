@@ -1,10 +1,10 @@
-export const representativesReducer = (state = [], action) => {
+export const politiciansReducer = (state = [], action) => {
     switch (action.type) {
-      case 'START_FETCH_REPRESENTATIVES':
+      case 'START_FETCH_POLITICIANS':
         return {
           isFetching: true
         };
-      case 'COMPLETE_FETCH_REPRESENTATIVES':
+      case 'COMPLETE_FETCH_POLITICIANS':
         return {
           isFetching: false,
           state: action.data.state,
@@ -12,7 +12,7 @@ export const representativesReducer = (state = [], action) => {
           house: action.data.house,
           senate: action.data.senate
         };
-      case 'CLOSE_REPRESENTATIVES':
+      case 'CLOSE_POLITICIAN':
         return {
           isFetching: undefined
         };
