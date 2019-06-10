@@ -87,7 +87,7 @@ class Map extends Component {
   render() {
     return (
       <div id='container'>
-        <h1>116th United States Congressional Districts</h1>
+        <h1>My Politician</h1>
       </div>
     );
   }

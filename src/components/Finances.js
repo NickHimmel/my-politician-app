@@ -9,7 +9,6 @@ const Finances = (props) => {
   if (props.cid) {
     return (
       <div id='active' className='finances politician-info'>
-        <h3>Finances</h3>
         <Summary summary={props.finances.summary}/>
         <Contributors contributors={props.finances.contributors}/>
         <Industries industries={props.finances.industries} />

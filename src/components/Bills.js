@@ -18,7 +18,6 @@ const Bills = (props) => {
   );
   return (
     <div className="bills politician-info">
-      <h3>Last Twenty Bills Sponsored</h3>
       <table>
         <tbody>
           <tr>
