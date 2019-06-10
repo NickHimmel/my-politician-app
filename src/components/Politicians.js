@@ -28,7 +28,7 @@ class Politicians extends Component {
       )
     } else if (this.props.fetchingId === false) {
       return (
-        <div className='representatives'>
+        <div className='politicians'>
           <ButtonClose onClick={this.handleClose}/>
           <h2>{this.props.state}'s {this.props.district} District</h2>
           <NavHeader house={this.props.house} senate={this.props.senate} onClick={this.handleClick}/>
