@@ -2,6 +2,7 @@
 @import './styles/Nav.scss';
 @import './styles/Politicians.scss';
 @import './styles/Politician.scss';
+@import './styles/Button.scss';
 @import './styles/Social.scss';
 @import './styles/Finances.scss';
 @import './styles/Terms.scss';
@@ -14,12 +15,6 @@ button {
   background: none;
   border: 0;
   cursor: pointer;
-  margin: 10px;
-  padding: 5px 0;
-}
-
-button:hover {
-  border-bottom: 1px solid #000;
 }
 
 button:focus {
