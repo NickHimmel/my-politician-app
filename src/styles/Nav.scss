@@ -1,10 +1,11 @@
 .nav {
 
-  button:hover {
-    border-bottom: 1px solid #000;
+  button {
+    margin-right: 15px;
+    padding-bottom: 5px;
   }
 
-  #representative, #tab {
+  button:hover {
     border-bottom: 1px solid #000;
   }
 
@@ -17,5 +18,13 @@
   li {
     cursor: pointer;
     display: inline-block;
+  }
+
+  #representative, #tab {
+    border-bottom: 1px solid #000;
+  }
+
+  .nav-sub {
+    margin: 25px 0;
   }
 }

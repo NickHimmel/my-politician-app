@@ -30,7 +30,7 @@ class Politicians extends Component {
       return (
         <div className='politicians'>
           <ButtonClose onClick={this.handleClose}/>
-          <h2>{this.props.state}'s {this.props.district} District</h2>
+          <h4>{this.props.state}'s {this.props.district} District</h4>
           <NavHeader house={this.props.house} senate={this.props.senate} onClick={this.handleClick}/>
           <Politician />
         </div>

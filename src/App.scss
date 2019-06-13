@@ -1,3 +1,4 @@
+@import './styles/Intro.scss';
 @import './styles/Map.scss';
 @import './styles/Nav.scss';
 @import './styles/Politicians.scss';
@@ -9,16 +10,33 @@
 
 body {
   box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 button {
   background: none;
   border: 0;
   cursor: pointer;
+  padding: 0;
 }
 
 button:focus {
   outline: none;
+}
+
+h2 {
+  font-size: 31.25px;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 25.00px;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 20.00px;
+  font-weight: 400;
 }
 
 table {
@@ -47,14 +65,6 @@ table {
   position: relative;
 }
 
-// .horizontal-scroll {
-//   display: flex;
-//   flex-wrap: nowrap;
-//   margin: 0 10px 10px 0;
-//   overflow-x: auto;
-//
-//   .card {
-//     flex: 0 0 auto;
-//     padding-right: 50px;
-//   }
-// }
+.bold {
+  font-weight: 700;
+}

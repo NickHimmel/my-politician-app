@@ -3,7 +3,7 @@ import React from 'react';
 const NavSub = (props) => {
   return (
     <div className="nav">
-      <ul>
+      <ul className="nav-sub">
         <li><button id="tab" onClick={(e) => props.onClick(e, "finances")}>Finances</button></li>
         <li><button onClick={(e) => props.onClick(e, "terms")}>Terms</button></li>
         <li><button onClick={(e) => props.onClick(e, "votes")}>Last 20 Votes</button></li>

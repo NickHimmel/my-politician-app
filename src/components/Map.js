@@ -87,7 +87,6 @@ class Map extends Component {
   render() {
     return (
       <div id='container'>
-        <h1>My Politician</h1>
       </div>
     );
   }
