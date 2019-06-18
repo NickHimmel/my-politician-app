@@ -2,6 +2,17 @@
   display: block;
 }
 
-.politician-info {
-  display: none;
+.politician {
+
+  .politician-banner {
+    background-color: $lightred;
+    margin: 0 15px;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+
+  .politician-info {
+    display: none;
+  }
+
 }
