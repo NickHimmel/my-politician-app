@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { closePolitician, fetchPolitician } from '../actions/actions.js';
+import { getOrdinal } from '../utils/helpers.js';
 import Loading from './Loading.js';
 import ButtonClose from './ButtonClose.js';
 import NavHeader from './NavHeader.js';
@@ -28,10 +29,11 @@ class Politicians extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
+      const district = getOrdinal(this.props.district)
       return (
         <div className='politicians'>
           <ButtonClose onClick={this.handleClose}/>
-          <h4 className='district'>{this.props.state}'s {this.props.district} District</h4>
+          <h4 className='district'>{this.props.state}'s {district} District</h4>
           <NavHeader house={this.props.house} senatorOne={this.props.senate[0]} senatorTwo={this.props.senate[1]} onClick={this.handleClick}/>
           <Politician />
         </div>
