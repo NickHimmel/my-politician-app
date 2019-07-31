@@ -17,45 +17,39 @@
 
   .nav-header {
     border-bottom: 1px solid #000;
-    margin-bottom: 25px;
+    margin: 25px 0;
     padding-left: 15px;
 
     button {
       margin-right: 50px;
 
-      span {
-        color: $darkgrey;
-        font-size: 13.33px;
+      p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
       }
 
-      h3 {
-        padding-bottom: 3px;
-      }
-
-      h3:hover {
-        border-bottom: 4px solid #000;
+      p:hover {
+        border-bottom: 8px solid #000;
       }
     }
 
-    #header-clicked {
-      border-bottom: 4px solid #000;
+    #active-button {
+      border-bottom: 8px solid #000;
     }
 
   }
 
   .nav-sub {
-    margin: 15px;
 
-    button {
-      padding: 10px;
+    button:hover {
+      background-color: $blue;
+      color: #fff;
     }
 
-    li {
-      margin-right: 25px;
-    }
-
-    #sub-clicked {
-
+    #nav-sub-active {
+      background-color: $blue;
+      color: #fff;
     }
   }
 }

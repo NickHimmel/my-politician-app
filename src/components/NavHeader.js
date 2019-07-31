@@ -6,17 +6,17 @@ const NavHeader = (props) => {
       <ul className='nav-header'>
         <li>
           <button onClick={(e) => props.onClick(e, props.house.id, props.house.next_election)}>
-            <span>Representative</span><br/> <h3 id='header-clicked'>{props.house.name} ({props.house.party})</h3>
+            <span className='label'>Representative</span><p id='active-button'>{props.house.name} ({props.house.party})</p>
           </button>
         </li>
         <li>
           <button onClick={(e) => props.onClick(e, props.senatorOne.id, props.senatorOne.next_election)}>
-            <span>Senator</span><br/> <h3>{props.senatorOne.name} ({props.senatorOne.party})</h3>
+            <span className='label'>Senator</span><p>{props.senatorOne.name} ({props.senatorOne.party})</p>
           </button>
         </li>
         <li>
           <button onClick={(e) => props.onClick(e, props.senatorTwo.id, props.senatorTwo.next_election)}>
-            <span>Senator</span><br/> <h3>{props.senatorTwo.name} ({props.senatorTwo.party})</h3>
+            <span className='label'>Senator</span><p>{props.senatorTwo.name} ({props.senatorTwo.party})</p>
           </button>
         </li>
       </ul>

@@ -3,12 +3,11 @@
 }
 
 .politician {
+  margin-left: 15px;
 
-  .politician-banner {
-    background-color: $lightred;
-    margin: 0 15px;
-    padding: 10px;
-    text-transform: uppercase;
+  .politician-label {
+    text-align: center;
+    width: 231px;
   }
 
   .politician-info {

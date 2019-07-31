@@ -15,12 +15,11 @@ class Politicians extends Component {
   }
 
   handleClick = (e, id, nextElection) => {
-    const el = e.target;
-    console.log(e);
-    const current = document.getElementById('header-clicked');
-    current.removeAttribute('id');
-    el.setAttribute('id', 'header-clicked');
-    this.props.fetchPolitician(id,nextElection);
+    const targetButton = e.target.parentElement;
+    const activeButton = document.getElementById('active-button');
+    activeButton.removeAttribute('id');
+    targetButton.querySelector('p').setAttribute('id', 'active-button');
+
   }
 
   render() {
@@ -33,7 +32,7 @@ class Politicians extends Component {
       return (
         <div className='politicians'>
           <ButtonClose onClick={this.handleClose}/>
-          <h4 className='district'>{this.props.state}'s {district} District</h4>
+          <p className='district label'>{this.props.state}'s {district} District</p>
           <NavHeader house={this.props.house} senatorOne={this.props.senate[0]} senatorTwo={this.props.senate[1]} onClick={this.handleClick}/>
           <Politician />
         </div>
