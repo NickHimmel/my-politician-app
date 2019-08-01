@@ -19,7 +19,7 @@ class Politicians extends Component {
     const activeButton = document.getElementById('active-button');
     activeButton.removeAttribute('id');
     targetButton.querySelector('p').setAttribute('id', 'active-button');
-
+    this.props.fetchPolitician(id,nextElection);
   }
 
   render() {

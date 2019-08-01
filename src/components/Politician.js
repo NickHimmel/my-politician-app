@@ -14,7 +14,7 @@ class Politician extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.id !== prevProps.id) {
-      console.log("load")
+      this.props.fetchFinances(this.props.id)
     }
   }
 
