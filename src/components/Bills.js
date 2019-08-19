@@ -1,40 +1,48 @@
 import React from 'react';
+import { formatDate } from '../utils/helpers.js';
+import Bill from './Bill.js';
+
 const shortid = require('shortid');
 
 const Bills = (props) => {
-  const bills = props.bills.map((bill) =>
-    <tr key={shortid.generate()}>
-      <td>The {bill.congress} United States Congress {bill.introduced_date}</td>
-      <td>{bill.short_title}</td>
-      <td>{bill.summary_short}</td>
-      <td>{bill.cosponsors}</td>
-      <td>D:{bill.cosponsors_by_party.D} R:{bill.cosponsors_by_party.R}</td>
-      <td>{bill.latest_major_action} on {bill.latest_major_action_date}</td>
-      <td>{bill.active}</td>
-      <td>{bill.last_vote}</td>
-      <td>{bill.house_passage}</td>
-      <td>{bill.senate_passage}</td>
-    </tr>
-  );
+  const bills = props.bills.map((bill) => {
+    const billDate = formatDate(bill.introduced_date);
+
+    let isActive = 'no',
+        housePassage = 'no',
+        senatePassage = 'no';
+
+    console.log(bill)
+
+    if (bill.active === null) {
+      isActive = '';
+    } else if (bill.active) {
+      isActive = 'yes';
+    }
+
+    if(bill.house_passage) {
+      housePassage = formatDate(bill.house_passage);
+    }
+
+    if(bill.senate_passage) {
+      senatePassage = formatDate(bill.senate_passage);
+    }
+
+    return (
+      <Bill key={shortid.generate()} bill={bill} isActive={isActive} billDate={billDate} housePassage={housePassage} senatePassage={senatePassage}/>
+    )
+  });
   return (
-    <div className="bills politician-info">
-      <table>
-        <tbody>
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Summary</th>
-            <th>Number of Cosponsors</th>
-            <th>Cosponsors By Party</th>
-            <th>Action</th>
-            <th>Active</th>
-            <th>Last Vote</th>
-            <th>Passed in the House</th>
-            <th>Passed in the Senate</th>
-          </tr>
-          {bills}
-        </tbody>
-      </table>
+    <div className='bills politician-info'>
+      <div className='grid-12 grid-12-header'>
+        <div></div>
+        <div className='span-3 bills-title'>Title</div>
+        <div>Number of Cosponsors</div>
+        <div className='span-3'>Last Action</div>
+        <div>Is Active</div>
+        <div>Passed in the House/Senate</div>
+      </div>
+      {bills}
     </div>
   );
 }

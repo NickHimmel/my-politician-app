@@ -8,10 +8,12 @@
 @import './styles/Social.scss';
 @import './styles/Finances.scss';
 @import './styles/Terms.scss';
+@import './styles/Grids.scss';
 
 body {
   box-sizing: border-box;
   font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
 }
 
 button {
@@ -48,6 +50,38 @@ h4 {
   text-transform: uppercase;
 }
 
+.app {
+  position: relative;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.label {
+  color: $darkgrey;
+  font-size: .8em;
+  font-weight: 400;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+}
+
+.label-blue {
+  color: $blue;
+}
+
+.label-light-blue {
+  background-color: $lightblue;
+  color: #000;
+  font-size: .8em;
+  font-weight: 400;
+  letter-spacing: 2.3px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding: 15px;
+  text-transform: uppercase;
+}
+
 table {
   width: 100%;
   border-spacing: 0;
@@ -68,33 +102,4 @@ table {
   th {
     text-align: left;
   }
-}
-
-.app {
-  position: relative;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-.label {
-  color: $darkgrey;
-  font-size: 12.80px;
-  font-weight: 400;
-  letter-spacing: 2.3px;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-.label-blue {
-  background-color: $lightblue;
-  color: #000;
-  font-size: 12.80px;
-  font-weight: 400;
-  letter-spacing: 2.3px;
-  margin-top: 0;
-  margin-bottom: 25px;
-  padding: 15px;
-  text-transform: uppercase;
 }

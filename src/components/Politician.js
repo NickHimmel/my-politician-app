@@ -21,7 +21,6 @@ class Politician extends Component {
   handleClick = (e, info) => {
     const hide = document.getElementById('active');
     const el = e.target;
-    console.log(e)
     const current = document.getElementById('nav-sub-active');
     hide.removeAttribute('id');
     current.removeAttribute('id');
@@ -39,7 +38,7 @@ class Politician extends Component {
       return (
         <div className='politician'>
           <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
-          <p className='label-blue politician-label'>Up for reelection in {this.props.nextElection}</p>
+          <p className='label-light-blue politician-label'>Up for reelection in {this.props.nextElection}</p>
           <NavSub onClick={this.handleClick} />
           <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />

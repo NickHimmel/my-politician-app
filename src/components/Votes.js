@@ -1,30 +1,38 @@
 import React from 'react';
+import { formatDate } from '../utils/helpers.js';
 const shortid = require('shortid');
 
 const Votes = (props) => {
-  const votes = props.votes.map((vote) =>
-    <tr key={shortid.generate()}>
-      <td>The {vote.congress} United States Congress {vote.date}</td>
-      <td>{vote.bill.title} {vote.description}</td>
-      <td>{vote.position}</td>
-      <td>{vote.question}</td>
-      <td>{vote.result}</td>
-    </tr>
-  );
+  const votes = props.votes.map((vote) => {
+    const voteDate = formatDate(vote.date);
+
+    return (
+      <div className='grid-12' key={shortid.generate()}>
+        <div>
+          <span className='label label-blue'>{voteDate}</span>
+        </div>
+        <div className='span-5'>
+          <p>{vote.description}</p>
+          <p>{vote.bill.title}</p>
+        </div>
+        <div className='span-3'>{vote.question}</div>
+        <div className={vote.position.toLowerCase()}>
+          <p>{vote.position}</p>
+        </div>
+        <div>{vote.result}</div>
+      </div>
+    );
+  });
   return (
-    <div className="votes politician-info">
-      <table>
-        <tbody>
-          <tr>
-            <th></th>
-            <th>Bill</th>
-            <th>Vote</th>
-            <th>Question</th>
-            <th>Result</th>
-          </tr>
+    <div className='votes politician-info'>
+          <div className='grid-12 grid-12-header'>
+            <div></div>
+            <div className='span-5'>Bill</div>
+            <div className='span-3'>Question Voted On</div>
+            <div>Vote</div>
+            <div>Result</div>
+          </div>
           {votes}
-        </tbody>
-      </table>
     </div>
   );
 }
