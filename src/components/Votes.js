@@ -1,5 +1,7 @@
 import React from 'react';
 import { formatDate } from '../utils/helpers.js';
+import Vote from './Vote.js';
+
 const shortid = require('shortid');
 
 const Votes = (props) => {
@@ -7,30 +9,17 @@ const Votes = (props) => {
     const voteDate = formatDate(vote.date);
 
     return (
-      <div className='grid-12' key={shortid.generate()}>
-        <div>
-          <span className='label label-blue'>{voteDate}</span>
-        </div>
-        <div className='span-5'>
-          <p>{vote.description}</p>
-          <p>{vote.bill.title}</p>
-        </div>
-        <div className='span-3'>{vote.question}</div>
-        <div className={vote.position.toLowerCase()}>
-          <p>{vote.position}</p>
-        </div>
-        <div>{vote.result}</div>
-      </div>
+      <Vote key={shortid.generate()} vote={vote} voteDate={voteDate}/>
     );
   });
   return (
     <div className='votes politician-info'>
           <div className='grid-12 grid-12-header'>
             <div></div>
-            <div className='span-5'>Bill</div>
-            <div className='span-3'>Question Voted On</div>
-            <div>Vote</div>
-            <div>Result</div>
+            <div className='label span-5'>Bill</div>
+            <div className='label span-3'>Question Voted On</div>
+            <div className='label grid-12-centered'>Vote</div>
+            <div className='label grid-12-centered'>Result</div>
           </div>
           {votes}
     </div>

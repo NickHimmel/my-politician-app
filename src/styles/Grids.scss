@@ -10,6 +10,10 @@
     margin-top: 0;
   }
 
+  .grid-12-centered {
+    text-align: center;
+  }
+
   .span-2 {
     grid-column: span 2;
   }
@@ -21,6 +25,30 @@
   .span-5 {
     grid-column: span 5;
   }
+
+  .no, .yes, .not {
+    color: #fff;
+    margin: auto;
+    text-transform: uppercase;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .no {
+    background-color: $red;
+  }
+
+  .not {
+    background-color: #7d7373;
+  }
+
+  .yes {
+    background-color: $green;
+  }
 }
 
 .grid-12:last-child {
@@ -28,7 +56,6 @@
 }
 
 .grid-12-header {
-  font-weight: 700;
   padding: 0 0 5px 0;
 }
 
@@ -37,16 +64,6 @@
   .votes-description {
     background-color: $lightgrey;
     padding: 10px;
-  }
-
-  .no {
-    color: $red;
-    text-transform: uppercase;
-  }
-
-  .yes {
-    color: $green;
-    text-transform: uppercase;
   }
 }
 
