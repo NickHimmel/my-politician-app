@@ -1,7 +1,15 @@
 .finances {
 
   .contributors, .industries, .sectors {
+    margin-top: 50px;
     width: 550px;
+  }
+
+  .contributors {
+
+    .contributors-disclaimer {
+      font-size: .8em;
+    }
   }
 
 }
