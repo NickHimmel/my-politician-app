@@ -30,28 +30,46 @@
     display: none;
   }
 
-  .no, .yes, .not {
+  .read-more {
+    border-bottom: 1px solid $grey;
+    color: $grey;
+  }
+
+  .status {
     color: #fff;
-    margin: auto;
     text-transform: uppercase;
-    width: 100px;
-    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .no, .not, .yes {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .no {
+      background-color: $lightred;
+      color: $red;
+      width: 40px;
+      height: 40px;
+    }
+
+    .not {
+      background-color: #f2f1f1;
+      color:  #7d7373;
+      width: 100px;
+      height: 50px;
+    }
+
+    .yes {
+      background-color: $lightgreen;
+      color: $green;
+      width: 40px;
+      height: 40px;
+    }
   }
 
-  .no {
-    background-color: $red;
-  }
-
-  .not {
-    background-color: #7d7373;
-  }
-
-  .yes {
-    background-color: $green;
-  }
 }
 
 .grid-12:last-child {
@@ -64,9 +82,15 @@
 
 .votes {
 
-  .votes-description {
-    background-color: $lightgrey;
-    padding: 10px;
+  .votes-bill {
+
+    .votes-title {
+      font-weight: 700;
+    }
+
+    .votes-description {
+      color: $grey;
+    }
   }
 }
 
