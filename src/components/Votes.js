@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDate } from '../utils/helpers.js';
+import { formatDate, sliceText } from '../utils/helpers.js';
 import Vote from './Vote.js';
 
 const shortid = require('shortid');
@@ -7,9 +7,10 @@ const shortid = require('shortid');
 const Votes = (props) => {
   const votes = props.votes.map((vote) => {
     const voteDate = formatDate(vote.date);
+    const bill = sliceText(vote.description, vote.bill.title);
 
     return (
-      <Vote key={shortid.generate()} vote={vote} voteDate={voteDate}/>
+      <Vote key={shortid.generate()} vote={vote} voteDate={voteDate} bill={bill} isLong={bill.isLong}/>
     );
   });
   return (

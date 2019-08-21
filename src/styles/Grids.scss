@@ -26,6 +26,10 @@
     grid-column: span 5;
   }
 
+  .more, .dots-none {
+    display: none;
+  }
+
   .no, .yes, .not {
     color: #fff;
     margin: auto;
@@ -36,7 +40,6 @@
     justify-content: center;
     align-items: center;
   }
-
 
   .no {
     background-color: $red;

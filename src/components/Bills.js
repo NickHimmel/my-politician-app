@@ -12,8 +12,6 @@ const Bills = (props) => {
         housePassage = 'no',
         senatePassage = 'no';
 
-    console.log(bill)
-
     if (bill.active === null) {
       isActive = '';
     } else if (bill.active) {
