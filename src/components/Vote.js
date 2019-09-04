@@ -7,29 +7,26 @@ const Vote = (props) => {
       <div>
         <span className='label label-blue'>{props.voteDate}</span>
       </div>
-      {props.isLong ? (
-        <div className='span-5 votes-bill'>
-          <p className='votes-title'>
-            {props.bill.shortTitle}
-            <span className='votes-more-title more'>{props.bill.longTitle}</span>
-          </p>
-          <p className='votes-description'>
-            {props.bill.shortDescription}
-            <span className='votes-more-desc more'>{props.bill.longDescription}</span>
-          </p>
-          <span className='dots'>...</span><button className='read-more' onClick={(e) => readMore(e)}>Read more</button>
-        </div>
-      ) : (
-        <div className='span-5 votes-bill'>
-          <p className='votes-title'>{props.bill.shortTitle}</p>
-          <p className='votes-description'>{props.bill.description}</p>
-        </div>
-      )}
-      <div className='span-3'>{props.vote.question}</div>
-      <div className='status'>
-        <div className={props.vote.position.toLowerCase()}><span>{props.vote.position}</span></div>
+      <div className='span-5 votes-bill'>
+        <p className='grid-bold'>
+          {props.bill.shortTitle}
+          <span className='more-title more'>{props.bill.longTitle}</span>
+        </p>
+        <p className='grid-light'>
+          {props.bill.shortDescription}
+          <span className='more-desc more'>{props.bill.longDescription}</span>
+        </p>
+        {props.isLong &&
+          <button className='read-more' onClick={(e) => readMore(e)}>Read more</button>
+        }
       </div>
-      <div>{props.vote.result}</div>
+      <div className='span-2'>{props.vote.question}</div>
+      <div className='span-2 status'>
+        <div className={props.voteResult.className}>{props.vote.position}</div>
+      </div>
+      <div className='span-2 status'>
+        <div className={props.billResult.className}>{props.vote.result}</div>
+      </div>
     </div>
   );
 }

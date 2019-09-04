@@ -1,15 +1,24 @@
 .finances {
 
-  .contributors, .industries, .sectors {
-    margin-top: 50px;
+  h3 {
+    margin-bottom: 0;
+  }
+
+  .cash, .contributors, .industries, .sectors {
+    margin-bottom: 50px;
     width: 550px;
   }
 
-  .contributors {
-
-    .contributors-disclaimer {
-      font-size: .8em;
-    }
+  .finances-tables {
+    display: flex;
+    flex-wrap: wrap;
   }
 
+  .finances-dates {
+    display: flex;
+
+    p {
+      margin: 0 10px 0 0;
+    }
+  }
 }

@@ -10,8 +10,16 @@
     margin-top: 0;
   }
 
-  .grid-12-centered {
+  .grid-centered {
     text-align: center;
+  }
+
+  .grid-bold {
+    font-weight: 700;
+  }
+
+  .grid-light {
+    color: $grey;
   }
 
   .span-2 {
@@ -20,6 +28,10 @@
 
   .span-3 {
     grid-column: span 3;
+  }
+
+  .span-4 {
+    grid-column: span 4;
   }
 
   .span-5 {
@@ -42,31 +54,29 @@
     justify-content: center;
     align-items: center;
 
-    .no, .not, .yes {
+    .absent, .no, .yes {
       display: flex;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      padding: 5px;
+      width: 80%;
+      height: 50px;
+    }
+
+    .absent {
+      background-color: #f2f1f1;
+      color:  #7d7373;
     }
 
     .no {
       background-color: $lightred;
       color: $red;
-      width: 40px;
-      height: 40px;
-    }
-
-    .not {
-      background-color: #f2f1f1;
-      color:  #7d7373;
-      width: 100px;
-      height: 50px;
     }
 
     .yes {
       background-color: $lightgreen;
       color: $green;
-      width: 40px;
-      height: 40px;
     }
   }
 
@@ -78,26 +88,4 @@
 
 .grid-12-header {
   padding: 0 0 5px 0;
-}
-
-.votes {
-
-  .votes-bill {
-
-    .votes-title {
-      font-weight: 700;
-    }
-
-    .votes-description {
-      color: $grey;
-    }
-  }
-}
-
-.bills {
-
-  .bills-date {
-    grid-column: span 2;
-  }
-
 }

@@ -46,22 +46,55 @@ export const sliceText = (billTitle, billDescription) => {
 }
 
 export const readMore = (e) => {
-  let parentEl = e.target.parentElement;
-  let moreText = parentEl.getElementsByClassName('more');
-  let btnText = e.target;
-  let dots = parentEl.getElementsByClassName('dots');
-  let title = parentEl.getElementsByClassName('votes-more-title');
-  let description = parentEl.getElementsByClassName('votes-more-desc');
+  let parentEl = e.target.parentElement,
+      moreText = parentEl.getElementsByClassName('more'),
+      btnText = e.target,
+      title = parentEl.getElementsByClassName('more-title'),
+      description = parentEl.getElementsByClassName('more-desc');
 
   if(moreText.length === 0) {
     btnText.innerHTML = 'Read more';
-    dots[0].classList.remove('dots-none');
     title[0].classList.add('more');
     description[0].classList.add('more');
   } else {
     btnText.innerHTML = 'Read less';
-    dots[0].classList.add('dots-none');
     title[0].classList.remove('more');
     description[0].classList.remove('more');
+  }
+}
+
+export const isActive = (active) => {
+  if (active === null) {
+    return '';
+  } else if (active) {
+    return 'yes';
+  };
+  return 'no';
+}
+
+export const resultsAre = (result) => {
+  const res = result.toLowerCase()
+  if (res === 'yes' || res === 'passed' || res === 'bill Passed' || res === 'nomination confirmed' || res === 'cloture motion agreed to') {
+    return {
+      className: 'yes'
+    }
+  } else if (res === 'no' || res === 'failed' || res === 'cloture motion rejected' || res === 'amendment rejected') {
+    return {
+      className: 'no'
+    }
+  }
+  return {
+    className: 'absent'
+  }
+}
+
+export const billPassage = (currentStatus) => {
+  if (currentStatus) {
+    return {
+      isPassed: 'yes'
+    }
+  }
+  return {
+    isPassed: 'no'
   }
 }
