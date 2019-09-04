@@ -1,0 +1,14 @@
+.politicians {
+  background-color: #fff;
+  padding-top: 25px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+
+  .district {
+    margin-left: 15px;
+  }
+}

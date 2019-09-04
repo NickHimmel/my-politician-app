@@ -1,4 +1,6 @@
 .social {
+  margin-bottom: 25px;
+
   a {
     cursor: pointer;
   }
@@ -8,8 +10,12 @@
   }
 
   .social-icon {
-    cursor: pointer;
-    margin: 10px 15px;
-    width: 35px;
+
+    img {
+      cursor: pointer;
+      margin-right: 18px;
+      width: 25px;
+      vertical-align: middle;
+    }
   }
 }

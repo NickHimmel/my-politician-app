@@ -5,9 +5,9 @@ const Contributors = (props) => {
   const contributors = props.contributors.contributor.map((contributor) =>
     <tr key={shortid.generate()}>
       <td>{contributor['@attributes'].org_name}</td>
-      <td>${contributor['@attributes'].total}</td>
-      <td>${contributor['@attributes'].indivs}</td>
-      <td>${contributor['@attributes'].pacs}</td>
+      <td className='align-right'>${contributor['@attributes'].total}</td>
+      <td className='align-right'>${contributor['@attributes'].indivs}</td>
+      <td className='align-right'>${contributor['@attributes'].pacs}</td>
     </tr>
   );
   return (
@@ -17,14 +17,14 @@ const Contributors = (props) => {
           <tbody>
             <tr>
               <th>Contributor</th>
-              <th>Total</th>
-              <th>Individuals</th>
-              <th>PACs</th>
+              <th className='align-right'>Total</th>
+              <th className='align-right'>Individuals</th>
+              <th className='align-right'>PACs</th>
             </tr>
             {contributors}
           </tbody>
         </table>
-        <p>*{props.contributors['@attributes'].notice}</p>
+        <p className='small-type'>* {props.contributors['@attributes'].notice}</p>
     </div>
   );
 }

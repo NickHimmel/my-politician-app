@@ -21,10 +21,10 @@ class Politician extends Component {
   handleClick = (e, info) => {
     const hide = document.getElementById('active');
     const el = e.target;
-    const current = document.getElementById('tab');
+    const current = document.getElementById('nav-sub-active');
     hide.removeAttribute('id');
     current.removeAttribute('id');
-    el.setAttribute('id', 'tab');
+    el.setAttribute('id', 'nav-sub-active');
     const show = document.getElementsByClassName(info);
     show[0].setAttribute('id', 'active');
   }
@@ -37,14 +37,12 @@ class Politician extends Component {
     } else if (this.props.fetchingPolitician === false && this.props.fetchingFinances === false) {
       return (
         <div className='politician'>
-          <h3>{this.props.politician.first_name} {this.props.politician.last_name}</h3>
-          <h4>Up for reelection in {this.props.nextElection}</h4>
           <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
           <NavSub onClick={this.handleClick} />
           <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />
-          <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} finances={this.props.finances}/>
+          <Finances cid={this.props.hasCid} reelection={this.props.nextElection} votesmart={this.props.votesmart} finances={this.props.finances}/>
         </div>
       )
     }

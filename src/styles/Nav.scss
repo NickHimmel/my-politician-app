@@ -1,6 +1,7 @@
 .nav {
-  #representative, #tab {
-    border-bottom: 1px solid #000;
+
+  button {
+    text-align: left;
   }
 
   ul {
@@ -12,5 +13,43 @@
   li {
     cursor: pointer;
     display: inline-block;
+  }
+
+  .nav-header {
+    border-bottom: 1px solid #000;
+    margin: 25px 0;
+    padding-left: 15px;
+
+    button {
+      margin-right: 50px;
+
+      p {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      p:hover {
+        border-bottom: 8px solid #000;
+      }
+    }
+
+    #active-button {
+      border-bottom: 8px solid #000;
+    }
+
+  }
+
+  .nav-sub {
+
+    button:hover {
+      background-color: $blue;
+      color: #fff;
+    }
+
+    #nav-sub-active {
+      background-color: $blue;
+      color: #fff;
+    }
   }
 }

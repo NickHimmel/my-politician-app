@@ -2,6 +2,11 @@
   display: block;
 }
 
-.politician-info {
-  display: none;
+.politician {
+  margin: 0 15px;
+
+  .politician-info {
+    display: none;
+  }
+
 }

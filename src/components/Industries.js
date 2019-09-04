@@ -5,9 +5,9 @@ const Industries = (props) => {
   const industries = props.industries.map((industry) =>
     <tr key={shortid.generate()}>
       <td>{industry['@attributes'].industry_name}</td>
-      <td>${industry['@attributes'].total}</td>
-      <td>${industry['@attributes'].indivs}</td>
-      <td>${industry['@attributes'].pacs}</td>
+      <td className='align-right'>${industry['@attributes'].total}</td>
+      <td className='align-right'>${industry['@attributes'].indivs}</td>
+      <td className='align-right'>${industry['@attributes'].pacs}</td>
     </tr>
   );
   return (
@@ -17,9 +17,9 @@ const Industries = (props) => {
           <tbody>
             <tr>
               <th>Industry</th>
-              <th>Total</th>
-              <th>Individuals</th>
-              <th>PACs</th>
+              <th className='align-right'>Total</th>
+              <th className='align-right'>Individuals</th>
+              <th className='align-right'>PACs</th>
             </tr>
             {industries}
           </tbody>

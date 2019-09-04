@@ -5,9 +5,9 @@ const Sectors = (props) => {
   const sectors = props.sectors.map((sector) =>
     <tr key={shortid.generate()}>
       <td>{sector['@attributes'].sector_name}</td>
-      <td>${sector['@attributes'].total}</td>
-      <td>${sector['@attributes'].indivs}</td>
-      <td>${sector['@attributes'].pacs}</td>
+      <td className='align-right'>${sector['@attributes'].total}</td>
+      <td className='align-right'>${sector['@attributes'].indivs}</td>
+      <td className='align-right'>${sector['@attributes'].pacs}</td>
     </tr>
   );
   return (
@@ -17,9 +17,9 @@ const Sectors = (props) => {
           <tbody>
             <tr>
               <th>Sector</th>
-              <th>Total</th>
-              <th>Individuals</th>
-              <th>PACs</th>
+              <th className='align-right'>Total</th>
+              <th className='align-right'>Individuals</th>
+              <th className='align-right'>PACs</th>
             </tr>
             {sectors}
           </tbody>

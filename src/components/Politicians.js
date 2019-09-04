@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { closePolitician, fetchPolitician } from '../actions/actions.js';
+import { getOrdinal } from '../utils/helpers.js';
 import Loading from './Loading.js';
 import ButtonClose from './ButtonClose.js';
 import NavHeader from './NavHeader.js';
@@ -14,10 +15,10 @@ class Politicians extends Component {
   }
 
   handleClick = (e, id, nextElection) => {
-    const el = e.target;
-    const current = document.getElementById('representative');
-    current.removeAttribute('id');
-    el.setAttribute('id', 'representative');
+    const targetButton = e.target.parentElement;
+    const activeButton = document.getElementById('active-button');
+    activeButton.removeAttribute('id');
+    targetButton.querySelector('p').setAttribute('id', 'active-button');
     this.props.fetchPolitician(id,nextElection);
   }
 
@@ -27,11 +28,12 @@ class Politicians extends Component {
         <Loading />
       )
     } else if (this.props.fetchingId === false) {
+      const district = getOrdinal(this.props.district)
       return (
-        <div className='representatives'>
+        <div className='politicians'>
           <ButtonClose onClick={this.handleClose}/>
-          <h2>{this.props.state}'s {this.props.district} District</h2>
-          <NavHeader house={this.props.house} senate={this.props.senate} onClick={this.handleClick}/>
+          <p className='district label'>{this.props.state}'s {district} District</p>
+          <NavHeader house={this.props.house} senatorOne={this.props.senate[0]} senatorTwo={this.props.senate[1]} onClick={this.handleClick}/>
           <Politician />
         </div>
       )
