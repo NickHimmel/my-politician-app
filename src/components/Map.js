@@ -30,7 +30,11 @@ class Map extends Component {
 
     const svg = d3.select('#container').append('svg')
       .attr('preserveAspectRatio', 'xMidYMid')
-      .attr('viewBox', '0 0 ' + width + ' ' + height)
+      .attr('viewBox', '0 0 ' + width + ' ' + height);
+
+    const toolTip = d3.select('#container').append('div')
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
     Promise.all([this.state.us, this.state.congress, this.state.fips]).then(values => {
       const us = values[0];
@@ -63,6 +67,14 @@ class Map extends Component {
             } else {
               fetchPoliticians(abbreviation, state, district);
             }
+          })
+          .on('mouseover', function(data) {
+            const state = fips[data.properties.STATEFP].name;
+            const district = data.properties.NAMELSAD;
+            toolTip.transition()
+              .duration(200)
+              .style("opacity", .9);
+            toolTip.html(state + district);
           })
         .append('title')
           .text(function(d) { return d.id; });
