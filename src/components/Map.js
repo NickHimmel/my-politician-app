@@ -62,11 +62,7 @@ class Map extends Component {
             const abbreviation = fips[data.properties.STATEFP].abbreviation;
             const state = fips[data.properties.STATEFP].name;
             const district = data.properties.CD116FP;
-            if (district === "00" || district ==="98") {
-              fetchPoliticians(abbreviation, state, "01");
-            } else {
-              fetchPoliticians(abbreviation, state, district);
-            }
+            fetchPoliticians(abbreviation, state, district);
           })
           .on('mouseover', function(data) {
             const state = fips[data.properties.STATEFP].name;
