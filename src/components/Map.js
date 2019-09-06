@@ -4,6 +4,7 @@ import * as topojson from 'topojson';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPoliticians } from '../actions/actions.js';
+import { getOrdinal, removeZero } from '../utils/helpers.js';
 
 class Map extends Component {
   constructor(props) {
@@ -67,11 +68,13 @@ class Map extends Component {
           })
           .on('mouseover', function(data) {
             const state = fips[data.properties.STATEFP].name;
-            const district = data.properties.NAMELSAD;
+            let districtNumber = getOrdinal(data.properties.CD116FP);
+            if (districtNumber === '00th') districtNumber = 'At-large'
+            let district = removeZero(districtNumber);
             toolTip.transition()
               .duration(200)
               .style("opacity", .9);
-            toolTip.html(state + district);
+            toolTip.html( '<span class="district label">' + state + '&#39s ' +  district + ' Congressional District </span>');
           })
         .append('title')
           .text(function(d) { return d.id; });
