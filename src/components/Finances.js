@@ -17,7 +17,7 @@ const Finances = (props) => {
         </div>
         <p className='small-type'>Source: {props.finances.summary.origin}</p>
         <p className='small-type'>Last Updated: {props.finances.summary.last_updated}</p>
-        <div class='finances-tables'>
+        <div className='finances-tables'>
           <Cash summary={props.finances.summary}/>
           <Contributors contributors={props.finances.contributors}/>
           <Industries industries={props.finances.industries} />

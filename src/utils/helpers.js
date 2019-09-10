@@ -17,6 +17,15 @@ export const formatDate = (date) => {
   return (month + '/' + day + '/' + year)
 }
 
+export const removeZero = (number) => {
+  let numberArray = number.split('');
+  if (numberArray[0] === '0') {
+    return numberArray.splice(1).join('');
+  } else {
+    return number
+  }
+}
+
 export const sliceText = (billTitle, billDescription) => {
 
   let isLong = false,

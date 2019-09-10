@@ -31,5 +31,8 @@ path {
 }
 
 .tooltip {
-  position: absolute;
+  position: sticky;
+  background-color: #fff;
+  bottom: 0;
+  padding: 25px;
 }

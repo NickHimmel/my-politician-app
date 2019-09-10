@@ -4,6 +4,7 @@ import * as topojson from 'topojson';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPoliticians } from '../actions/actions.js';
+import { getOrdinal, removeZero } from '../utils/helpers.js';
 
 class Map extends Component {
   constructor(props) {
@@ -30,7 +31,11 @@ class Map extends Component {
 
     const svg = d3.select('#container').append('svg')
       .attr('preserveAspectRatio', 'xMidYMid')
-      .attr('viewBox', '0 0 ' + width + ' ' + height)
+      .attr('viewBox', '0 0 ' + width + ' ' + height);
+
+    const toolTip = d3.select('#container').append('div')
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
     Promise.all([this.state.us, this.state.congress, this.state.fips]).then(values => {
       const us = values[0];
@@ -57,12 +62,24 @@ class Map extends Component {
           .on('click', function(data) {
             const abbreviation = fips[data.properties.STATEFP].abbreviation;
             const state = fips[data.properties.STATEFP].name;
-            const district = data.properties.CD116FP;
-            if (district === "00" || district ==="98") {
-              fetchPoliticians(abbreviation, state, "01");
-            } else {
-              fetchPoliticians(abbreviation, state, district);
-            }
+            let district = data.properties.CD116FP;
+            if (district === '00' || district === '98') district = '01'
+            fetchPoliticians(abbreviation, state, district);
+          })
+          .on('mouseover', function(data) {
+            const state = fips[data.properties.STATEFP].name;
+            let districtNumber = getOrdinal(data.properties.CD116FP);
+            if (districtNumber === '00th') districtNumber = 'At-large'
+            let district = removeZero(districtNumber);
+            toolTip.transition()
+              .duration(200)
+              .style("opacity", .9);
+            toolTip.html('<span class="district label">' + state + '&#39s ' +  district + ' Congressional District </span>');
+          })
+          .on('mouseout', function(data) {
+            toolTip.transition()
+              .duration(200)
+              .style("opacity", 0);
           })
         .append('title')
           .text(function(d) { return d.id; });
