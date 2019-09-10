@@ -28,6 +28,7 @@ const Cash = (props) => {
           </tr>
         </tbody>
       </table>
+      <p className='small-type'>From the {props.summary.origin}. Last updated on {props.summary.last_updated}</p>
     </div>
   );
 }

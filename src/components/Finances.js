@@ -9,14 +9,6 @@ const Finances = (props) => {
   if (props.cid) {
     return (
       <div id='active' className='finances politician-info'>
-        <div className='finances-dates'>
-          {props.finances.summary.first_elected &&
-            <p className='label-light-blue align-center'>First Elected in {props.finances.summary.first_elected}</p>
-          }
-          <p className='label-light-blue align-center'>Up for reelection in {props.reelection}</p>
-        </div>
-        <p className='small-type'>Source: {props.finances.summary.origin}</p>
-        <p className='small-type'>Last Updated: {props.finances.summary.last_updated}</p>
         <div className='finances-tables'>
           <Cash summary={props.finances.summary}/>
           <Contributors contributors={props.finances.contributors}/>
