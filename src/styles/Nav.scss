@@ -44,27 +44,52 @@
 
   .nav-sub {
     background-color: $lightblue;
-    padding-left: 15px;
+    height: 50px;
     margin-bottom: 25px;
+    padding-left: 15px;
+    display: flex;
 
-    button {
+    .nav-sub-item {
       color: #000;
-      font-size: .8em;
-      font-weight: 400;
-      letter-spacing: 2.3px;
-      margin-top: 0;
-      padding: 15px;
-      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      button {
+        font-size: .8em;
+        font-weight: 400;
+        letter-spacing: 2.3px;
+        margin-top: 0;
+        text-transform: uppercase;
+      }
+
+      button, a {
+        padding: 15px;
+        cursor: pointer;
+      }
+
+      .social-icon {
+          cursor: pointer;
+          width: 20px;
+      }
     }
 
-    button:hover {
+    .nav-sub-item:hover {
       background-color: $blue;
-      color: #fff;
+
+      button {
+        color: #fff;
+      }
     }
 
     #nav-sub-active {
       background-color: $blue;
-      color: #fff;
+
+      button {
+        color: #fff;
+      }
     }
   }
+
 }
