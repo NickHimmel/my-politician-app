@@ -4,7 +4,7 @@ const Bill = (props) => {
   return (
     <div className='grid-12'>
       <div><span className='label label-blue'>{props.billDate}</span></div>
-      <div className='span-4 grid-bold'>
+      <div className='span-4 bold'>
         <p>{props.bill.short_title}</p>
       </div>
       <div>{props.bill.cosponsors}</div>

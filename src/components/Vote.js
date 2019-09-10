@@ -8,7 +8,7 @@ const Vote = (props) => {
         <span className='label label-blue'>{props.voteDate}</span>
       </div>
       <div className='span-5 votes-bill'>
-        <p className='grid-bold'>
+        <p className='bold'>
           {props.bill.shortTitle}
           <span className='more-title more'>{props.bill.longTitle}</span>
         </p>
