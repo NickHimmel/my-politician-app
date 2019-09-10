@@ -74,7 +74,12 @@ class Map extends Component {
             toolTip.transition()
               .duration(200)
               .style("opacity", .9);
-            toolTip.html( '<span class="district label">' + state + '&#39s ' +  district + ' Congressional District </span>');
+            toolTip.html('<span class="district label">' + state + '&#39s ' +  district + ' Congressional District </span>');
+          })
+          .on('mouseout', function(data) {
+            toolTip.transition()
+              .duration(200)
+              .style("opacity", 0);
           })
         .append('title')
           .text(function(d) { return d.id; });
