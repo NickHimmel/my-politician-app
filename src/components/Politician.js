@@ -37,7 +37,6 @@ class Politician extends Component {
     } else if (this.props.fetchingPolitician === false && this.props.fetchingFinances === false) {
       return (
         <div className='politician'>
-          <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
           <NavSub onClick={this.handleClick} />
           <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />
