@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchFinances } from '../actions/actions.js';
 import Loading from './Loading.js';
-import Social from './Social.js';
 import NavSub from './NavSub.js';
 import Roles from './Roles.js';
 import Votes from './Votes.js';
@@ -24,7 +23,7 @@ class Politician extends Component {
     const current = document.getElementById('nav-sub-active');
     hide.removeAttribute('id');
     current.removeAttribute('id');
-    el.setAttribute('id', 'nav-sub-active');
+    el.parentElement.setAttribute('id', 'nav-sub-active');
     const show = document.getElementsByClassName(info);
     show[0].setAttribute('id', 'active');
   }
@@ -37,8 +36,7 @@ class Politician extends Component {
     } else if (this.props.fetchingPolitician === false && this.props.fetchingFinances === false) {
       return (
         <div className='politician'>
-          <Social url={this.props.politician.url} facebook={this.props.politician.facebook_account} twitter={this.props.politician.twitter_account} youtube={this.props.politician.youtube_account}/>
-          <NavSub onClick={this.handleClick} />
+          <NavSub onClick={this.handleClick} twitter={this.props.politician.twitter_account} url={this.props.politician.url} facebook={this.props.politician.facebook_account} youtube={this.props.politician.youtube_account}/>
           <Roles roles={this.props.roles} />
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />

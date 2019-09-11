@@ -1,4 +1,5 @@
 .nav {
+  cursor: pointer;
 
   button {
     text-align: left;
@@ -17,7 +18,7 @@
 
   .nav-header {
     border-bottom: 1px solid #000;
-    margin: 25px 0;
+    margin: 25px 0 0 0;
     padding-left: 15px;
 
     button {
@@ -27,6 +28,7 @@
         font-size: 16px;
         font-weight: 700;
         margin: 0;
+        padding-bottom: 2px;
       }
 
       p:hover {
@@ -41,15 +43,53 @@
   }
 
   .nav-sub {
+    background-color: $lightblue;
+    height: 50px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    display: flex;
 
-    button:hover {
+    .nav-sub-item {
+      color: #000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      button {
+        font-size: .8em;
+        font-weight: 400;
+        letter-spacing: 2.3px;
+        margin-top: 0;
+        text-transform: uppercase;
+      }
+
+      button, a {
+        padding: 15px;
+        cursor: pointer;
+      }
+
+      .social-icon {
+          cursor: pointer;
+          width: 20px;
+      }
+    }
+
+    .nav-sub-item:hover {
       background-color: $blue;
-      color: #fff;
+
+      button {
+        color: #fff;
+      }
     }
 
     #nav-sub-active {
       background-color: $blue;
-      color: #fff;
+
+      button {
+        color: #fff;
+      }
     }
   }
+
 }
