@@ -5,7 +5,7 @@ import { fetchFinances } from '../actions/actions.js';
 import Loading from './Loading.js';
 import NavSub from './NavSub.js';
 import Elected from './Elected.js';
-import Roles from './Roles.js';
+import Terms from './Terms.js';
 import Votes from './Votes.js';
 import Bills from './Bills.js';
 import Finances from './Finances.js';
@@ -39,7 +39,7 @@ class Politician extends Component {
         <div className='politician'>
           <NavSub onClick={this.handleClick} twitter={this.props.politician.twitter_account} url={this.props.politician.url} facebook={this.props.politician.facebook_account} youtube={this.props.politician.youtube_account}/>
           <Elected firstElection={this.props.finances.summary.first_elected} nextElection={this.props.nextElection}/>
-          <Roles roles={this.props.roles} />
+          <Terms roles={this.props.roles} />
           <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} finances={this.props.finances}/>
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />
