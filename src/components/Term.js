@@ -1,14 +1,16 @@
 import React from 'react';
-import Committee from './Committee.js';
+import { formatDate } from '../utils/helpers.js';
+import Committees from './Committees.js';
 
 const Term = (props) => {
-
+  const startDate = formatDate(props.term.start_date);
+  const endDate = formatDate(props.term.end_date)
   return (
     <li className='card terms-item'>
-      <p className='label'>The {props.term.congress} United States Congress</p>
-      <p>{props.term.start_date} to {props.term.end_date}</p>
-      <Committee committees={props.term.committees} type='Committees'/>
-      <Committee committees={props.term.subcommittees} type='Subcommittees'/>
+      <h3>The {props.term.congress} United States Congress</h3>
+      <p className='label'>{startDate} to {endDate}</p>
+      <Committees committees={props.term.committees} type='Committees'/>
+      <Committees committees={props.term.subcommittees} type='Subcommittees'/>
     </li>
   );
 }

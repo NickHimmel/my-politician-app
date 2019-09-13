@@ -47,8 +47,13 @@ h4 {
   color: $grey;
   font-size: 1.25em;
   font-weight: 200;
-  text-transform: uppercase;
 }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
 .app {
   position: relative;
