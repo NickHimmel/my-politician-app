@@ -6,7 +6,7 @@ const Term = (props) => {
 
   return (
     <li className='card terms-item'>
-      <h4>The {props.term.congress} United States Congress</h4>
+      <p className='label'>The {props.term.congress} United States Congress</p>
       <p>{props.term.start_date} to {props.term.end_date}</p>
       <TermList dataOne={props.term.bills_sponsored} dataTwo={props.term.bills_cosponsored} textOne ='Bills Sponsored: ' textTwo='Bills Cosponsored '/>
       <TermList dataOne={props.term.votes_with_party_pct} dataTwo={props.term.missed_votes_pct} textOne ='Votes with Party: ' textTwo='Missed Votes: ' percentage='%'/>

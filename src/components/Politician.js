@@ -40,9 +40,9 @@ class Politician extends Component {
           <NavSub onClick={this.handleClick} twitter={this.props.politician.twitter_account} url={this.props.politician.url} facebook={this.props.politician.facebook_account} youtube={this.props.politician.youtube_account}/>
           <Elected firstElection={this.props.finances.summary.first_elected} nextElection={this.props.nextElection}/>
           <Roles roles={this.props.roles} />
+          <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} finances={this.props.finances}/>
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />
-          <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} finances={this.props.finances}/>
         </div>
       )
     }

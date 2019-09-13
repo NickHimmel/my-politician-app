@@ -6,10 +6,10 @@ const NavSub = (props) => {
     <div className='nav'>
       <ul className='nav-sub'>
         <li className='nav-sub-item' id='nav-sub-active'>
-          <button onClick={(e) => props.onClick(e, 'finances')}>Finances</button>
+          <button onClick={(e) => props.onClick(e, 'terms')}>Terms</button>
         </li>
         <li className='nav-sub-item'>
-          <button onClick={(e) => props.onClick(e, 'terms')}>Terms</button>
+          <button onClick={(e) => props.onClick(e, 'finances')}>Finances</button>
         </li>
         <li  className='nav-sub-item'>
           <button onClick={(e) => props.onClick(e, 'votes')}>Last 20 Votes</button>
