@@ -11,4 +11,13 @@
     }
   }
 
+  .committees {
+    display: flex;
+    flex-wrap: wrap;
+
+    .committees-list {
+      margin-right: 25px;
+    }
+  }
+
 }

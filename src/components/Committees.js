@@ -10,7 +10,7 @@ const Committees = (props) => {
   );
 
   return (
-    <div>
+    <div className='committees-list'>
       {
         props.committees.length > 0 &&
         <div>
