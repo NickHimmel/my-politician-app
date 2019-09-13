@@ -1,15 +1,17 @@
 import React from 'react';
+import Elected from './Elected.js';
 import Term from './Term.js';
 const shortid = require('shortid');
 
 const Terms = (props) => {
-  const roles = props.roles.map((role) =>
-    <Term term={role}  key={shortid.generate()}/>
+  const terms = props.terms.map((term) =>
+    <Term term={term}  key={shortid.generate()}/>
   );
   return (
     <div id='active' className='terms politician-info'>
+      <Elected firstElection={props.firstElection} nextElection={props.nextElection}/>
       <ul className='terms-list'>
-        {roles}
+        {terms}
       </ul>
     </div>
   );
