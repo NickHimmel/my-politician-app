@@ -19,7 +19,7 @@ const Term = (props) => {
             <div><h2>{props.term.bills_cosponsored}</h2><p className='label'>bills cosponsored</p></div>
         }
       </div>
-      <div className='committees'>
+      <div className='committees flex flex-wrap'>
         <Committees committees={props.term.committees} type='Committees'/>
         <Committees committees={props.term.subcommittees} type='Subcommittees'/>
       </div>

@@ -46,14 +46,8 @@
   .status {
     color: #fff;
     text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     .absent, .no, .yes {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-align: center;
       padding: 5px;
       width: 80%;

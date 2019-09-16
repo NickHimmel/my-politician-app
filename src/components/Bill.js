@@ -11,20 +11,20 @@ const Bill = (props) => {
       <div className='span-3 grid-light'>
         <p>{props.bill.latest_major_action}</p>
       </div>
-      <div className='status'>
-        <div className={props.activeClass.className}>
+      <div className='status flex flex-center'>
+        <div className={'flex flex-center ' + props.activeClass.className}>
           {props.active}
         </div>
       </div>
-      <div className='status'>
-        <div className={props.housePassage.isPassed}>
+      <div className='status flex flex-center'>
+        <div className={'flex flex-center ' + props.housePassage.isPassed}>
           {props.housePassage.isPassed}
           <br />
           {props.housePassage.date}
         </div>
       </div>
-      <div className='status'>
-        <div className={props.senatePassage.isPassed}>
+      <div className='status flex flex-center'>
+        <div className={'flex flex-center ' + props.senatePassage.isPassed}>
           {props.senatePassage.isPassed}
         </div>
       </div>

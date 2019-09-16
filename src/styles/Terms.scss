@@ -1,7 +1,6 @@
 .terms {
 
   .elected {
-    display: flex;
 
     p {
       background-color: $orange;
@@ -12,8 +11,6 @@
   }
 
   .committees {
-    display: flex;
-    flex-wrap: wrap;
 
     .committees-list {
       margin-right: 25px;

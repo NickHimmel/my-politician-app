@@ -13,13 +13,16 @@
 
   li {
     cursor: pointer;
-    display: inline-block;
   }
 
   .nav-header {
     border-bottom: 1px solid #000;
     margin: 25px 0 0 0;
     padding-left: 15px;
+
+    li {
+      display: inline-block;
+    }
 
     button {
       margin-right: 50px;
@@ -46,13 +49,10 @@
     background-color: $lightblue;
     height: 50px;
     padding-left: 15px;
-    display: flex;
 
     .nav-sub-item {
       color: #000;
       cursor: pointer;
-      display: flex;
-      align-items: center;
       height: 100%;
 
       button {
