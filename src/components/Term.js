@@ -12,11 +12,11 @@ const Term = (props) => {
       <div>
         {
           props.term.bills_sponsored &&
-            <p>{props.term.bills_sponsored} <span>bills sponsored</span></p>
+            <div><h2>{props.term.bills_sponsored}</h2><p className='label'>bills sponsored</p></div>
         }
         {
           props.term.bills_cosponsored &&
-            <p>{props.term.bills_cosponsored} <span>bills cosponsored</span></p>
+            <div><h2>{props.term.bills_cosponsored}</h2><p className='label'>bills cosponsored</p></div>
         }
       </div>
       <div className='committees'>
