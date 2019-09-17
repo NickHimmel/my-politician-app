@@ -107,3 +107,36 @@ export const billPassage = (currentStatus) => {
     isPassed: 'no'
   }
 }
+
+export const getPercentage = (data) => {
+
+  const percentage = {
+    a: data,
+    b: 100 - data
+  }
+
+  return percentage;
+}
+
+export const formatId = (id) => {
+  const splitId = id.split('');
+  let formattedId = '';
+
+  const numToWords = {
+    '1': 'one',
+    '2': 'two',
+    '3': 'three',
+    '4': 'four',
+    '5': 'five',
+    '6': 'six',
+    '7': 'seven',
+    '8': 'eight',
+    '9': 'nine'
+  }
+
+  splitId.forEach((digit) => {
+    formattedId += numToWords[digit];
+  });
+
+  return formattedId;
+}
