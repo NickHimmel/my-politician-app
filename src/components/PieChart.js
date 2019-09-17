@@ -8,16 +8,14 @@ class PieChart extends Component {
     super(props)
 
     this.state = {
-      id: formatId(this.props.id),
-      data: this.props.data
+      id: formatId(this.props.id, this.props.type),
+      data: getPercentage(this.props.data)
     }
   }
 
   componentDidMount() {
 
-    const data = getPercentage(this.props.data);
-
-    const formattedId = formatId(this.props.id);
+    const data = this.state.data;
 
     const width = 450,
           height = 450,
@@ -25,12 +23,12 @@ class PieChart extends Component {
 
     const radius = Math.min(width, height) / 2 - margin;
 
-    const svg = d3.select('#' + formattedId)
+    const svg = d3.select('#' + this.state.id)
       .append('svg')
         .attr('width', width)
         .attr('height', height)
       .append('g')
-        .attr('tranform', 'translate(' + width / 2 + ',' + height / 2 + ')');
+        .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
     const color = d3.scaleOrdinal()
       .domain(data)
@@ -58,10 +56,8 @@ class PieChart extends Component {
   }
 
   render() {
-    const idName = formatId(this.props.id);
-
     return (
-      <div id={idName}>
+      <div id={this.state.id}>
       </div>
     );
   }

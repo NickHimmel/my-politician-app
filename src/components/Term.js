@@ -17,7 +17,7 @@ const Term = (props) => {
       </div>
       <p>{props.term.votes_with_party_pct}</p>
       <p>{props.term.missed_votes_pct}</p>
-      <PieChart data={props.term.votes_with_party_pct} id={props.term.congress}/>
+      <PieChart data={props.term.votes_with_party_pct} id={props.term.congress} type='votes'/>
       <div className='committees flex flex-wrap'>
         <Committees committees={props.term.committees} type='Committees'/>
         <Committees committees={props.term.subcommittees} type='Subcommittees'/>
