@@ -111,8 +111,8 @@ export const billPassage = (currentStatus) => {
 export const getPercentage = (data) => {
 
   const percentage = {
-    a: data,
-    b: 100 - data
+    'piechart-data-one': data,
+    'piechart-data-two': 100 - data
   }
 
   return percentage;

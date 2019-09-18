@@ -10,7 +10,6 @@ class PieChart extends Component {
     this.state = {
       id: formatId(this.props.id, this.props.type),
       data: getPercentage(this.props.data),
-      label: this.props.label
     }
   }
 
@@ -18,7 +17,7 @@ class PieChart extends Component {
 
     const width = 150,
           height = 150,
-          margin = 10;
+          margin = 40;
 
     const radius = Math.min(width, height) / 2 - margin;
 
@@ -30,10 +29,11 @@ class PieChart extends Component {
         .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
     const color = d3.scaleOrdinal()
-      .domain(this.state.label)
+      .domain(this.state.data)
       .range(['#98abc5', '#8a89a6',])
 
     const pie = d3.pie()
+      .sort(null)
       .value(function(d) {return d.value;})
 
     const dataReady = pie(d3.entries(this.state.data))
@@ -58,26 +58,45 @@ class PieChart extends Component {
       .style('opacity', '0.7')
 
     svg
-      .selectAll('label')
+      .selectAll('polylines')
       .data(dataReady)
       .enter()
-      .append('text')
-        .text( function(d) { console.log(d.data.key) ; return d.data.key } )
-        .attr('transform', function(d) {
-            let pos = outerArc.centroid(d);
-            let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-            pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-            return 'translate(' + pos + ')';
+      .append('polyline')
+        .attr('class', function(d) { return d.data.key })
+        .attr('stroke', 'black')
+        .style('fill', 'none')
+        .attr('stroke-width', 1)
+        .attr('points', function(d) {
+          let posA = arc.centroid(d)
+          let posB = outerArc.centroid(d)
+          let posC = outerArc.centroid(d);
+          let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+          posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1);
+          return [posA, posB, posC]
         })
-        .style('text-anchor', function(d) {
-            let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-            return (midangle < Math.PI ? 'start' : 'end')
-        })
+
+      svg
+        .selectAll('label')
+        .data(dataReady)
+        .enter()
+        .append('text')
+          .attr('class', function(d) { return d.data.key })
+          .text( function(d) { return d.data.value } )
+          .attr('transform', function(d) {
+              let pos = outerArc.centroid(d);
+              let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+              pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+              return 'translate(' + pos + ')';
+          })
+          .style('text-anchor', function(d) {
+              let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+              return (midangle < Math.PI ? 'start' : 'end')
+          })
   }
 
   render() {
     return (
-      <div id={this.state.id}>
+      <div id={this.state.id} className='piechart'>
         <p>{this.props.label}</p>
       </div>
     );
