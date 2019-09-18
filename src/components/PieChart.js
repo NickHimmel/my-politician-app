@@ -9,17 +9,16 @@ class PieChart extends Component {
 
     this.state = {
       id: formatId(this.props.id, this.props.type),
-      data: getPercentage(this.props.data)
+      data: getPercentage(this.props.data),
+      label: this.props.label
     }
   }
 
   componentDidMount() {
 
-    const data = this.state.data;
-
-    const width = 450,
-          height = 450,
-          margin = 40;
+    const width = 150,
+          height = 150,
+          margin = 10;
 
     const radius = Math.min(width, height) / 2 - margin;
 
@@ -31,17 +30,21 @@ class PieChart extends Component {
         .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
     const color = d3.scaleOrdinal()
-      .domain(data)
+      .domain(this.state.label)
       .range(['#98abc5', '#8a89a6',])
 
     const pie = d3.pie()
       .value(function(d) {return d.value;})
 
-    const dataReady = pie(d3.entries(data))
+    const dataReady = pie(d3.entries(this.state.data))
 
     const arc = d3.arc()
       .innerRadius(0)
       .outerRadius(radius)
+
+    const outerArc = d3.arc()
+      .innerRadius(radius * 0.9)
+      .outerRadius(radius * 0.9)
 
     svg
       .selectAll('path')
@@ -53,11 +56,29 @@ class PieChart extends Component {
       .attr('stroke', 'black')
       .style('stroke-width', '2px')
       .style('opacity', '0.7')
+
+    svg
+      .selectAll('label')
+      .data(dataReady)
+      .enter()
+      .append('text')
+        .text( function(d) { console.log(d.data.key) ; return d.data.key } )
+        .attr('transform', function(d) {
+            let pos = outerArc.centroid(d);
+            let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+            pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
+            return 'translate(' + pos + ')';
+        })
+        .style('text-anchor', function(d) {
+            let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
+            return (midangle < Math.PI ? 'start' : 'end')
+        })
   }
 
   render() {
     return (
       <div id={this.state.id}>
+        <p>{this.props.label}</p>
       </div>
     );
   }
