@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
-import { getPercentage, formatId } from '../utils/helpers.js';
-
+import { getPercentage } from '../utils/helpers.js';
 
 class PieChart extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      id: formatId(this.props.id, this.props.type),
+      id: Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 6),
       data: getPercentage(this.props.data),
     }
   }
@@ -81,6 +80,7 @@ class PieChart extends Component {
       <div className='piechart flex flex-center flex-column'>
         <div id={this.state.id}></div>
         <p className='small-type'>{this.props.label}</p>
+        <h3 className={this.props.type}>{this.props.data}%</h3>
       </div>
     );
   }

@@ -29,6 +29,23 @@
   }
 
   .piechart {
+    margin-right: 75px;
+    position: relative;
+
+    .votes, .missed {
+      margin: 0;
+      position: absolute;
+    }
+
+    .votes {
+      left: 93%;
+      top: 58%;
+    }
+
+    .missed {
+      left: 95%;
+      top: 5%;
+    }
 
     .piechart-data-two {
       display: none;

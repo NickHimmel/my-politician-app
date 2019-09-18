@@ -16,9 +16,8 @@ const Term = (props) => {
         <Sponsors sponsored={'sponsored'} bills={props.term.bills_sponsored} />
         <Sponsors sponsored={'cosponsored'} bills={props.term.bills_cosponsored} />
         <PieChart data={props.term.votes_with_party_pct} label='Votes With Party' id={props.term.congress} type='votes'/>
+        <PieChart data={props.term.missed_votes_pct} label='Missed Votes' id={props.term.congress} type='missed'/>
       </div>
-      <p>{props.term.votes_with_party_pct}</p>
-      <p>{props.term.missed_votes_pct}</p>
       <div className='committees flex flex-wrap'>
         <Committees committees={props.term.committees} type='Committees'/>
         <Committees committees={props.term.subcommittees} type='Subcommittees'/>
