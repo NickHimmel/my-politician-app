@@ -17,7 +17,7 @@ class PieChart extends Component {
 
     const width = 150,
           height = 150,
-          margin = 40;
+          margin = 10;
 
     const radius = Math.min(width, height) / 2 - margin;
 
@@ -74,30 +74,13 @@ class PieChart extends Component {
           posC[0] = radius * 0.95 * (midangle < Math.PI ? 1 : -1);
           return [posA, posB, posC]
         })
-
-      svg
-        .selectAll('label')
-        .data(dataReady)
-        .enter()
-        .append('text')
-          .attr('class', function(d) { return d.data.key })
-          .text( function(d) { return d.data.value } )
-          .attr('transform', function(d) {
-              let pos = outerArc.centroid(d);
-              let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-              pos[0] = radius * 0.99 * (midangle < Math.PI ? 1 : -1);
-              return 'translate(' + pos + ')';
-          })
-          .style('text-anchor', function(d) {
-              let midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
-              return (midangle < Math.PI ? 'start' : 'end')
-          })
   }
 
   render() {
     return (
-      <div id={this.state.id} className='piechart'>
-        <p>{this.props.label}</p>
+      <div className='piechart flex flex-center flex-column'>
+        <div id={this.state.id}></div>
+        <p className='small-type'>{this.props.label}</p>
       </div>
     );
   }

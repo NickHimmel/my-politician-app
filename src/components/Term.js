@@ -7,7 +7,6 @@ import Committees from './Committees.js';
 const Term = (props) => {
   const startDate = formatDate(props.term.start_date);
   const endDate = formatDate(props.term.end_date)
-  const label = 'Voted ' + props.term.votes_with_party_pct + '% With Party' ;
 
   return (
     <li className='card terms-item'>
@@ -16,7 +15,7 @@ const Term = (props) => {
       <div className='flex flex-align-center terms-data'>
         <Sponsors sponsored={'sponsored'} bills={props.term.bills_sponsored} />
         <Sponsors sponsored={'cosponsored'} bills={props.term.bills_cosponsored} />
-        <PieChart data={props.term.votes_with_party_pct} label={label} id={props.term.congress} type='votes'/>
+        <PieChart data={props.term.votes_with_party_pct} label='Votes With Party' id={props.term.congress} type='votes'/>
       </div>
       <p>{props.term.votes_with_party_pct}</p>
       <p>{props.term.missed_votes_pct}</p>
