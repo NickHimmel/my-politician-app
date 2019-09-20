@@ -21,10 +21,10 @@ class Politician extends Component {
     const hide = document.getElementById('active');
     const el = e.target;
     const current = document.getElementById('nav-sub-active');
+    const show = document.getElementsByClassName(info);
     hide.removeAttribute('id');
     current.removeAttribute('id');
     el.parentElement.setAttribute('id', 'nav-sub-active');
-    const show = document.getElementsByClassName(info);
     show[0].setAttribute('id', 'active');
   }
 

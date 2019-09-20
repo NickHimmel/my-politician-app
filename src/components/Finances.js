@@ -9,7 +9,7 @@ const Finances = (props) => {
   if (props.cid) {
     return (
       <div className='finances politician-info'>
-        <div className='flex wrap'>
+        <div className='flex flex-wrap'>
           <Cash summary={props.finances.summary}/>
           <Contributors contributors={props.finances.contributors}/>
           <Industries industries={props.finances.industries} />

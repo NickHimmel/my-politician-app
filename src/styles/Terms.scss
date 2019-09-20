@@ -7,8 +7,13 @@
   .elected {
     background-color: $orange;
     color: #fff;
-    margin-right: 15px;
-    padding: 15px;
+    margin: 0 15px 0 0;
+    padding: 8px;
+  }
+
+  .terms-item {
+    border-top: 1px solid $darkgrey;
+    margin: 15px 0;
   }
 
   .terms-data {
@@ -32,17 +37,17 @@
     margin-right: 75px;
     position: relative;
 
-    .votes, .missed {
+    .votes-with-party, .missed-votes {
       margin: 0;
       position: absolute;
     }
 
-    .votes {
+    .votes-with-party {
       left: 93%;
       top: 58%;
     }
 
-    .missed {
+    .missed-votes {
       left: 95%;
       top: 5%;
     }
