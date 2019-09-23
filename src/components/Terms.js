@@ -4,8 +4,12 @@ import Term from './Term.js';
 const shortid = require('shortid');
 
 const Terms = (props) => {
-  const terms = props.terms.map((term) =>
-    <Term term={term}  key={shortid.generate()}/>
+  const terms = props.terms.map((term, index) => {
+      let first = false;
+      if (index === 0) first = true;
+
+      return <Term term={term}  key={shortid.generate()} first={first}/>
+    }
   );
   return (
     <div id='active' className='terms politician-info'>
