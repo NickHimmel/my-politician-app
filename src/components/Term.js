@@ -10,9 +10,11 @@ const Term = (props) => {
 
   return (
     <li className='card terms-item'>
+      <div className='terms-show-hide'>
+        <p>&#9660;</p>
+        <p>&#9664;</p>
+      </div>
       <h3>The {props.term.congress} United States Congress</h3>
-      <p>&#9660;</p>
-      <p>&#9664;</p>
       <p className='label'>{startDate} to {endDate}</p>
       <div className='flex flex-align-center flex-wrap terms-data'>
         {
