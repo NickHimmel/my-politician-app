@@ -4,7 +4,7 @@ import * as topojson from 'topojson';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPoliticians } from '../actions/actions.js';
-import { getOrdinal, removeZero } from '../utils/helpers.js';
+import { getOrdinal, removeZero, scrollTop } from '../utils/helpers.js';
 
 class Map extends Component {
   constructor(props) {
@@ -63,7 +63,8 @@ class Map extends Component {
             const abbreviation = fips[data.properties.STATEFP].abbreviation;
             const state = fips[data.properties.STATEFP].name;
             let district = data.properties.CD116FP;
-            if (district === '00' || district === '98') district = '01'
+            if (district === '00' || district === '98') district = '01';
+            scrollTop();
             fetchPoliticians(abbreviation, state, district);
           })
           .on('mouseover', function(data) {
