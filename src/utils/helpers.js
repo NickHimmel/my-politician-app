@@ -107,3 +107,28 @@ export const billPassage = (currentStatus) => {
     isPassed: 'no'
   }
 }
+
+export const getPercentage = (data) => {
+
+  const percentage = {
+    'piechart-data-one': data,
+    'piechart-data-two': 100 - data
+  }
+
+  return percentage;
+}
+
+export const showTerm = (e) => {
+  const termsButton = e.target;
+  const terms = e.target.nextSibling;
+
+  if (terms.className === 'terms-hide') {
+    termsButton.innerHTML = '\u25BC';
+    terms.classList.remove('terms-hide');
+    terms.classList.add('terms-show');
+  } else {
+    termsButton.innerHTML = '\u25C0';
+    terms.classList.remove('terms-show');
+    terms.classList.add('terms-hide');
+  }
+}

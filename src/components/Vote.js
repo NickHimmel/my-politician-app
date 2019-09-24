@@ -21,11 +21,11 @@ const Vote = (props) => {
         }
       </div>
       <div className='span-2'>{props.vote.question}</div>
-      <div className='span-2 status'>
-        <div className={props.voteResult.className}>{props.vote.position}</div>
+      <div className='span-2 status flex flex-center'>
+        <div className={'flex flex-center ' + props.voteResult.className}>{props.vote.position}</div>
       </div>
-      <div className='span-2 status'>
-        <div className={props.billResult.className}>{props.vote.result}</div>
+      <div className='span-2 status flex flex-center'>
+        <div className={'flex flex-center ' + props.billResult.className}>{props.vote.result}</div>
       </div>
     </div>
   );

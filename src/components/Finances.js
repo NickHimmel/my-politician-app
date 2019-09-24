@@ -8,8 +8,8 @@ const Finances = (props) => {
   const votesmart = `https://votesmart.org/candidate/campaign-finance/${props.votesmart}`
   if (props.cid) {
     return (
-      <div id='active' className='finances politician-info'>
-        <div className='finances-tables'>
+      <div className='finances politician-info'>
+        <div className='flex flex-wrap'>
           <Cash summary={props.finances.summary}/>
           <Contributors contributors={props.finances.contributors}/>
           <Industries industries={props.finances.industries} />

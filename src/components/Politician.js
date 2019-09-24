@@ -4,8 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchFinances } from '../actions/actions.js';
 import Loading from './Loading.js';
 import NavSub from './NavSub.js';
-import Elected from './Elected.js';
-import Roles from './Roles.js';
+import Terms from './Terms.js';
 import Votes from './Votes.js';
 import Bills from './Bills.js';
 import Finances from './Finances.js';
@@ -22,10 +21,10 @@ class Politician extends Component {
     const hide = document.getElementById('active');
     const el = e.target;
     const current = document.getElementById('nav-sub-active');
+    const show = document.getElementsByClassName(info);
     hide.removeAttribute('id');
     current.removeAttribute('id');
     el.parentElement.setAttribute('id', 'nav-sub-active');
-    const show = document.getElementsByClassName(info);
     show[0].setAttribute('id', 'active');
   }
 
@@ -38,11 +37,10 @@ class Politician extends Component {
       return (
         <div className='politician'>
           <NavSub onClick={this.handleClick} twitter={this.props.politician.twitter_account} url={this.props.politician.url} facebook={this.props.politician.facebook_account} youtube={this.props.politician.youtube_account}/>
-          <Elected firstElection={this.props.finances.summary.first_elected} nextElection={this.props.nextElection}/>
-          <Roles roles={this.props.roles} />
+          <Terms firstElection={this.props.finances.summary.first_elected} nextElection={this.props.nextElection} terms={this.props.roles} />
+          <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} finances={this.props.finances}/>
           <Votes votes={this.props.votes} />
           <Bills bills={this.props.bills} />
-          <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} finances={this.props.finances}/>
         </div>
       )
     }
