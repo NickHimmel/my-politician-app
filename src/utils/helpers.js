@@ -26,6 +26,10 @@ export const removeZero = (number) => {
   }
 }
 
+export const scrollTop = () => {
+  window.scrollTo(0, 0);
+}
+
 export const sliceText = (billTitle, billDescription) => {
 
   let isLong = false,
