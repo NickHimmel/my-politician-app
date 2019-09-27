@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchFinances } from '../actions/actions.js';
 import Loading from './Loading.js';
 import NavSub from './NavSub.js';
+import NavSubMobile from './NavSubMobile.js';
 import Terms from './Terms.js';
 import Votes from './Votes.js';
 import Bills from './Bills.js';
@@ -37,6 +38,7 @@ class Politician extends Component {
       return (
         <div className='politician'>
           <NavSub onClick={this.handleClick} twitter={this.props.politician.twitter_account} url={this.props.politician.url} facebook={this.props.politician.facebook_account} youtube={this.props.politician.youtube_account}/>
+          <NavSubMobile twitter={this.props.politician.twitter_account} url={this.props.politician.url} facebook={this.props.politician.facebook_account} youtube={this.props.politician.youtube_account}/>
           <Terms firstElection={this.props.finances.summary.first_elected} nextElection={this.props.nextElection} terms={this.props.roles} />
           <Finances cid={this.props.hasCid} votesmart={this.props.votesmart} finances={this.props.finances}/>
           <Votes votes={this.props.votes} />

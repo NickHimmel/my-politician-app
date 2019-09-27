@@ -1,3 +1,41 @@
 @media only screen and (max-width: 768px) {
-  
+  .tooltip {
+    display: none;
+  }
+
+  .nav {
+    .nav-header {
+      overflow: auto;
+      white-space: nowrap;
+    }
+
+    .nav-sub-desktop {
+      display: none;
+    }
+
+    .nav-sub-mobile {
+      display: flex;
+    }
+  }
+
+  .nav-mobile-headers {
+    background-color: $lightblue;
+    color: #000;
+    display: block;
+    font-size: .8em;
+    font-weight: 400;
+    letter-spacing: 2.3px;
+    margin: 0 -15px;
+    margin-top: -15px;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .politician  {
+    .politician-info {
+      display: none
+    };
+  }
+
 }

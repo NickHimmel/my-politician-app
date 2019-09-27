@@ -13,6 +13,7 @@ const Terms = (props) => {
   );
   return (
     <div id='active' className='terms politician-info'>
+      <h3 className='nav-mobile-headers'>Terms</h3>
       <Elected firstElection={props.firstElection} nextElection={props.nextElection}/>
       <ul className='terms-list'>
         {terms}

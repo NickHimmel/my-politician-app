@@ -1,22 +1,10 @@
 import React from 'react';
 import Icon from './Icon.js';
 
-const NavSub = (props) => {
+const NavSubMobile = (props) => {
   return (
     <div className='nav'>
-      <ul className='nav-sub nav-sub-desktop flex'>
-        <li className='nav-sub-item flex flex-center' id='nav-sub-active'>
-          <button onClick={(e) => props.onClick(e, 'terms')}>Terms</button>
-        </li>
-        <li className='nav-sub-item flex flex-center'>
-          <button onClick={(e) => props.onClick(e, 'finances')}>Finances</button>
-        </li>
-        <li  className='nav-sub-item flex flex-center'>
-          <button onClick={(e) => props.onClick(e, 'votes')}>Last 20 Votes</button>
-        </li>
-        <li className='nav-sub-item flex flex-center'>
-          <button onClick={(e) => props.onClick(e, 'bills')}>Last 20 Bills Sponsored</button>
-        </li>
+      <ul className='nav-sub nav-sub-mobile flex-center'>
         {
           props.twitter &&
           <li className='nav-sub-item flex flex-center'><Icon social='twitter' userName={props.twitter} url={`https://www.twitter.com/${props.twitter}`}/></li>
@@ -38,4 +26,4 @@ const NavSub = (props) => {
   );
 }
 
-export default NavSub;
+export default NavSubMobile;
