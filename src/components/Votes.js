@@ -16,15 +16,18 @@ const Votes = (props) => {
     );
   });
   return (
-    <div className='votes politician-info'>
-          <div className='grid-12 grid-12-header'>
-            <div></div>
-            <div className='label span-5'>Bill</div>
-            <div className='label span-2'>Question Voted On</div>
-            <div className='label span-2 grid-centered'>Vote</div>
-            <div className='label span-2 grid-centered'>Result</div>
-          </div>
-          {votes}
+    <div>
+      <h3 className='nav-mobile-headers'>Last 20 Votes</h3>
+      <div className='votes politician-info'>
+            <div className='grid-12 grid-12-header'>
+              <div></div>
+              <div className='label span-5'>Bill</div>
+              <div className='label span-2'>Question Voted On</div>
+              <div className='label span-2 grid-centered'>Vote</div>
+              <div className='label span-2 grid-centered'>Result</div>
+            </div>
+            {votes}
+      </div>
     </div>
   );
 }

@@ -8,17 +8,23 @@ const Finances = (props) => {
   const votesmart = `https://votesmart.org/candidate/campaign-finance/${props.votesmart}`
   if (props.cid) {
     return (
-      <div className='finances politician-info'>
-        <div className='flex flex-wrap'>
-          <Cash summary={props.finances.summary}/>
-          <Contributors contributors={props.finances.contributors}/>
-          <Industries industries={props.finances.industries} />
-          <Sectors sectors={props.finances.sectors}/>
+      <div>
+        <h3 className='nav-mobile-headers'>Finances</h3>
+        <div className='finances politician-info'>
+          <div className='flex flex-wrap'>
+            <Cash summary={props.finances.summary}/>
+            <Contributors contributors={props.finances.contributors}/>
+            <Industries industries={props.finances.industries} />
+            <Sectors sectors={props.finances.sectors}/>
+          </div>
         </div>
       </div>
     )} else {
       return (
-        <a href={votesmart} target='_blank' rel='noopener noreferrer'>Finances</a>
+        <div>
+          <h3 className='nav-mobile-headers'>Finances</h3>
+          <a href={votesmart} target='_blank' rel='noopener noreferrer'>Find financial information here</a>
+        </div>
       )
     }
 }
