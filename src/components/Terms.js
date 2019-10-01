@@ -12,14 +12,11 @@ const Terms = (props) => {
     }
   );
   return (
-    <div>
-      <h3 className='nav-mobile-headers'>Terms</h3>
-      <div id='active' className='terms politician-info'>
-        <Elected firstElection={props.firstElection} nextElection={props.nextElection}/>
-        <ul className='terms-list'>
-          {terms}
-        </ul>
-      </div>
+    <div id='active' className='terms politician-info'>
+      <Elected firstElection={props.firstElection} nextElection={props.nextElection}/>
+      <ul className='terms-list'>
+        {terms}
+      </ul>
     </div>
   );
 }

@@ -45,10 +45,22 @@
 
   }
 
+  .nav-mobile {
+    display: none;
+  }
+
   .nav-sub {
     background-color: $lightblue;
     height: 50px;
     padding-left: 15px;
+
+    #nav-sub-active {
+      background-color: $blue;
+
+      button {
+        color: #fff;
+      }
+    }
 
     .nav-sub-item {
       color: #000;
@@ -73,22 +85,6 @@
           width: 20px;
       }
     }
-
-    .nav-sub-item:hover {
-      background-color: $blue;
-
-      button {
-        color: #fff;
-      }
-    }
-
-    #nav-sub-active {
-      background-color: $blue;
-
-      button {
-        color: #fff;
-      }
-    }
   }
 
   .nav-sub-mobile {
@@ -96,6 +92,20 @@
   }
 }
 
-.nav-mobile-headers {
-  display: none;
+@media only screen and (min-width: 768px) {
+  .nav {
+    .nav-sub {
+      background-color: $lightblue;
+      height: 50px;
+      padding-left: 15px;
+
+      .nav-sub-item:hover {
+        background-color: $blue;
+
+        button {
+          color: #fff;
+        }
+      }
+    }
+  }
 }

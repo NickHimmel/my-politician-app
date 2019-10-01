@@ -9,13 +9,30 @@
       white-space: nowrap;
     }
 
-    .nav-sub-desktop {
-      // display: none;
+    .nav-desktop {
+      display: none;
     }
 
-    .nav-sub-mobile {
-      display: flex;
+    .nav-sub {
+      padding: 0;
+      justify-content: center;
     }
+
+    .nav-mobile {
+      display: block;
+      text-align: center;
+
+      #nav-mobile-active {
+        background-color: $blue;
+
+        button {
+          color: #fff;
+        }
+      }
+
+      padding: 0;
+    }
+
   }
 
   .nav-mobile-headers {
@@ -35,6 +52,13 @@
     .politician-info {
       display: none
     };
+  }
+
+  .terms {
+
+    .elected {
+      margin: auto;
+    }
   }
 
 }
