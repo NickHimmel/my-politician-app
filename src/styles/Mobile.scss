@@ -3,6 +3,56 @@
     display: none;
   }
 
+  .grid-12 {
+    grid-row-gap: 10px;
+
+    .span-mobile-4 {
+      grid-column: span 4;
+    }
+
+    .span-mobile-5 {
+      grid-column: span 5;
+    }
+
+    .span-mobile-6 {
+      grid-column: span 6;
+    }
+
+    .span-mobile-11 {
+      grid-column: span 11;
+    }
+
+    .span-mobile-full {
+      grid-column: 1 / -1;
+    }
+
+    .span-mobile-end {
+      grid-column: -1 / 9;
+    }
+
+    .row-1 {
+      grid-row: 1;
+    }
+
+    .row-2 {
+      grid-row: 2;
+    }
+
+    .row-3 {
+      grid-row: 3;
+    }
+
+    .row-4 {
+      grid-row: 4;
+    }
+
+    .status {
+      .absent, .no, .yes {
+        width: 100%;
+      }
+    }
+  }
+
   .nav {
     .nav-header {
       overflow: auto;
@@ -21,6 +71,7 @@
     .nav-mobile {
       display: block;
       text-align: center;
+      padding: 0;
 
       #nav-mobile-active {
         background-color: $blue;
@@ -30,27 +81,19 @@
         }
       }
 
-      padding: 0;
+      .nav-mobile-button {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      }
     }
 
   }
 
-  .nav-mobile-headers {
-    background-color: $lightblue;
-    color: #000;
-    display: block;
-    font-size: .8em;
-    font-weight: 400;
-    letter-spacing: 2.3px;
-    margin: 0;
-    padding: 15px;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
   .politician  {
     .politician-info {
-      display: none
+      display: none;
+      margin: 15px 5px;
     };
   }
 
