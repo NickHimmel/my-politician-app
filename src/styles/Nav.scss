@@ -10,7 +10,7 @@
     margin: 0;
     padding: 0;
   }
-
+  
   li {
     cursor: pointer;
   }
@@ -45,10 +45,22 @@
 
   }
 
+  .nav-mobile {
+    display: none;
+  }
+
   .nav-sub {
     background-color: $lightblue;
     height: 50px;
     padding-left: 15px;
+
+    #nav-sub-active {
+      background-color: $blue;
+
+      button {
+        color: #fff;
+      }
+    }
 
     .nav-sub-item {
       color: #000;
@@ -73,22 +85,27 @@
           width: 20px;
       }
     }
+  }
 
-    .nav-sub-item:hover {
-      background-color: $blue;
+  .nav-sub-mobile {
+    display: none;
+  }
+}
 
-      button {
-        color: #fff;
-      }
-    }
+@media only screen and (min-width: 768px) {
+  .nav {
+    .nav-sub {
+      background-color: $lightblue;
+      height: 50px;
+      padding-left: 15px;
 
-    #nav-sub-active {
-      background-color: $blue;
+      .nav-sub-item:hover {
+        background-color: $blue;
 
-      button {
-        color: #fff;
+        button {
+          color: #fff;
+        }
       }
     }
   }
-
 }

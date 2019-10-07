@@ -18,6 +18,18 @@
     color: $grey;
   }
 
+  .span-bill {
+    grid-column: 2 / span 5;
+  }
+
+  .span-title {
+    grid-column: 2 / span 4;
+  }
+
+  .span-1 {
+    grid-column: span 1;
+  }
+
   .span-2 {
     grid-column: span 2;
   }

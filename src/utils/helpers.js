@@ -87,11 +87,11 @@ export const isActive = (active) => {
 
 export const resultsAre = (result) => {
   const res = result.toLowerCase()
-  if (res === 'yes' || res === 'passed' || res === 'bill Passed' || res === 'nomination confirmed' || res === 'cloture motion agreed to') {
+  if (res === 'yes' || res === 'passed' || res === 'bill passed' || res === 'nomination confirmed' || res === 'cloture motion agreed to' || res === 'resolution agreed to' || res === 'joint resolution passed') {
     return {
       className: 'yes'
     }
-  } else if (res === 'no' || res === 'failed' || res === 'cloture motion rejected' || res === 'amendment rejected') {
+  } else if (res === 'no' || res === 'failed' || res === 'cloture motion rejected' || res === 'amendment rejected' || res === 'resolution rejected') {
     return {
       className: 'no'
     }

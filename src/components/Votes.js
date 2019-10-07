@@ -18,11 +18,10 @@ const Votes = (props) => {
   return (
     <div className='votes politician-info'>
           <div className='grid-12 grid-12-header'>
-            <div></div>
-            <div className='label span-5'>Bill</div>
-            <div className='label span-2'>Question Voted On</div>
-            <div className='label span-2 grid-centered'>Vote</div>
-            <div className='label span-2 grid-centered'>Result</div>
+            <div className='label span-bill span-mobile-full row-1'>Bill</div>
+            <div className='label span-2 span-mobile-full row-2'>Question Voted On</div>
+            <div className='label span-2 grid-centered span-mobile-6 row-3'>Vote</div>
+            <div className='label span-2 grid-centered span-mobile-6 row-3'>Result</div>
           </div>
           {votes}
     </div>

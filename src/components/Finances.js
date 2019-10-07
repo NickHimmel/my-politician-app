@@ -18,7 +18,9 @@ const Finances = (props) => {
       </div>
     )} else {
       return (
-        <a href={votesmart} target='_blank' rel='noopener noreferrer'>Finances</a>
+        <div>
+          <a href={votesmart} target='_blank' rel='noopener noreferrer'>Find financial information here</a>
+        </div>
       )
     }
 }

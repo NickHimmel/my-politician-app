@@ -3,7 +3,6 @@ import React from 'react';
 const Cash = (props) => {
   return (
     <div className='card cash'>
-      <h3>Finances</h3>
       <table>
         <tbody>
           <tr>

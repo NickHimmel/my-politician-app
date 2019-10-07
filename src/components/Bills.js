@@ -20,13 +20,12 @@ const Bills = (props) => {
   return (
     <div className='bills politician-info'>
       <div className='grid-12 grid-12-header'>
-        <div></div>
-        <div className='label span-4'>Title</div>
-        <div className='label'>Cosponsors</div>
-        <div className='label span-3'>Last Action</div>
-        <div className='label grid-centered'>Active</div>
-        <div className='label grid-centered'>Passed in the House</div>
-        <div className='label grid-centered'>Passed in the House</div>
+        <div className='label span-title span-mobile-4 row-1'>Title</div>
+        <div className='label span-mobile-end row-1'>Cosponsors</div>
+        <div className='label span-3 span-mobile-full row-2'>Last Action</div>
+        <div className='label grid-centered span-mobile-4 row-4'>Active</div>
+        <div className='label grid-centered span-mobile-4 row-4'>Passed in the House</div>
+        <div className='label grid-centered span-mobile-4 row-4'>Passed in the House</div>
       </div>
       {bills}
     </div>
