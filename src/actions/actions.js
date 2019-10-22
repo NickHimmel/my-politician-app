@@ -129,9 +129,9 @@ export const fetchFinances = (cid) => {
     if (cid) {
       Promise.all([
         axios.get(`https://cors-anywhere.herokuapp.com/https://www.opensecrets.org/api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`, REQUEST_HEADER),
-        axios.get(`https://cors-anywhere.herokuapp.com/https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`),
-        axios.get(`https://cors-anywhere.herokuapp.com/https://www.opensecrets.org/api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`),
-        axios.get(`https://cors-anywhere.herokuapp.com/https://www.opensecrets.org/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`)
+        axios.get(`https://cors-anywhere.herokuapp.com/https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`, REQUEST_HEADER),
+        axios.get(`https://cors-anywhere.herokuapp.com/https://www.opensecrets.org/api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`, REQUEST_HEADER),
+        axios.get(`https://cors-anywhere.herokuapp.com/https://www.opensecrets.org/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`, REQUEST_HEADER)
       ]).then(function ([summary, contributors, industry, sector]) {
         dispatch(completeFetchFinances({
           summary: summary.data.response.summary['@attributes'],
