@@ -11,6 +11,7 @@
     "d3-geo": "^1.11.3",
     "d3-queue": "^3.0.7",
     "dotenv": "^7.0.0",
+    "http-proxy-middleware": "^0.20.0",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
     "queue": "^5.0.0",
@@ -25,7 +26,7 @@
     "topojson": "^3.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
