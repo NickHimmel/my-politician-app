@@ -1,3 +1,46 @@
 @media only screen and (max-width: 768px) {
 
+  .nav {
+    position: relative;
+
+    .nav-header {
+
+      #active-button {
+        border-bottom: 0;
+        margin-bottom: 8px;
+      }
+
+      #nav-header-active {
+        display: block;
+      }
+
+      .nav-header-item {
+        display: none;
+      }
+    }
+
+    .nav-mobile-button {
+      display: block;
+      font-size: 3.052em;
+      font-weight: 700;
+      position: absolute;
+      right: 25px;
+      top: 0;
+    }
+  }
+
+  .politician {
+    .nav, .votes, .bills {
+      overflow: auto;
+    }
+
+    .nav {
+      white-space: nowrap;
+    }
+
+    .grid-12 {
+      min-width: 950px;
+    }
+  }
+
 }

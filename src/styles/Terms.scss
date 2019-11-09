@@ -7,8 +7,12 @@
   .elected {
     background-color: $orange;
     color: #fff;
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 8px;
+  }
+
+  .elected:first-child {
+    margin-right: 15px;
   }
 
   .terms-item {
