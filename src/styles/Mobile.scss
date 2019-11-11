@@ -1,40 +1,70 @@
 @media only screen and (max-width: 768px) {
 
+  .nav-desktop {
+    display: none;
+  }
+
   .nav {
-    position: relative;
-
-    .nav-header {
-
-      #active-button {
-        border-bottom: 0;
-        margin-bottom: 8px;
-      }
-
-      #nav-header-active {
-        display: block;
-      }
-
-      .nav-header-item {
-        display: none;
-      }
-    }
-
-    .nav-mobile-button {
+    .nav-mobile {
+      border-top: 0;
       display: block;
-      font-size: 3.052em;
-      font-weight: 700;
-      position: absolute;
-      right: 25px;
-      top: 0;
+      position: relative;
+
+      #nav-label {
+        border-top: 0;
+      }
+
+      #nav-menu {
+
+        #show-menu {
+          display: block;
+        }
+
+        ul {
+          display: none;
+        }
+      }
+
+      .nav-header {
+        border-top: 1px solid #000;
+        margin: 0;
+        padding: 15px;
+
+        .nav-header-item {
+          margin: 10px 0;
+        }
+      }
+
+      .nav-mobile-button {
+        display: block;
+        font-size: 3.052em;
+        font-weight: 700;
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        z-index: 10;
+      }
+
+      .nav-mobile-label {
+        margin: 10px 0;
+        
+        p {
+          font-size: 16px;
+          font-weight: 700;
+          margin: 0;
+          padding-bottom: 2px;
+        }
+      }
     }
   }
 
   .politician {
-    .nav, .votes, .bills {
+    .nav-sub, .votes, .bills, .finances {
       overflow: auto;
     }
 
-    .nav {
+    .nav-sub {
+      padding: 0;
       white-space: nowrap;
     }
 

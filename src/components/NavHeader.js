@@ -2,10 +2,10 @@ import React from 'react';
 
 const NavHeader = (props) => {
   return (
-    <div className='nav'>
+    <div className='nav nav-desktop'>
       <ul className='nav-header'>
         <li>
-          <button id='nav-header-active' className='nav-header-item' onClick={(e) => props.onClick(e, props.house.id, props.house.next_election)}>
+          <button className='nav-header-item' onClick={(e) => props.onClick(e, props.house.id, props.house.next_election)}>
             <span className='label'>Representative</span><p id='active-button'>{props.house.name} ({props.house.party})</p>
           </button>
         </li>
@@ -20,7 +20,6 @@ const NavHeader = (props) => {
           </button>
         </li>
       </ul>
-      <button className='nav-mobile-button'>&#709;</button>
     </div>
   );
 }
