@@ -34,6 +34,7 @@ const NavSub = (props) => {
           <li className='nav-sub-item flex flex-center'><Icon social='homepage' userName={props.url} url={props.url}/></li>
         }
       </ul>
+      <div className='nav-sub-gradient'></div>
     </div>
   );
 }
