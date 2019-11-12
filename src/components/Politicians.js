@@ -41,14 +41,14 @@ class Politicians extends Component {
     } else if (isOpen) {
       this.props.fetchPolitician(id,nextElection);
       navMenu.removeAttribute('id', 'show-menu');
-      mainPanel.classList.remove('lower-opacity');
+      if (mainPanel) mainPanel.classList.remove('lower-opacity');
       navLabel.classList.remove('display-none');
       labelTitle.innerHTML = title;
       labelName.innerHTML = nameParty;
       mobileButton.innerHTML = '&#709;';
     } else {
       navMenu.setAttribute('id', 'show-menu');
-      mainPanel.classList.add('lower-opacity');
+      if (mainPanel) mainPanel.classList.add('lower-opacity');
       navLabel.classList.add('display-none');
       mobileButton.innerHTML = '&#708;';
     }

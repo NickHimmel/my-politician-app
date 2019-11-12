@@ -47,7 +47,7 @@
 
       .nav-mobile-label {
         margin: 10px 0;
-        
+
         p {
           font-size: 16px;
           font-weight: 700;
@@ -71,6 +71,16 @@
     .grid-12 {
       min-width: 950px;
     }
+  }
+
+  .terms {
+    .elected {
+      padding: 12px;
+    }
+  }
+
+  .tooltip {
+    display: none;
   }
 
 }

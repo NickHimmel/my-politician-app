@@ -13,7 +13,7 @@ const Term = (props) => {
     <li className='card terms-item'>
       <h3>The {props.term.congress} United States Congress</h3>
       <p className='label'>{startDate} to {endDate}</p>
-      <button className='button-close' onClick={(e) => showTerm(e)}>{first ? '\u25BC' : '\u25C0'}</button>
+      <button className='button-close' onClick={(e) => showTerm(e)}>{first ? '\u25B2' : '\u25BC'}</button>
       <div className={first ? 'terms-show' : 'terms-hide'}>
         <div className='flex flex-align-center flex-wrap terms-data'>
           {
