@@ -127,11 +127,11 @@ export const showTerm = (e) => {
   const terms = e.target.nextSibling;
 
   if (terms.className === 'terms-hide') {
-    termsButton.innerHTML = '\u25BC';
+    termsButton.innerHTML = '\u25B2';
     terms.classList.remove('terms-hide');
     terms.classList.add('terms-show');
   } else {
-    termsButton.innerHTML = '\u25C0';
+    termsButton.innerHTML = '\u25BC';
     terms.classList.remove('terms-show');
     terms.classList.add('terms-hide');
   }
