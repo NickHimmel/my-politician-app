@@ -5,6 +5,14 @@
   }
 
   .nav {
+    position: relative;
+
+    .nav-header {
+      li {
+        display: block;
+      }
+    }
+
     .nav-mobile {
       border-top: 0;
       display: block;
@@ -56,16 +64,22 @@
         }
       }
     }
-  }
-
-  .politician {
-    .nav-sub, .votes, .bills, .finances {
-      overflow: auto;
-    }
 
     .nav-sub {
       padding: 0;
+      overflow: auto;
       white-space: nowrap;
+      background-image: linear-gradient(to right,#ccd4e0,#ccd4e0), linear-gradient(to left,rgba(0, 0, 0, 0.25),rgba(255, 255, 255, 0));
+      background-position: right center, right center;
+      background-size: 20px 100%, 10px 100%;
+      background-repeat: no-repeat;
+      background-attachment: local, scroll;
+    }
+  }
+
+  .politician {
+    .votes, .bills, .finances {
+      overflow: auto;
     }
 
     .grid-12 {
@@ -74,8 +88,17 @@
   }
 
   .terms {
+    
+    h3 {
+      width: 95%;
+    }
+
     .elected {
-      padding: 12px;
+      justify-content: center;
+
+      p {
+        padding: 12px;
+      }
     }
   }
 
