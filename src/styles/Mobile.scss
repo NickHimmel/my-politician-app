@@ -69,11 +69,21 @@
       padding: 0;
       overflow: auto;
       white-space: nowrap;
-      background-image: linear-gradient(to right,#ccd4e0,#ccd4e0), linear-gradient(to left,rgba(0, 0, 0, 0.25),rgba(255, 255, 255, 0));
-      background-position: right center, right center;
-      background-size: 20px 100%, 10px 100%;
+      background-image: linear-gradient(to right,#ccd4e0,#ccd4e0),linear-gradient(to right,#ccd4e0,#ccd4e0), linear-gradient(to right,rgba(0, 40, 104, 0.15),rgba(255, 255, 255, 0)), linear-gradient(to left,rgba(0, 40, 104, 0.15),rgba(255, 255, 255, 0));
+      background-position: left center, right center, left center, right center;
+      background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
       background-repeat: no-repeat;
-      background-attachment: local, scroll;
+      background-attachment: local, local, scroll, scroll;
+      height: 53px;
+      -ms-overflow-style: none;
+
+      #nav-sub-active {
+        height: 53px;
+      }
+    }
+
+    .nav-sub::-webkit-scrollbar {
+      display: none;
     }
   }
 
@@ -88,7 +98,7 @@
   }
 
   .terms {
-    
+
     h3 {
       width: 95%;
     }
