@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export const startFetchPoliticians = () => {
   return {
     type: 'START_FETCH_POLITICIANS'
@@ -67,17 +65,20 @@ export const fetchPoliticians = (abbreviation, state, district) => {
         'X-API-Key': token
       }
     };
+    const house = fetch(`https://api.propublica.org/congress/v1/members/house/${abbreviation}/${district}/current.json`, AUTH_HEADER).then(function(response){return response.json()});
+    const senate = fetch(`https://api.propublica.org/congress/v1/members/senate/${abbreviation}/current.json`, AUTH_HEADER).then(function(response){return response.json()});
+
     Promise.all([
-      axios.get(`https://api.propublica.org/congress/v1/members/house/${abbreviation}/${district}/current.json`, AUTH_HEADER),
-      axios.get(`https://api.propublica.org/congress/v1/members/senate/${abbreviation}/current.json`, AUTH_HEADER)
+      house,
+      senate
     ]).then(function ([house, senate]) {
         dispatch(completeFetchPoliticians({
           state: state,
-          district: house.data.results[0].district,
-          house: house.data.results[0],
-          senate: senate.data.results
+          district: house.results[0].district,
+          house: house.results[0],
+          senate: senate.results
         }));
-        dispatch(fetchPolitician(house.data.results[0].id, house.data.results[0].next_election));
+        dispatch(fetchPolitician(house.results[0].id, house.results[0].next_election));
       })
       .catch(function (error) {
         console.log(error);
@@ -94,21 +95,25 @@ export const fetchPolitician = (id, nextElection) => {
         'X-API-Key': token
       }
     }
+    const politician = fetch(`https://api.propublica.org/congress/v1/members/${id}.json`, AUTH_HEADER).then(function(response){return response.json()});
+    const votes = fetch(`https://api.propublica.org/congress/v1/members/${id}/votes.json`, AUTH_HEADER).then(function(response){return response.json()});
+    const bills = fetch(`https://api.propublica.org/congress/v1/members/${id}/bills/introduced.json`, AUTH_HEADER).then(function(response){return response.json()});
+
     Promise.all([
-      axios.get(`https://api.propublica.org/congress/v1/members/${id}.json`, AUTH_HEADER),
-      axios.get(`https://api.propublica.org/congress/v1/members/${id}/votes.json`, AUTH_HEADER),
-      axios.get(`https://api.propublica.org/congress/v1/members/${id}/bills/introduced.json`, AUTH_HEADER)
+      politician,
+      votes,
+      bills
     ]).then(function ([politician, votes, bills]) {
         dispatch(setId({
-          id: politician.data.results[0].crp_id,
-          votesmart: politician.data.results[0].votesmart_id
+          id: politician.results[0].crp_id,
+          votesmart: politician.results[0].votesmart_id
         }));
         dispatch(completeFetchPolitician({
-          politician: politician.data.results[0],
+          politician: politician.results[0],
           nextElection: nextElection,
-          roles: politician.data.results[0].roles,
-          votes: votes.data.results[0].votes,
-          bills: bills.data.results[0].bills
+          roles: politician.results[0].roles,
+          votes: votes.results[0].votes,
+          bills: bills.results[0].bills
         }));
       })
       .catch(function (error) {
@@ -121,18 +126,23 @@ export const fetchFinances = (cid) => {
   return (dispatch, getState) => {
     dispatch(startFetchFinances());
     const token = process.env.REACT_APP_OPEN_SECRETS_API_KEY;
+    const summary = fetch(`https://www.opensecrets.org/api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+    const contributors = fetch(`https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+    const industry = fetch(`https://www.opensecrets.org//api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+    const sector = fetch(`https://www.opensecrets.org//api/?method=candSector&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+
     if (cid) {
       Promise.all([
-        axios.get(`api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`),
-        axios.get(`api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`),
-        axios.get(`/api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`),
-        axios.get(`/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`)
+        summary,
+        contributors,
+        industry,
+        sector
       ]).then(function ([summary, contributors, industry, sector]) {
         dispatch(completeFetchFinances({
-          summary: summary.data.response.summary['@attributes'],
-          contributors: contributors.data.response.contributors,
-          industries: industry.data.response.industries.industry,
-          sectors: sector.data.response.sectors.sector
+          summary: summary.response.summary['@attributes'],
+          contributors: contributors.response.contributors,
+          industries: industry.response.industries.industry,
+          sectors: sector.response.sectors.sector
         }));
       })
       .catch(function (error) {
