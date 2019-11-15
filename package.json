@@ -6,7 +6,6 @@
     "npm": "6.5.0"
   },
   "private": true,
-  "proxy": "https://www.opensecrets.org",
   "dependencies": {
     "d3": "^5.7.0",
     "d3-geo": "^1.11.3",
