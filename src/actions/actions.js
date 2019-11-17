@@ -126,10 +126,10 @@ export const fetchFinances = (cid) => {
   return (dispatch, getState) => {
     dispatch(startFetchFinances());
     const token = process.env.REACT_APP_OPEN_SECRETS_API_KEY;
-    const summary = fetch(`https://www.opensecrets.org/api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
-    const contributors = fetch(`https://www.opensecrets.org/api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
-    const industry = fetch(`https://www.opensecrets.org/api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
-    const sector = fetch(`https://www.opensecrets.org/api/?method=candSector&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+    const summary = fetch(`api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+    const contributors = fetch(`api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+    const industry = fetch(`api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+    const sector = fetch(`api/?method=candSector&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
 
     if (cid) {
       Promise.all([
