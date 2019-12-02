@@ -4,8 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     proxy({
-      target: 'https://www.opensecrets.org',
-      changeOrigin: true,
+      target: 'https://www.opensecrets.org'
     })
   );
 };
