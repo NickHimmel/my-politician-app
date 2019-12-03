@@ -71,7 +71,7 @@ export const fetchPoliticians = (abbreviation, state, district) => {
     Promise.all([
       house,
       senate
-    ]).then(function ([house, senate]) {
+    ]).then(([house, senate]) => {
         dispatch(completeFetchPoliticians({
           state: state,
           district: house.results[0].district,
@@ -80,8 +80,8 @@ export const fetchPoliticians = (abbreviation, state, district) => {
         }));
         dispatch(fetchPolitician(house.results[0].id, house.results[0].next_election));
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        console.log('request failed', error);
       });
   };
 };
@@ -95,9 +95,9 @@ export const fetchPolitician = (id, nextElection) => {
         'X-API-Key': token
       }
     }
-    const politician = fetch(`https://api.propublica.org/congress/v1/members/${id}.json`, AUTH_HEADER).then(function(response){return response.json()});
-    const votes = fetch(`https://api.propublica.org/congress/v1/members/${id}/votes.json`, AUTH_HEADER).then(function(response){return response.json()});
-    const bills = fetch(`https://api.propublica.org/congress/v1/members/${id}/bills/introduced.json`, AUTH_HEADER).then(function(response){return response.json()});
+    const politician = fetch(`https://api.propublica.org/congress/v1/members/${id}.json`, AUTH_HEADER).then((response) => response.json());
+    const votes = fetch(`https://api.propublica.org/congress/v1/members/${id}/votes.json`, AUTH_HEADER).then((response) => response.json());
+    const bills = fetch(`https://api.propublica.org/congress/v1/members/${id}/bills/introduced.json`, AUTH_HEADER).then((response) => response.json());
 
     Promise.all([
       politician,
@@ -126,10 +126,10 @@ export const fetchFinances = (cid) => {
   return (dispatch, getState) => {
     dispatch(startFetchFinances());
     const token = process.env.REACT_APP_OPEN_SECRETS_API_KEY;
-    const summary = fetch(`api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
-    const contributors = fetch(`api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
-    const industry = fetch(`api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
-    const sector = fetch(`api/?method=candSector&cid=${cid}&output=json&apikey=${token}`).then(function(response){ return response.json() });
+    const summary = fetch(`api/?method=candSummary&cid=${cid}&output=json&apikey=${token}`).then((response) => response.json());
+    const contributors = fetch(`api/?method=candContrib&cid=${cid}&output=json&apikey=${token}`).then((response) => response.json());
+    const industry = fetch(`api/?method=candIndustry&cid=${cid}&output=json&apikey=${token}`).then((response) => response.json());
+    const sector = fetch(`api/?method=candSector&cid=${cid}&output=json&apikey=${token}`).then((response) => response.json());
 
     if (cid) {
       Promise.all([
@@ -137,7 +137,7 @@ export const fetchFinances = (cid) => {
         contributors,
         industry,
         sector
-      ]).then(function ([summary, contributors, industry, sector]) {
+      ]).then(([summary, contributors, industry, sector]) => {
         dispatch(completeFetchFinances({
           summary: summary.response.summary['@attributes'],
           contributors: contributors.response.contributors,
@@ -145,8 +145,8 @@ export const fetchFinances = (cid) => {
           sectors: sector.response.sectors.sector
         }));
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) => {
+        console.log('request failed', error);
       });
     } else {
       dispatch(hasNoCid());
