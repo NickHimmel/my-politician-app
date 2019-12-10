@@ -1,0 +1,15 @@
+{
+  "main.css": "/my-politician-app/static/css/main.5ed5c3a8.chunk.css",
+  "main.js": "/my-politician-app/static/js/main.3d6a1be7.chunk.js",
+  "main.js.map": "/my-politician-app/static/js/main.3d6a1be7.chunk.js.map",
+  "static/css/1.75626fee.chunk.css": "/my-politician-app/static/css/1.75626fee.chunk.css",
+  "static/js/1.294e71dd.chunk.js": "/my-politician-app/static/js/1.294e71dd.chunk.js",
+  "static/js/1.294e71dd.chunk.js.map": "/my-politician-app/static/js/1.294e71dd.chunk.js.map",
+  "runtime~main.js": "/my-politician-app/static/js/runtime~main.c070be03.js",
+  "runtime~main.js.map": "/my-politician-app/static/js/runtime~main.c070be03.js.map",
+  "static/css/1.75626fee.chunk.css.map": "/my-politician-app/static/css/1.75626fee.chunk.css.map",
+  "static/css/main.5ed5c3a8.chunk.css.map": "/my-politician-app/static/css/main.5ed5c3a8.chunk.css.map",
+  "index.html": "/my-politician-app/index.html",
+  "precache-manifest.c8e54ee4885e2382f7341d429a229b3f.js": "/my-politician-app/precache-manifest.c8e54ee4885e2382f7341d429a229b3f.js",
+  "service-worker.js": "/my-politician-app/service-worker.js"
+}
