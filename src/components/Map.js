@@ -31,16 +31,23 @@ class Map extends Component {
 
     const svg = d3.select('#container').append('svg')
       .attr('preserveAspectRatio', 'xMidYMid')
-      .attr('viewBox', '0 0 ' + width + ' ' + height);
+      .attr('viewBox', '0 0 ' + width + ' ' + height)
 
     const toolTip = d3.select('#container').append('div')
       .attr("class", "tooltip")
       .style("opacity", 0);
 
     Promise.all([this.state.us, this.state.congress, this.state.fips]).then(values => {
-      const us = values[0];
-      const congress = values[1];
-      const fips = values[2];
+      const us = values[0],
+            congress = values[1],
+            fips = values[2],
+            g = svg.append('g');
+
+      const zoom = d3.zoom()
+        .on('zoom', () => {
+            // g.style('stroke-width', `${1.5 / d3.event.transform.k}px`)
+            g.attr('transform', d3.event.transform)
+        })
 
       svg.append('defs').append('path')
           .attr('id', 'land')
@@ -52,7 +59,7 @@ class Map extends Component {
         .append('use')
           .attr('xlink:href', '#land');
 
-      svg.append('g')
+      g
           .attr('class', 'districts')
           .attr('clip-path', 'url(#clip-land)')
         .selectAll('path')
@@ -74,26 +81,28 @@ class Map extends Component {
             let district = removeZero(districtNumber);
             toolTip.transition()
               .duration(200)
-              .style("opacity", .9);
+              .style('opacity', .9);
             toolTip.html('<span class="district label">' + state + '&#39s ' +  district + ' Congressional District </span>');
           })
           .on('mouseout', function(data) {
             toolTip.transition()
               .duration(200)
-              .style("opacity", 0);
+              .style('opacity', 0);
           })
         .append('title')
           .text(function(d) { return d.id; });
 
-      svg.append('path')
+      g.append('path')
           .attr('class', 'district-boundaries')
           .datum(topojson.mesh(congress, congress.objects.districts, function(a, b) { return a !== b && (a.id / 1000 | 0) === (b.id / 1000 | 0); }))
           .attr('d', path);
 
-      svg.append('path')
+      g.append('path')
           .attr('class', 'state-boundaries')
           .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
           .attr('d', path);
+
+      svg.call(zoom)
 
     }).catch(error => {
       console.log(error.message)
