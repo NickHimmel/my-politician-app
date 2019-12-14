@@ -44,8 +44,8 @@ class Map extends Component {
             g = svg.append('g');
 
       const zoom = d3.zoom()
+        .scaleExtent([1, 24])
         .on('zoom', () => {
-            // g.style('stroke-width', `${1.5 / d3.event.transform.k}px`)
             g.attr('transform', d3.event.transform)
         })
 
@@ -91,16 +91,6 @@ class Map extends Component {
           })
         .append('title')
           .text(function(d) { return d.id; });
-
-      g.append('path')
-          .attr('class', 'district-boundaries')
-          .datum(topojson.mesh(congress, congress.objects.districts, function(a, b) { return a !== b && (a.id / 1000 | 0) === (b.id / 1000 | 0); }))
-          .attr('d', path);
-
-      g.append('path')
-          .attr('class', 'state-boundaries')
-          .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-          .attr('d', path);
 
       svg.call(zoom)
 
