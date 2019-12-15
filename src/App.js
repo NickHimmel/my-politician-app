@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'normalize.css';
 import './App.scss';
-import Intro from './components/Intro.js';
+import Header from './components/Header.js';
 import Map from './components/Map.js';
 import Politicians from './components/Politicians.js';
 
@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <Intro />
+        <Header />
         <Map />
         <Politicians />
       </div>
