@@ -92,6 +92,11 @@ class Map extends Component {
         .append('title')
           .text(function(d) { return d.id; });
 
+      g.append('path')
+        .attr('class', 'state-boundaries')
+        .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+        .attr('d', path);
+
       svg.call(zoom)
 
     }).catch(error => {
