@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header.js';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import { connect } from 'react-redux';
@@ -106,7 +107,8 @@ class Map extends Component {
 
   render() {
     return (
-      <div>
+      <div className='map'>
+        <Header />
         <div id='container'></div>
         <div>
           <span className='tooltip label'>Click on your district to find information for your representative and state senators</span>

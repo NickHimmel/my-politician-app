@@ -1,5 +1,17 @@
 @media only screen and (max-width: 768px) {
 
+  .map {
+
+    .header {
+      h3 {
+        margin-bottom: 80px;
+      }
+    }
+
+    .header-sub {
+      display: block;
+    }
+  }
   .nav-desktop {
     display: none;
   }
@@ -111,9 +123,4 @@
       }
     }
   }
-
-  .tooltip {
-    display: none;
-  }
-
 }
