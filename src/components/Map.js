@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Header.js';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import { connect } from 'react-redux';
@@ -33,9 +34,7 @@ class Map extends Component {
       .attr('preserveAspectRatio', 'xMidYMid')
       .attr('viewBox', '0 0 ' + width + ' ' + height)
 
-    const toolTip = d3.select('#container').append('div')
-      .attr("class", "tooltip")
-      .style("opacity", 0);
+    const toolTip = d3.select('.tooltip')
 
     Promise.all([this.state.us, this.state.congress, this.state.fips]).then(values => {
       const us = values[0],
@@ -82,7 +81,7 @@ class Map extends Component {
             toolTip.transition()
               .duration(200)
               .style('opacity', .9);
-            toolTip.html('<span class="district label">' + state + '&#39s ' +  district + ' Congressional District </span>');
+            toolTip.html('<span class="label">' + state + '&#39s ' +  district + ' Congressional District </span>');
           })
           .on('mouseout', function(data) {
             toolTip.transition()
@@ -108,7 +107,12 @@ class Map extends Component {
 
   render() {
     return (
-      <div id='container'>
+      <div className='map'>
+        <Header />
+        <div id='container'></div>
+        <div>
+          <span className='tooltip label'>Click on your district to find information for your representative and state senators</span>
+        </div>
       </div>
     );
   }

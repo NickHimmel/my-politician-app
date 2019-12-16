@@ -1,43 +1,54 @@
-path {
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
+.map {
 
-#container {
-  max-width: 1100px;
-  margin: auto;
-  overflow: auto;
-  text-align: center;
-}
+  path {
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
 
-.districts {
-  cursor: pointer;
-  fill: $mapgrey;
-  stroke: #fff;
-  stroke-width: .2px;
-}
+  #container {
+    max-width: 960px;
+    margin: auto;
+    overflow: auto;
+    text-align: center;
+  }
 
-.districts :hover {
-  fill: $blue;
-}
+  .header {
+    h3 {
+      margin: 5px 0 25px 5px;
+    }
+  }
 
-.district-boundaries {
-  pointer-events: none;
-  fill: none;
-  stroke: #fff;
-  stroke-width: .2px;
-}
+  .districts {
+    cursor: pointer;
+    fill: $mapgrey;
+    stroke: #fff;
+    stroke-width: .2px;
+  }
 
-.state-boundaries {
-  pointer-events: none;
-  fill: none;
-  stroke: #fff;
-  stroke-width: .8px;
-}
+  .districts :hover {
+    fill: $blue;
+  }
 
-.tooltip {
-  position: sticky;
-  background-color: #fff;
-  bottom: 0;
-  padding: 25px;
+  .district-boundaries {
+    pointer-events: none;
+    fill: none;
+    stroke: #fff;
+    stroke-width: .2px;
+  }
+
+  .state-boundaries {
+    pointer-events: none;
+    fill: none;
+    stroke: #fff;
+    stroke-width: .8px;
+  }
+
+  .tooltip {
+    position: fixed;
+    background-color: #fff;
+    bottom: 0;
+    padding: 25px 0;
+    text-align: center;
+    width: auto;
+  }
 }

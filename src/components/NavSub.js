@@ -6,16 +6,16 @@ const NavSub = (props) => {
     <div className='nav'>
       <ul className='nav-sub flex'>
         <li className='nav-sub-item flex flex-center' id='nav-sub-active'>
-          <button onClick={(e) => props.onClick(e, 'terms')}>Terms</button>
+          <button className='label' onClick={(e) => props.onClick(e, 'terms')}>Terms</button>
         </li>
         <li className='nav-sub-item flex flex-center'>
-          <button onClick={(e) => props.onClick(e, 'finances')}>Finances</button>
+          <button className='label' onClick={(e) => props.onClick(e, 'finances')}>Finances</button>
         </li>
         <li  className='nav-sub-item flex flex-center'>
-          <button onClick={(e) => props.onClick(e, 'votes')}>Last 20 Votes</button>
+          <button className='label' onClick={(e) => props.onClick(e, 'votes')}>Last 20 Votes</button>
         </li>
         <li className='nav-sub-item flex flex-center'>
-          <button onClick={(e) => props.onClick(e, 'bills')}>Last 20 Bills Sponsored</button>
+          <button className='label' onClick={(e) => props.onClick(e, 'bills')}>Last 20 Bills Sponsored</button>
         </li>
         {
           props.twitter &&
