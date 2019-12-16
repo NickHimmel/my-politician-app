@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "37e0b16c0b3f7737b39d",
-    "url": "/my-politician-app/static/css/main.17b39a7a.chunk.css"
+    "revision": "45282516899baad20f46",
+    "url": "/my-politician-app/static/css/main.286e912d.chunk.css"
   },
   {
-    "revision": "37e0b16c0b3f7737b39d",
-    "url": "/my-politician-app/static/js/main.37e0b16c.chunk.js"
+    "revision": "45282516899baad20f46",
+    "url": "/my-politician-app/static/js/main.45282516.chunk.js"
   },
   {
     "revision": "aeb01dbb76f072845057",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/my-politician-app/static/js/runtime~main.c070be03.js"
   },
   {
-    "revision": "badf386ce850c0195b6dee4d48aa975d",
+    "revision": "4d7294fb990c98d9f0287b11bf4f9568",
     "url": "/my-politician-app/index.html"
   }
 ];

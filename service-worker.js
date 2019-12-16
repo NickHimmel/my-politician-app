@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/my-politician-app/precache-manifest.e040117c977796c30313de068b32af06.js"
+  "/my-politician-app/precache-manifest.5b05dec1492ea15204fbee692689222b.js"
 );
 
 workbox.clientsClaim();
