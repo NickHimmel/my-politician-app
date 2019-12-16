@@ -4,7 +4,7 @@ path {
 }
 
 #container {
-  max-width: 1100px;
+  max-width: 960px;
   margin: auto;
   overflow: auto;
   text-align: center;
@@ -36,8 +36,10 @@ path {
 }
 
 .tooltip {
-  position: sticky;
+  position: fixed;
   background-color: #fff;
   bottom: 0;
-  padding: 25px;
+  padding: 25px 0;
+  text-align: center;
+  width: 100%;
 }
