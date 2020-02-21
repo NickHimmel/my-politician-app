@@ -25,7 +25,7 @@ const Bills = (props) => {
         <div className='label span-3 span-mobile-full row-2'>Last Action</div>
         <div className='label grid-centered span-mobile-4 row-4'>Active</div>
         <div className='label grid-centered span-mobile-4 row-4'>Passed in the House</div>
-        <div className='label grid-centered span-mobile-4 row-4'>Passed in the House</div>
+        <div className='label grid-centered span-mobile-4 row-4'>Passed in the Senate</div>
       </div>
       {bills}
     </div>
